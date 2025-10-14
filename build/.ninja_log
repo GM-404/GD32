@@ -1,0 +1,7 @@
+# ninja log v6
+3	10	7821113623716358	clean	b07e56687dd036d6
+8	2373	7821113929527566	core/CMakeFiles/lesson1_1.dir/Source/test.cpp.obj	de1d6ff592b489db
+3	365	7821118841418485	build.ninja	1a2ab34aa56087c6
+57	631	7821118842894528	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	bc742ca5d13ec284
+60	633	7821118842924371	core/CMakeFiles/lesson1_1.dir/Source/add.c.obj	77eb746aabeee342
+633	898	7821118848657414	C:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe	14af99d7044a5cb4
