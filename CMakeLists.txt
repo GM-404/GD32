@@ -38,5 +38,9 @@ endif()
 # 包含子目录
 add_subdirectory(configs/default)
 add_subdirectory(core)
+# 执行 Test 目录下的 CMakeLists.txt，用于配置单元测试相关设置
+add_subdirectory(Tests)
+# 执行 PythonWrapper 目录下的 CMakeLists.txt，用于配置 Python 包相关设置
+add_subdirectory(PythonWrapper)
 
 
