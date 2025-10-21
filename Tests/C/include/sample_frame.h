@@ -28,10 +28,4 @@ typedef struct {
 // 要测试的解析函数
 int frame_data_dismantle(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS]);
 
-
-
-// *************************************************************
-// **** ！！！请将 Python 脚本输出的 C 数组定义复制到此处！！！ ****
-// *************************************************************
-
 #endif // SAMPLE_FRAME_H

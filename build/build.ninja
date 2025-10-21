@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: mcu_cmake
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -99,6 +99,40 @@ build configs/default/rebuild_cache: phony configs/default/CMakeFiles/rebuild_ca
 # =============================================================================
 
 # =============================================================================
+# Object build statements for EXECUTABLE target radar_fft_test
+
+
+#############################################
+# Order-only phony target for radar_fft_test
+
+build cmake_object_order_depends_target_radar_fft_test: phony || .
+
+build core/CMakeFiles/radar_fft_test.dir/Source/test.c.obj: C_COMPILER__radar_fft_test_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/test.c || cmake_object_order_depends_target_radar_fft_test
+  DEP_FILE = core\CMakeFiles\radar_fft_test.dir\Source\test.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
+  OBJECT_DIR = core\CMakeFiles\radar_fft_test.dir
+  OBJECT_FILE_DIR = core\CMakeFiles\radar_fft_test.dir\Source
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target radar_fft_test
+
+
+#############################################
+# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\radar_fft_test.exe
+
+build C$:/Users/19513/Desktop/GD32/bin/Release/radar_fft_test.exe: C_EXECUTABLE_LINKER__radar_fft_test_Release core/CMakeFiles/radar_fft_test.dir/Source/test.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
+  FLAGS = -O3 -DNDEBUG
+  LINK_LIBRARIES = vcpkg_installed/x64-windows/lib/fftw3.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = core\CMakeFiles\radar_fft_test.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\core && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/radar_fft_test.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  PRE_LINK = cd .
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\radar_fft_test.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libradar_fft_test.dll.a
+  TARGET_PDB = radar_fft_test.exe.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target lesson1_1
 
 
@@ -107,17 +141,24 @@ build configs/default/rebuild_cache: phony configs/default/CMakeFiles/rebuild_ca
 
 build cmake_object_order_depends_target_lesson1_1: phony || .
 
-build core/CMakeFiles/lesson1_1.dir/Source/main.c.obj: C_COMPILER__lesson1_1_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_lesson1_1
+build core/CMakeFiles/lesson1_1.dir/Source/main.c.obj: C_COMPILER__lesson1_1_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_lesson1_1
   DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\main.c.obj.d
-  FLAGS = -g -std=gnu11
-  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/include
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
   OBJECT_FILE_DIR = core\CMakeFiles\lesson1_1.dir\Source
 
-build core/CMakeFiles/lesson1_1.dir/Source/add.c.obj: C_COMPILER__lesson1_1_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/add.c || cmake_object_order_depends_target_lesson1_1
-  DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\add.c.obj.d
-  FLAGS = -g -std=gnu11
-  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/include
+build core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj: C_COMPILER__lesson1_1_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_lesson1_1
+  DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\radar_dismantle.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
+  OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
+  OBJECT_FILE_DIR = core\CMakeFiles\lesson1_1.dir\Source
+
+build core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj: C_COMPILER__lesson1_1_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_1dfft.c || cmake_object_order_depends_target_lesson1_1
+  DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\radar_1dfft.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
   OBJECT_FILE_DIR = core\CMakeFiles\lesson1_1.dir\Source
 
@@ -127,16 +168,16 @@ build core/CMakeFiles/lesson1_1.dir/Source/add.c.obj: C_COMPILER__lesson1_1_unsc
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\Debug\lesson1_1.exe
+# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\lesson1_1.exe
 
-build C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe: C_EXECUTABLE_LINKER__lesson1_1_Debug core/CMakeFiles/lesson1_1.dir/Source/main.c.obj core/CMakeFiles/lesson1_1.dir/Source/add.c.obj
-  FLAGS = -g
-  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+build C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe: C_EXECUTABLE_LINKER__lesson1_1_Release core/CMakeFiles/lesson1_1.dir/Source/main.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
+  FLAGS = -O3 -DNDEBUG
+  LINK_LIBRARIES = vcpkg_installed/x64-windows/lib/fftw3.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
-  POST_BUILD = cd .
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\core && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
   PRE_LINK = cd .
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Debug\lesson1_1.exe
-  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Debug\liblesson1_1.dll.a
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\lesson1_1.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\liblesson1_1.dll.a
   TARGET_PDB = lesson1_1.exe.dbg
 
 
@@ -164,11 +205,192 @@ build core/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build core/rebuild_cache: phony core/CMakeFiles/rebuild_cache.util
 
 # =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/19513/Desktop/GD32/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build Tests/edit_cache: phony Tests/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/rebuild_cache: phony Tests/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/19513/Desktop/GD32/Tests/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_frame_dismantle
+
+
+#############################################
+# Order-only phony target for test_frame_dismantle
+
+build cmake_object_order_depends_target_test_frame_dismantle: phony || .
+
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/src/frame_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+  DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\src\frame_dismantle.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
+  OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
+  OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir\src
+
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/test_frame_data_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+  DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\test_frame_data_dismantle.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
+  OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
+  OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_frame_dismantle
+
+
+#############################################
+# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\test_frame_dismantle.exe
+
+build C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe: C_EXECUTABLE_LINKER__test_frame_dismantle_Release Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj
+  FLAGS = -O3 -DNDEBUG
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  PRE_LINK = cd .
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\test_frame_dismantle.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libtest_frame_dismantle.dll.a
+  TARGET_PDB = test_frame_dismantle.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target test_1dfft
+
+
+#############################################
+# Order-only phony target for test_1dfft
+
+build cmake_object_order_depends_target_test_1dfft: phony || .
+
+build Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/src/radar_fft.c || cmake_object_order_depends_target_test_1dfft
+  DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\src\radar_fft.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
+  OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
+  OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir\src
+
+build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/test_fft.c || cmake_object_order_depends_target_test_1dfft
+  DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\test_fft.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
+  OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
+  OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target test_1dfft
+
+
+#############################################
+# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\test_1dfft.exe
+
+build C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe: C_EXECUTABLE_LINKER__test_1dfft_Release Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj
+  FLAGS = -O3 -DNDEBUG
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  PRE_LINK = cd .
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\test_1dfft.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libtest_1dfft.dll.a
+  TARGET_PDB = test_1dfft.exe.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build Tests/C/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build Tests/C/edit_cache: phony Tests/C/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build Tests/C/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build Tests/C/rebuild_cache: phony Tests/C/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# C:/Users/19513/Desktop/GD32/CMakeLists.txt
+# =============================================================================
+
+
+#############################################
+# Utility command for edit_cache
+
+build PythonWrapper/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\PythonWrapper && "C:\Program Files\CMake\bin\cmake-gui.exe" -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake cache editor...
+  pool = console
+  restat = 1
+
+build PythonWrapper/edit_cache: phony PythonWrapper/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build PythonWrapper/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\PythonWrapper && "C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -SC:\Users\19513\Desktop\GD32 -BC:\Users\19513\Desktop\GD32\build"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build PythonWrapper/rebuild_cache: phony PythonWrapper/CMakeFiles/rebuild_cache.util
+
+# =============================================================================
 # Target aliases.
 
-build lesson1_1: phony C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe
+build lesson1_1: phony C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe
 
-build lesson1_1.exe: phony C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe
+build lesson1_1.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe
+
+build radar_fft_test: phony C$:/Users/19513/Desktop/GD32/bin/Release/radar_fft_test.exe
+
+build radar_fft_test.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/radar_fft_test.exe
+
+build test_1dfft: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
+
+build test_1dfft.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
+
+build test_frame_dismantle: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe
+
+build test_frame_dismantle.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe
 
 # =============================================================================
 # Folder targets.
@@ -178,7 +400,28 @@ build lesson1_1.exe: phony C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build
 
-build all: phony configs/default/all core/all
+build all: phony configs/default/all core/all Tests/all PythonWrapper/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/19513/Desktop/GD32/build/PythonWrapper
+
+build PythonWrapper/all: phony
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/19513/Desktop/GD32/build/Tests
+
+build Tests/all: phony Tests/C/all
+
+# =============================================================================
+
+#############################################
+# Folder: C:/Users/19513/Desktop/GD32/build/Tests/C
+
+build Tests/C/all: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
 
 # =============================================================================
 
@@ -192,7 +435,7 @@ build configs/default/all: phony
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build/core
 
-build core/all: phony C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe
+build core/all: phony C$:/Users/19513/Desktop/GD32/bin/Release/radar_fft_test.exe C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe
 
 # =============================================================================
 # Built-in targets
@@ -201,14 +444,14 @@ build core/all: phony C$:/Users/19513/Desktop/GD32/bin/Debug/lesson1_1.exe
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeRCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/19513/Desktop/GD32/CMakeLists.txt C$:/Users/19513/Desktop/GD32/configs/default/CMakeLists.txt C$:/Users/19513/Desktop/GD32/core/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0-rc2/CMakeASMCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCXXCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeRCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeRCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/19513/Desktop/GD32/CMakeLists.txt C$:/Users/19513/Desktop/GD32/PythonWrapper/CMakeLists.txt C$:/Users/19513/Desktop/GD32/Tests/CMakeLists.txt C$:/Users/19513/Desktop/GD32/Tests/C/CMakeLists.txt C$:/Users/19513/Desktop/GD32/configs/default/CMakeLists.txt C$:/Users/19513/Desktop/GD32/core/CMakeLists.txt C$:/Users/19513/Desktop/GD32/vcpkg.json C$:/Users/19513/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.31.0-rc2/CMakeASMCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCXXCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeRCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeSystem.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3Config.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3ConfigVersion.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends-debug.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends-release.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeRCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/19513/Desktop/GD32/CMakeLists.txt C$:/Users/19513/Desktop/GD32/configs/default/CMakeLists.txt C$:/Users/19513/Desktop/GD32/core/CMakeLists.txt CMakeCache.txt CMakeFiles/3.31.0-rc2/CMakeASMCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCXXCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeRCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeSystem.cmake: phony
+build C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeDependentOption.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeRCInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Internal/CMakeRCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Linker/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX-ABI.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-GNU.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-Initialize.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows-windres.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/Windows.cmake C$:/Program$ Files/CMake/share/cmake-3.31/Modules/Platform/WindowsPaths.cmake C$:/Users/19513/Desktop/GD32/CMakeLists.txt C$:/Users/19513/Desktop/GD32/PythonWrapper/CMakeLists.txt C$:/Users/19513/Desktop/GD32/Tests/CMakeLists.txt C$:/Users/19513/Desktop/GD32/Tests/C/CMakeLists.txt C$:/Users/19513/Desktop/GD32/configs/default/CMakeLists.txt C$:/Users/19513/Desktop/GD32/core/CMakeLists.txt C$:/Users/19513/Desktop/GD32/vcpkg.json C$:/Users/19513/vcpkg/scripts/buildsystems/vcpkg.cmake CMakeCache.txt CMakeFiles/3.31.0-rc2/CMakeASMCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeCXXCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeRCCompiler.cmake CMakeFiles/3.31.0-rc2/CMakeSystem.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3Config.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3ConfigVersion.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends-debug.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends-release.cmake vcpkg_installed/x64-windows/share/fftw3/FFTW3LibraryDepends.cmake: phony
 
 
 #############################################

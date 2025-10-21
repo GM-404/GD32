@@ -1,0 +1,31 @@
+Detecting compiler hash for triplet x64-windows...
+-- Automatically setting %HTTP(S)_PROXY% environment variables to "127.0.0.1:32345".
+Compiler found: C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.43.34808/bin/Hostx64/x64/cl.exe
+The following packages are already installed:
+    fftw3:x64-windows@3.3.10#10
+  * vcpkg-cmake:x64-windows@2024-04-23
+  * vcpkg-cmake-config:x64-windows@2024-05-23
+fftw3 provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(FFTW3 CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE FFTW3::fftw3)
+
+  find_package(FFTW3f CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE FFTW3::fftw3f)
+
+  find_package(FFTW3l CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE FFTW3::fftw3l)
+
+fftw3 provides pkg-config modules:
+
+  # fast Fourier transform library
+  fftw3
+
+  # fast Fourier transform library
+  fftw3f
+
+  # fast Fourier transform library
+  fftw3l
+
+All requested installations completed successfully in: 1.33 ms

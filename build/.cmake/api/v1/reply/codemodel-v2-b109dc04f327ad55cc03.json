@@ -1,0 +1,161 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2,
+						3,
+						5
+					],
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "configs/default",
+					"jsonFile" : "directory-configs.default-Release-b73c78999562b34997ee.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "configs/default"
+				},
+				{
+					"build" : "core",
+					"jsonFile" : "directory-core-Release-e3757ce4a321da3133c4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "core",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				},
+				{
+					"build" : "Tests",
+					"childIndexes" : 
+					[
+						4
+					],
+					"jsonFile" : "directory-Tests-Release-4930e65484166898b195.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "Tests"
+				},
+				{
+					"build" : "Tests/C",
+					"jsonFile" : "directory-Tests.C-Release-807a57ab5c6f9ed4c04c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 3,
+					"projectIndex" : 0,
+					"source" : "Tests/C",
+					"targetIndexes" : 
+					[
+						2,
+						3
+					]
+				},
+				{
+					"build" : "PythonWrapper",
+					"jsonFile" : "directory-PythonWrapper-Release-402f70baaab8ab16711e.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "PythonWrapper"
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					],
+					"name" : "mcu_cmake",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "lesson1_1::@57760688d1f824db5d9c",
+					"jsonFile" : "target-lesson1_1-Release-9b58e87a507c560d6151.json",
+					"name" : "lesson1_1",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
+					"id" : "radar_fft_test::@57760688d1f824db5d9c",
+					"jsonFile" : "target-radar_fft_test-Release-63d128ef86b031cff93e.json",
+					"name" : "radar_fft_test",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_1dfft::@c60cb29d3bc404c4a618",
+					"jsonFile" : "target-test_1dfft-Release-698040a40d6936c3b2df.json",
+					"name" : "test_1dfft",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 4,
+					"id" : "test_frame_dismantle::@c60cb29d3bc404c4a618",
+					"jsonFile" : "target-test_frame_dismantle-Release-82704d8f51fddee93c10.json",
+					"name" : "test_frame_dismantle",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/19513/Desktop/GD32/build",
+		"source" : "C:/Users/19513/Desktop/GD32"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

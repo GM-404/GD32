@@ -2,6 +2,15 @@ C:/Users/19513/Desktop/GD32/build/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/CMakeFiles/rebuild_cache.dir
 C:/Users/19513/Desktop/GD32/build/configs/default/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/configs/default/CMakeFiles/rebuild_cache.dir
+C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/radar_fft_test.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/lesson1_1.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/rebuild_cache.dir
+C:/Users/19513/Desktop/GD32/build/Tests/CMakeFiles/edit_cache.dir
+C:/Users/19513/Desktop/GD32/build/Tests/CMakeFiles/rebuild_cache.dir
+C:/Users/19513/Desktop/GD32/build/Tests/C/CMakeFiles/test_frame_dismantle.dir
+C:/Users/19513/Desktop/GD32/build/Tests/C/CMakeFiles/test_1dfft.dir
+C:/Users/19513/Desktop/GD32/build/Tests/C/CMakeFiles/edit_cache.dir
+C:/Users/19513/Desktop/GD32/build/Tests/C/CMakeFiles/rebuild_cache.dir
+C:/Users/19513/Desktop/GD32/build/PythonWrapper/CMakeFiles/edit_cache.dir
+C:/Users/19513/Desktop/GD32/build/PythonWrapper/CMakeFiles/rebuild_cache.dir

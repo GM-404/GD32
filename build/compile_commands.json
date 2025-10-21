@@ -1,14 +1,50 @@
 [
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/include -g -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\main.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\radar_fft_test.dir\\Source\\test.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\test.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\test.c",
+  "output": "core\\CMakeFiles\\radar_fft_test.dir\\Source\\test.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\main.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\main.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/include -g -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\add.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\add.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\add.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\add.c.obj"
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
+  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_1dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
+  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_1dfft.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -O3 -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\src\\frame_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\frame_dismantle.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\frame_dismantle.c",
+  "output": "Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\src\\frame_dismantle.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -O3 -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\test_frame_data_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_frame_data_dismantle.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_frame_data_dismantle.c",
+  "output": "Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\test_frame_data_dismantle.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -O3 -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\src\\radar_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\radar_fft.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\radar_fft.c",
+  "output": "Tests\\C\\CMakeFiles\\test_1dfft.dir\\src\\radar_fft.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -O3 -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\test_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_fft.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_fft.c",
+  "output": "Tests\\C\\CMakeFiles\\test_1dfft.dir\\test_fft.c.obj"
 }
 ]
