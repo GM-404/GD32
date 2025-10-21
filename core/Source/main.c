@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <math.h> 
+#include "radar_log.h"
 #include "radar_dismantle.h" 
 #include "private.h" // 包含雷达数据结构体定义
-#include "radar_1dfft.h"       // 包含1D FFT的头文件
-
+#include "radar_1dfft.h"       
+#include "radar_2dfft.h"
 // 1DFFT输入三维数组
 static int8_t parsed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 // 2DFFT输入三维数组
 static RadarFFT1DOutput fft_1d_output_data; // 定义为静态全局变量，以避免栈溢出
-
+// 2D FFT的输出
+static RadarFFT2DOutput fft_2d_output_data;
 int main()
 {
     // 1. 将原始字节流强制转换为结构体指针
@@ -27,25 +29,15 @@ int main()
         if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
         {
             printf("✅ 1DFFT 成功解析数据。\n");
-             // 验证1D FFT结果 (打印第一个天线，第一个Chirp的前几个点的幅度)
-            printf("\n1D FFT 结果示例 (Ant 0, Chirp 0, 前10个点的幅度):\n");
-            for (int i = 0; i < 10 && i < RADAR_CHIRP_POINTS; ++i) {
-                double real = fft_1d_output_data[0][0][i][0];
-                double imag = fft_1d_output_data[0][0][i][1];
-                double magnitude = sqrt(real * real + imag * imag);
-                printf("  Point %d: %lf\n", i, magnitude);
-            }
-            if (RADAR_CHIRP_POINTS > 10) {
-                printf("  ...\n");
-            }
-            // 打印后10个点
-            printf("1D FFT 结果示例 (Ant 0, Chirp 0, 后10个点的幅度):\n");
-            for (int i = (RADAR_CHIRP_POINTS > 10 ? RADAR_CHIRP_POINTS - 10 : 0); i < RADAR_CHIRP_POINTS; ++i) {
-                double real = fft_1d_output_data[0][0][i][0];
-                double imag = fft_1d_output_data[0][0][i][1];
-                double magnitude = sqrt(real * real + imag * imag);
-                printf("  Point %d: %lf\n", i, magnitude);
+            //radar_1DFFT_log();
             // 5. 2DFFT
+            if (perform_2d_fft(fft_1d_output_data, fft_2d_output_data) == 0)
+            {
+                printf("✅ 2DFFT 成功解析数据。\n");
+            }
+            else
+            {
+                printf("❌ 2DFFT 解析失败。\n");
             }
         }
         else
