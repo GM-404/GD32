@@ -43,7 +43,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 40,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
@@ -101,7 +101,8 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -148,7 +149,8 @@
 				2,
 				3,
 				4,
-				5
+				5,
+				6
 			]
 		}
 	],
@@ -176,6 +178,12 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "core/Source/radar_1dfft.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "core/Source/radar_clutter_removal.c",
 			"sourceGroupIndex" : 0
 		},
 		{

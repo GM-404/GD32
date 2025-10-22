@@ -29,6 +29,7 @@ add_executable(lesson1_1
             Source/radar_log.c
             Source/radar_dismantle.c
             Source/radar_1dfft.c
+            Source/radar_clutter_removal.c
             Source/radar_2dfft.c
             Source/radar_cfar.c
         )

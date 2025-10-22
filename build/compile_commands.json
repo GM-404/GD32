@@ -25,6 +25,12 @@
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_clutter_removal.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
+  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_clutter_removal.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
   "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_2dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
   "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_2dfft.c.obj"

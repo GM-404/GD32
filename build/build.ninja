@@ -135,6 +135,13 @@ build core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj: C_COMPILER__lesson
   OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
   OBJECT_FILE_DIR = core\CMakeFiles\lesson1_1.dir\Source
 
+build core/CMakeFiles/lesson1_1.dir/Source/radar_clutter_removal.c.obj: C_COMPILER__lesson1_1_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_clutter_removal.c || cmake_object_order_depends_target_lesson1_1
+  DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\radar_clutter_removal.c.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu11
+  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
+  OBJECT_DIR = core\CMakeFiles\lesson1_1.dir
+  OBJECT_FILE_DIR = core\CMakeFiles\lesson1_1.dir\Source
+
 build core/CMakeFiles/lesson1_1.dir/Source/radar_2dfft.c.obj: C_COMPILER__lesson1_1_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_2dfft.c || cmake_object_order_depends_target_lesson1_1
   DEP_FILE = core\CMakeFiles\lesson1_1.dir\Source\radar_2dfft.c.obj.d
   FLAGS = -O3 -DNDEBUG -std=gnu11
@@ -157,7 +164,7 @@ build core/CMakeFiles/lesson1_1.dir/Source/radar_cfar.c.obj: C_COMPILER__lesson1
 #############################################
 # Link the executable C:\Users\19513\Desktop\GD32\bin\Release\lesson1_1.exe
 
-build C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe: C_EXECUTABLE_LINKER__lesson1_1_Release core/CMakeFiles/lesson1_1.dir/Source/main.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_2dfft.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_cfar.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
+build C$:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe: C_EXECUTABLE_LINKER__lesson1_1_Release core/CMakeFiles/lesson1_1.dir/Source/main.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_2dfft.c.obj core/CMakeFiles/lesson1_1.dir/Source/radar_cfar.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
   FLAGS = -O3 -DNDEBUG
   LINK_LIBRARIES = vcpkg_installed/x64-windows/lib/fftw3.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = core\CMakeFiles\lesson1_1.dir

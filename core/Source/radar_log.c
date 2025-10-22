@@ -55,27 +55,72 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
 {
     if (EN_2DFFT_LOG)
     {
-    printf("✅ 2DFFT 成功解析数据。\n");
-    // 寻找最大峰值以验证
-    double max_magnitude = 0.0;
-    int max_range_bin = -1;
-    int max_doppler_bin = -1;
+    // 存储前3个最大峰值的信息
+    const int NUM_TOP_PEAKS = 3;
+    PeakInfo top_peaks[NUM_TOP_PEAKS];
+    // 初始化峰值信息，幅度设为负无穷，确保任何合法幅度都能更新
+    for (int i = 0; i < NUM_TOP_PEAKS; ++i) {
+        top_peaks[i].magnitude = -1.0; // 幅度平方不会是负数，-1.0是安全的初始值
+        top_peaks[i].range_bin = -1;
+        top_peaks[i].doppler_bin = -1;
+    }
+    // // 寻找最大峰值以验证
+    // double max_magnitude = 0.0;
+    // int max_range_bin = -1;
+    // int max_doppler_bin = -1;
 
-    for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
-        for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
-            double real = output_fft_2d[0][d][r][0];
-            double imag = output_fft_2d[0][d][r][1];
-            double magnitude = real * real + imag * imag; // 使用平方幅度，避免多次sqrt
-            if (magnitude > max_magnitude) {
-                max_magnitude = magnitude;
-                max_range_bin = r;
-                max_doppler_bin = d;
+    // for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
+    //     for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
+    //         double real = output_fft_2d[0][d][r][0];
+    //         double imag = output_fft_2d[0][d][r][1];
+    //         double magnitude = real * real + imag * imag; // 使用平方幅度，避免多次sqrt
+    //         if (magnitude > max_magnitude) {
+    //             max_magnitude = magnitude;
+    //             max_range_bin = r;
+    //             max_doppler_bin = d;
+    //         }
+    //     }
+    // }
+    // printf("\n2D FFT 检测到的最大峰值 (Ant 0):\n");
+    // printf("  Range Bin: %d\n", max_range_bin);
+    // printf("  Doppler Bin: %d\n", max_doppler_bin);
+    // printf("  Magnitude: %lf\n", sqrt(max_magnitude)); // 打印实际幅度
+    // 遍历所有单元格，找到前三个最大峰值
+        for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
+            for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
+                // 我们只关心天线0的数据，如果需要所有天线，则需要增加一个循环
+                double real = output_fft_2d[0][d][r][0];
+                double imag = output_fft_2d[0][d][r][1];
+                double current_magnitude_squared = real * real + imag * imag; // 使用平方幅度进行比较
+
+                // 尝试将当前点插入到top_peaks数组中
+                for (int i = 0; i < NUM_TOP_PEAKS; ++i) {
+                    if (current_magnitude_squared > top_peaks[i].magnitude) {
+                        // 找到一个更大的峰值，需要将当前点插入到i位置
+                        // 将i及i之后的所有元素向后移动一位
+                        for (int j = NUM_TOP_PEAKS - 1; j > i; --j) {
+                            top_peaks[j] = top_peaks[j-1];
+                        }
+                        // 插入当前点
+                        top_peaks[i].magnitude = current_magnitude_squared;
+                        top_peaks[i].range_bin = r;
+                        top_peaks[i].doppler_bin = d;
+                        break; // 已插入，跳出内层循环
+                    }
+                }
             }
         }
-    }
-    printf("\n2D FFT 检测到的最大峰值 (Ant 0):\n");
-    printf("  Range Bin: %d\n", max_range_bin);
-    printf("  Doppler Bin: %d\n", max_doppler_bin);
-    printf("  Magnitude: %lf\n", sqrt(max_magnitude)); // 打印实际幅度
+
+        printf("\n2D FFT 检测到的前 %d 个最大峰值 (Ant 0):\n", NUM_TOP_PEAKS);
+        for (int i = 0; i < NUM_TOP_PEAKS; ++i) {
+            if (top_peaks[i].magnitude > 0) { // 只打印有效的峰值
+                printf("  Peak %d:\n", i + 1);
+                printf("    Range Bin: %d\n", top_peaks[i].range_bin);
+                printf("    Doppler Bin: %d\n", top_peaks[i].doppler_bin);
+                printf("    Magnitude: %lf\n", sqrt(top_peaks[i].magnitude)); // 打印实际幅度
+            } else {
+                printf("  Peak %d: (未检测到有效峰值)\n", i + 1);
+            }
+        }
     }
 }

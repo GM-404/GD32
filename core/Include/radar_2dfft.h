@@ -11,6 +11,13 @@
 // 定义2D FFT的输出数据类型：一个三维fftw_complex数组
 typedef fftw_complex RadarFFT2DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 
+// 用于存储峰值信息的结构体
+typedef struct {
+    double magnitude;
+    int range_bin;
+    int doppler_bin;
+} PeakInfo;
+
 /**
  * @brief 对1D FFT结果进行2D FFT处理。
  *        2D FFT在RADAR_CHIRP_COUNT维度上进行，即对每个天线、每个距离门进行FFT。
