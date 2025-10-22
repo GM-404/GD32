@@ -5,18 +5,15 @@ void radar_dismantle_log(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUN
 {
     if (EN_DISMANTLE_LOG)
     {
-        // 验证点 1: 天线 0 / Chirp 0 / 第 0 个点
-        // 原始 uint8_t 值为 255 (FF)，应转换为 int8_t 的 -1
+        // 验证点 1: 天线 0 / Chirp 0 / 第 0 个点 
         printf("Ant 0 / Chirp 0 / Point 0 (Raw: %u, Parsed: %d)\n", 
                frame->data[0], data[0][0][0]); // 预期: 255 和 -1
 
-        // 验证点 2: 天线 0 / Chirp 0 / 第 1 个点
-        // 原始 uint8_t 值为 3，应转换为 int8_t 的 3
+        // 验证点 2: 天线 0 / Chirp 0 / 第 1 个点 
         printf("Ant 0 / Chirp 0 / Point 1 (Raw: %u, Parsed: %d)\n", 
                frame->data[1], data[0][0][1]); // 预期: 3 和 3
 
-        // 验证点 3: 天线 1 / 最后一个 Chirp / 最后一个点
-        // 原始数据最后一个点在索引 16383 处。假设它是一个小数值
+        // 验证点 3: 天线 1 / 最后一个 Chirp / 最后一个点 
         uint32_t last_idx = frame->data_bytes - 1;
         printf("Ant 1 / Chirp 63 / Point 127 (Raw Index %u, Parsed: %d)\n", 
             last_idx,data[1][63][127]); 
@@ -26,9 +23,6 @@ void radar_dismantle_log(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUN
         for (int i = 0; i < 8; i++) {
             printf("Chirp %d: %d\n", i, data[0][i][0]);
         }
-    }
-    else
-    {
     }
 }
 void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
@@ -56,7 +50,11 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
                 printf("  Point %d: %lf\n", i, magnitude);
             }
     }
-    else
+}
+void radar_2DFFT_log()
+{
+    if (EN_2DFFT_LOG)
     {
+        printf("✅ 2DFFT 成功解析数据。\n");
     }
 }

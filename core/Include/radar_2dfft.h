@@ -21,6 +21,6 @@ typedef fftw_complex RadarFFT2DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_
  * @return 0 成功，-1 失败 (例如FFTW计划创建失败或内存分配失败)。
  */
 int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
-                   RadarFFT2DOutput output_fft_2d);
+                RadarFFT2DOutput output_fft_2d);
 
 #endif // RADAR_FFT_2D_H

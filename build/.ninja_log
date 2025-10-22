@@ -31,3 +31,13 @@
 7	140	7828206876694670	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
 12	165	7828206876749988	core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj	ac0eb40817593c95
 165	1636	7828206878285650	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	45af4a174873f5ea
+167	711	7828216150296197	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
+189	1147	7828216150508299	core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj	ac0eb40817593c95
+193	1147	7828216150552358	core/CMakeFiles/lesson1_1.dir/Source/radar_2dfft.c.obj	36756592a108b992
+196	1236	7828216150582250	core/CMakeFiles/lesson1_1.dir/Source/radar_cfar.c.obj	231d12b27db915ec
+1236	3217	7828216160981568	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	45af4a174873f5ea
+54	434	7828217768762496	core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj	ac0eb40817593c95
+31	436	7828217768533299	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
+437	2282	7828217772586889	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	45af4a174873f5ea
+37	409	7828217900322987	core/CMakeFiles/lesson1_1.dir/Source/radar_log.c.obj	ac0eb40817593c95
+410	2208	7828217904046069	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	45af4a174873f5ea

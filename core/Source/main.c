@@ -33,7 +33,7 @@ int main()
             if (perform_2d_fft(fft_1d_output_data, fft_2d_output_data) == 0)
             {
                 printf("✅ 2DFFT 成功解析数据。\n");
-                //radar_2DFFT_log();
+                radar_2DFFT_log();
                 // 5. CFAR
                 printf("\n开始执行 CFAR 目标检测...\n");
                 CfarParams cfar_params = {
