@@ -24,7 +24,7 @@ int main()
 
     // 2. 调用解析函数
     if (frame_data_dismantle(frame, parsed_radar_data) == 0) {
-        radar_dismantle_log(parsed_radar_data);
+        radar_dismantle_log(frame, parsed_radar_data);
         // 3. 1DFFT
         if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
         {
