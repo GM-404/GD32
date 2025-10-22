@@ -1,9 +1,15 @@
 #include "radar_log.h" 
 
 
-void dismantle_log()
+void radar_dismantle_log(int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
 {
+    if (EN_DISMANTLE_LOG)
+    {
     
+    }
+    else
+    {
+    }
 }
 void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
 {

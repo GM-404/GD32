@@ -13,6 +13,12 @@
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_log.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
+  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_log.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
   "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj"

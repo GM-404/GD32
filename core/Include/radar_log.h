@@ -12,7 +12,7 @@
 #define EN_2DFFT_LOG             0
 #define EN_CFAR_LOG              0
 
-void dismantle_log(); // 解析日志打印
+void radar_dismantle_log(int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS]); // 解析日志打印
 void radar_1DFFT_log( RadarFFT1DOutput output_fft_1d);   // 1DFFT日志打印
 
 #endif /* RADAR_LOG_H */
