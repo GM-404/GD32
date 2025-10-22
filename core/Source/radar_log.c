@@ -51,10 +51,31 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
             }
     }
 }
-void radar_2DFFT_log()
+void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
 {
     if (EN_2DFFT_LOG)
     {
-        printf("✅ 2DFFT 成功解析数据。\n");
+    printf("✅ 2DFFT 成功解析数据。\n");
+    // 寻找最大峰值以验证
+    double max_magnitude = 0.0;
+    int max_range_bin = -1;
+    int max_doppler_bin = -1;
+
+    for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
+        for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
+            double real = output_fft_2d[0][d][r][0];
+            double imag = output_fft_2d[0][d][r][1];
+            double magnitude = real * real + imag * imag; // 使用平方幅度，避免多次sqrt
+            if (magnitude > max_magnitude) {
+                max_magnitude = magnitude;
+                max_range_bin = r;
+                max_doppler_bin = d;
+            }
+        }
+    }
+    printf("\n2D FFT 检测到的最大峰值 (Ant 0):\n");
+    printf("  Range Bin: %d\n", max_range_bin);
+    printf("  Doppler Bin: %d\n", max_doppler_bin);
+    printf("  Magnitude: %lf\n", sqrt(max_magnitude)); // 打印实际幅度
     }
 }

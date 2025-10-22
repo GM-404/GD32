@@ -44,8 +44,7 @@
 					"source" : "core",
 					"targetIndexes" : 
 					[
-						0,
-						1
+						0
 					]
 				},
 				{
@@ -75,8 +74,8 @@
 					"source" : "Tests/C",
 					"targetIndexes" : 
 					[
-						2,
-						3
+						1,
+						2
 					]
 				},
 				{
@@ -109,8 +108,7 @@
 					[
 						0,
 						1,
-						2,
-						3
+						2
 					]
 				}
 			],
@@ -121,13 +119,6 @@
 					"id" : "lesson1_1::@57760688d1f824db5d9c",
 					"jsonFile" : "target-lesson1_1-Release-280fe124fa2133385666.json",
 					"name" : "lesson1_1",
-					"projectIndex" : 0
-				},
-				{
-					"directoryIndex" : 2,
-					"id" : "radar_fft_test::@57760688d1f824db5d9c",
-					"jsonFile" : "target-radar_fft_test-Release-dce1105d56be4d24d162.json",
-					"name" : "radar_fft_test",
 					"projectIndex" : 0
 				},
 				{

@@ -22,7 +22,7 @@ include_directories(${CMAKE_PROJECT_ROOT}/configs/default)
 # 包名是 FFTW3 (大小写敏感)
 find_package(FFTW3 CONFIG REQUIRED)
 # 添加您的可执行文件
-add_executable(radar_fft_test Source/test.c)
+# add_executable(radar_fft_test Source/test.c)
 
 add_executable(lesson1_1 
             Source/main.c 
@@ -36,7 +36,7 @@ add_executable(lesson1_1
 
 # 链接 FFTW3 库到您的目标
 # FFTW3::fftw3 是 vcpkg 提供的 CMake 目标
-target_link_libraries(radar_fft_test PRIVATE FFTW3::fftw3)
+# target_link_libraries(radar_fft_test PRIVATE FFTW3::fftw3)
 target_link_libraries(lesson1_1 PRIVATE FFTW3::fftw3)
 
 # 确保头文件目录被包含 (通常 find_package 会自动处理)
