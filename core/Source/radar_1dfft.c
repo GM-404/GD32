@@ -1,12 +1,7 @@
 // radar_fft.c
 #include "radar_1dfft.h"
 #include <stdio.h>
-#include <stdlib.h> // For exit() in case of critical error
-
-// 假设私有头文件中的宏定义是这样的
-// #define RADAR_ANT_COUNT 4
-// #define RADAR_CHIRP_COUNT 128
-// #define RADAR_CHIRP_POINTS 256
+#include <stdlib.h> 
 
 int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d) {

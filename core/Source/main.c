@@ -21,26 +21,20 @@ int main()
 {
     // 1. 将原始字节流强制转换为结构体指针
     const sample_frame_t *frame = (const sample_frame_t *)packed_frame_data;
-    
-    // 2. 验证帧头/尾 (Python 脚本是小端序，帧头是 BB 55 AA 55)
-    if (frame->frame_head != 0x55AA55BB || frame->frame_tail != 0x55CC55DD) {
-        printf("Warning: Frame header/tail check failed (Endianness or data issue).\n");
-    }
 
-    // 3. 调用解析函数
+    // 2. 调用解析函数
     if (frame_data_dismantle(frame, parsed_radar_data) == 0) {
-        
-        // 4. 1DFFT
+        //dismantle_log(parsed_radar_data);
+        // 3. 1DFFT
         if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
         {
-            printf("✅ 1DFFT 成功解析数据。\n");
-            //radar_1DFFT_log();
-            // 5. 2DFFT
+            radar_1DFFT_log(fft_1d_output_data);
+            // 4. 2DFFT
             if (perform_2d_fft(fft_1d_output_data, fft_2d_output_data) == 0)
             {
                 printf("✅ 2DFFT 成功解析数据。\n");
                 //radar_2DFFT_log();
-                // 6. CFAR
+                // 5. CFAR
                 printf("\n开始执行 CFAR 目标检测...\n");
                 CfarParams cfar_params = {
                     .guard_cells_range = 1,       // 距离维度保护单元 (单侧)

@@ -26,7 +26,7 @@ add_executable(radar_fft_test Source/test.c)
 
 add_executable(lesson1_1 
             Source/main.c 
-            #Source/radar_log.c
+            Source/radar_log.c
             Source/radar_dismantle.c
             Source/radar_1dfft.c
             Source/radar_2dfft.c

@@ -4,7 +4,7 @@
 
 #include <stdint.h>
 #include <fftw3.h> 
-#include "private.h" // 包含雷达参数定义 (RADAR_ANT_COUNT, RADAR_CHIRP_COUNT, RADAR_CHIRP_POINTS)
+#include "private.h" 
 
 // 定义1D FFT的输出数据类型：一个三维fftw_complex数组
 // 注意：FFTW的fftw_complex实际上是一个double[2]的数组，表示实部和虚部

@@ -19,7 +19,7 @@ DATA_TYPE = 0   # int8_t 双极性ADC
 
 # C 结构体头部格式 (24 字节): 
 # I: uint32 (x2), H: uint16 (x4), B: uint8 (x2), H: uint16 (x2), I: uint32 (x1)
-# 目标平台使用小端序 (<) 且默认对齐 (头部共 24 字节)
+# 假设目标平台使用小端序 (<) 且默认对齐 (头部共 24 字节)
 HEADER_FORMAT = '<IIHHBBHHHI' 
 HEADER_SIZE = 24 # struct.calcsize(HEADER_FORMAT)
 TAIL_FORMAT = '<I'

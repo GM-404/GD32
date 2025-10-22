@@ -6,7 +6,7 @@
  */
 static int frame_prepare_parse(const sample_frame_t *frame)
 {
-    // 简化检查：只检查数据长度，忽略 CRC 和帧头/尾
+    // 简化检查：只检查数据长度，
     if (frame->data_bytes == DATA_FIELD_BYTES) {
         return 0;
     }
@@ -25,6 +25,10 @@ static int frame_prepare_parse(const sample_frame_t *frame)
 int frame_data_dismantle(const sample_frame_t *frame, 
                         int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
 {
+    // 2. 验证帧头/尾 (Python 脚本是小端序，帧头是 BB 55 AA 55)
+    if (frame->frame_head != 0x55AA55BB || frame->frame_tail != 0x55CC55DD) {
+        printf("Warning: Frame header/tail check failed \n");
+    }
     if (frame_prepare_parse(frame) != 0) {
         printf("Error: Frame prepare parse failed or data size mismatch.\n");
         return -1;
