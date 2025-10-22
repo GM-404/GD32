@@ -119,14 +119,14 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "lesson1_1::@57760688d1f824db5d9c",
-					"jsonFile" : "target-lesson1_1-Release-9b58e87a507c560d6151.json",
+					"jsonFile" : "target-lesson1_1-Release-862e91ae20c210d230f7.json",
 					"name" : "lesson1_1",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "radar_fft_test::@57760688d1f824db5d9c",
-					"jsonFile" : "target-radar_fft_test-Release-63d128ef86b031cff93e.json",
+					"jsonFile" : "target-radar_fft_test-Release-dce1105d56be4d24d162.json",
 					"name" : "radar_fft_test",
 					"projectIndex" : 0
 				},

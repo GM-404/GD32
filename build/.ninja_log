@@ -1,9 +1,9 @@
 # ninja log v6
-8	383	7827369230076844	core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj	5d7f33ebe829fe90
-21	4537	7827370435405647	build.ninja	1a2ab34aa56087c6
-40	864	7827370436865256	core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj	32e975735b62003f
-37	865	7827370436829495	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
-50	892	7827370436955018	core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj	811e66492abd8ac5
-892	3463	7827370445382519	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	bb5d410242cf0108
-5	656	7827380065231193	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
-677	2579	7827380071945382	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	bb5d410242cf0108
+8	763	7828013913553420	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
+18	768	7828013913658157	core/CMakeFiles/lesson1_1.dir/Source/radar_1dfft.c.obj	811e66492abd8ac5
+14	769	7828013913618051	core/CMakeFiles/lesson1_1.dir/Source/radar_dismantle.c.obj	32e975735b62003f
+23	771	7828013913707972	core/CMakeFiles/lesson1_1.dir/Source/radar_2dfft.c.obj	36756592a108b992
+24	1499	7828014500574946	core/CMakeFiles/lesson1_1.dir/Source/radar_cfar.c.obj	231d12b27db915ec
+1499	3666	7828014515333567	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	de6b97756b477b86
+29	626	7828015043573327	core/CMakeFiles/lesson1_1.dir/Source/main.c.obj	87ab7d7bd52f152f
+627	2313	7828015049558884	C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe	de6b97756b477b86

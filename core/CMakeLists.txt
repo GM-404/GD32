@@ -30,6 +30,7 @@ add_executable(lesson1_1
             Source/radar_dismantle.c
             Source/radar_1dfft.c
             Source/radar_2dfft.c
+            Source/radar_cfar.c
         )
 
 
