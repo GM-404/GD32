@@ -18,6 +18,8 @@ typedef struct {
     int os_k_rank;     // For OS-CFAR: rank of the ordered statistic (e.g., 1 for max, 2 for second max)
 } CfarParams;
 
+extern CfarParams cfar_params; // 全局CFAR参数实例
+
 // 定义CFAR的输出数据类型：一个三维uint8_t数组，1表示检测到目标，0表示未检测到
 typedef uint8_t RadarDetectionMap[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 
