@@ -44,7 +44,8 @@
 					"source" : "core",
 					"targetIndexes" : 
 					[
-						0
+						0,
+						1
 					]
 				},
 				{
@@ -74,8 +75,8 @@
 					"source" : "Tests/C",
 					"targetIndexes" : 
 					[
-						1,
-						2
+						2,
+						3
 					]
 				},
 				{
@@ -108,7 +109,8 @@
 					[
 						0,
 						1,
-						2
+						2,
+						3
 					]
 				}
 			],
@@ -116,8 +118,15 @@
 			[
 				{
 					"directoryIndex" : 2,
+					"id" : "gd32_radar_demo::@57760688d1f824db5d9c",
+					"jsonFile" : "target-gd32_radar_demo-Release-df4d4e4bf83dc8d1547d.json",
+					"name" : "gd32_radar_demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 2,
 					"id" : "lesson1_1::@57760688d1f824db5d9c",
-					"jsonFile" : "target-lesson1_1-Release-17d8a5d6fb8466f260d2.json",
+					"jsonFile" : "target-lesson1_1-Release-91fbd6a8bafab6406baa.json",
 					"name" : "lesson1_1",
 					"projectIndex" : 0
 				},

@@ -25,7 +25,6 @@ rfft_test_input = np.array([
 
 N = len(rfft_test_input)
 
-# 2. 执行 FFT (使用 np.fft.fft 确保与 CMSIS 结果结构一致)
 fft_output_py_complex = np.fft.fft(rfft_test_input)
 
 # 3. 打印结果 (对比 C 语言的输出)

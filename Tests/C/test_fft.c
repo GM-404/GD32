@@ -68,7 +68,7 @@ int main() {
     }
     
     printf("...\n");
-    printf("\n测试完成。请确保 dft_core.c 文件已正确实现并链接。\n");
+    printf("\n测试完成。\n");
 
     return 0;
 }

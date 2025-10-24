@@ -85,6 +85,7 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
     // printf("  Range Bin: %d\n", max_range_bin);
     // printf("  Doppler Bin: %d\n", max_doppler_bin);
     // printf("  Magnitude: %lf\n", sqrt(max_magnitude)); // 打印实际幅度
+    
     // 遍历所有单元格，找到前三个最大峰值
         for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
             for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
