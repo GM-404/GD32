@@ -41,12 +41,13 @@ int main()
                     // 6. CFAR
                     printf("\n开始执行 CFAR 目标检测...\n");
                     CfarParams cfar_params = {
-                        .guard_cells_range = 1,       // 距离维度保护单元 (单侧)
-                        .guard_cells_doppler = 1,     // 多普勒维度保护单元 (单侧)
-                        .training_cells_range = 2,    // 距离维度训练单元 (单侧)
-                        .training_cells_doppler = 2,  // 多普勒维度训练单元 (单侧)
-                        .threshold_factor = 70.0,     // 阈值因子 (需要根据实际数据调整)
-                        .cfar_strategy = 1            // 0: CA-CFAR (平均), 1: GO-CFAR (最大值)
+                        .guard_cells_range = CONFIG_CFAR_NUM_GUARD_RANGE,       // 距离维度保护单元 (单侧)
+                        .guard_cells_doppler = CONFIG_CFAR_NUM_GUARD_VEL,     // 多普勒维度保护单元 (单侧)
+                        .training_cells_range = CONFIG_CFAR_NUM_TRAIN_RANGE,    // 距离维度训练单元 (单侧)
+                        .training_cells_doppler = CONFIG_CFAR_NUM_TRAIN_RANGE,  // 多普勒维度训练单元 (单侧)
+                        .threshold_factor = CONFIG_CFAR_TH_AMP,     // 阈值因子 (需要根据实际数据调整)
+                        .cfar_strategy = CONFIG_CFAR_STRATEGY,            // 0: CA-CFAR (平均), 1: GO-CFAR (最大值)
+                        .os_k_rank = CONFIG_CFAR_OS_K
                     };
                     if (perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params) == 0) {
                         printf("✅ CFAR 目标检测完成。\n");

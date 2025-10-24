@@ -9,14 +9,13 @@
 
 // 定义CFAR的参数结构体
 typedef struct {
-    int guard_cells_range;   // 距离维度上的保护单元数量 (单侧)
-    int guard_cells_doppler; // 多普勒维度上的保护单元数量 (单侧)
-    int training_cells_range; // 距离维度上的参考单元数量 (单侧)
-    int training_cells_doppler; // 多普勒维度上的参考单元数量 (单侧)
-    double threshold_factor; // CFAR检测阈值因子 (alpha)
-    // 根据你的“最大或次大”策略，可能需要额外的参数
-    // 例如：int os_k_rank; // 如果使用OS-CFAR，表示取排序后第K个值
-    int cfar_strategy; // 0: CA-CFAR (平均), 1: GO-CFAR (最大值)
+    int guard_cells_range;
+    int guard_cells_doppler;
+    int training_cells_range;
+    int training_cells_doppler;
+    double threshold_factor;
+    int cfar_strategy; // 0: CA-CFAR (CrossMean), 1: GO-CFAR (CrossMaxMean), 2: SO-CFAR (CrossMinMean), 3: OS-CFAR (CrossOS)
+    int os_k_rank;     // For OS-CFAR: rank of the ordered statistic (e.g., 1 for max, 2 for second max)
 } CfarParams;
 
 // 定义CFAR的输出数据类型：一个三维uint8_t数组，1表示检测到目标，0表示未检测到

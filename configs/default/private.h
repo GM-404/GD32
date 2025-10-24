@@ -40,6 +40,31 @@ typedef struct {
 #define SAMPLE_FRAME_SIZE                   sizeof(sample_frame_t)
 /******************************************************/
 
+
+/* CFAR 配置 */
+
+/** @brief CFAR 幅度阈值 */
+#define CONFIG_CFAR_TH_AMP 200.0
+
+/** @brief CFAR 保护单元大小-距离维度 */
+#define CONFIG_CFAR_NUM_GUARD_RANGE 1
+
+/** @brief CFAR 保护单元大小-速度维度 */
+#define CONFIG_CFAR_NUM_GUARD_VEL 1
+
+/** @brief CFAR 训练单元大小-距离维度 */
+#define CONFIG_CFAR_NUM_TRAIN_RANGE 2
+
+/** @brief CFAR 训练单元大小-速度维度 */
+#define CONFIG_CFAR_NUM_TRAIN_VEL 2
+
+/** @brief CFAR 类型 */
+#define CONFIG_CFAR_STRATEGY 1
+
+/** @brief CFAR OS-CFAR k */
+#define CONFIG_CFAR_OS_K 0
+
+
 #ifdef __cplusplus
 }
 #endif

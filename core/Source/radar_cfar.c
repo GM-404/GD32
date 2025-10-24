@@ -1,10 +1,11 @@
-// radar_cfar.c
 #include "radar_cfar.h"
 #include <stdio.h>
 #include <stdlib.h> // For malloc, free, qsort
 #include <math.h>   // For sqrt, fabs
 #include <stdbool.h>
+#include <float.h> // For DBL_MAX, DBL_MIN
 #include "private.h" // 包含雷达数据结构体定义
+
 // 比较函数，用于qsort排序double数组
 static int compare_doubles(const void *a, const void *b) {
     double arg1 = *(const double*)a;
@@ -22,7 +23,11 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     if (params->guard_cells_range < 0 || params->guard_cells_doppler < 0 ||
         params->training_cells_range < 0 || params->training_cells_doppler < 0 ||
         params->threshold_factor <= 0) {
-        fprintf(stderr, "Error: Invalid CFAR parameters.\n");
+        fprintf(stderr, "Error: Invalid CFAR parameters (guard/training cells must be >= 0, threshold factor > 0).\n");
+        return -1;
+    }
+    if (params->cfar_strategy == 3 && params->os_k_rank <= 0) {
+        fprintf(stderr, "Error: For OS-CFAR, os_k_rank must be greater than 0.\n");
         return -1;
     }
 
@@ -56,19 +61,13 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     double alpha = params->threshold_factor;
 
     // 预估最大参考单元数量，分配临时数组
-    // 十字形训练单元的最大数量
-    // 沿着距离轴的训练单元： 2 * T_r * (2 * G_d + 1)
-    // 沿着多普勒轴的训练单元： 2 * T_d * (2 * G_r + 1)
-    // 理论上训练单元数量是固定的，计算准确值以避免不必要的内存浪费和溢出
-    // 训练单元总数 = (2 * T_r * (2 * G_d + 1)) + (2 * T_d * (2 * G_r + 1))
-    //  实际的十字形训练区通常不包括四角的交叉部分，所以是严格地沿着轴
-    //  数量是： 2 * T_r * (2*G_d + 1)  (距离轴训练单元)
-    //           + 2 * T_d * (2*G_r + 1)  (多普勒轴训练单元)
-    // 假设是纯粹的十字形：
-    int max_training_cells_per_arm_r = T_r * (2 * G_d + 1); // 一条距离臂上的训练单元数
-    int max_training_cells_per_arm_d = T_d * (2 * G_r + 1); // 一条多普勒臂上的训练单元数
-    int max_training_cells = 2 * (max_training_cells_per_arm_r + max_training_cells_per_arm_d); // 双臂
-
+    // 一个完整方形窗口的最大训练单元数 (2*Tr + 2*Gr + 1) * (2*Td + 2*Gd + 1) - (2*Gr + 1)*(2*Gd + 1)
+    // 对于十字形，最大训练单元数
+    // 距离方向上的训练单元总数: 2 * T_r * (2 * G_d + 1)  (不包括中心的 (2*G_r+1) * (2*G_d+1) 部分)
+    // 多普勒方向上的训练单元总数: 2 * T_d * (2 * G_r + 1) (不包括中心的 (2*G_r+1) * (2*G_d+1) 部分)
+    // 交叉部分：(2*T_r+1)*(2*G_d+1) + (2*T_d+1)*(2*G_r+1) - (2*G_r+1)*(2*G_d+1)
+    // 纯粹的十字形训练区数量:
+    int max_training_cells = 2 * T_r * (2 * G_d + 1) + 2 * T_d * (2 * G_r + 1);
     if (max_training_cells == 0) max_training_cells = 1; // 至少分配一个，避免malloc(0)行为不确定
 
     double *training_cell_powers = (double*)malloc(sizeof(double) * max_training_cells);
@@ -78,7 +77,6 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         return -1;
     }
 
-
     // 遍历每个单元格作为CUT
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
         for (int r_cut = 0; r_cut < RADAR_CHIRP_POINTS; ++r_cut) {
@@ -86,7 +84,16 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
                 
                 int current_training_cell_count = 0;
                 
-                // 遍历十字形参考窗口
+                // === 通用训练单元收集逻辑 (适用于所有十字形策略，但后续处理不同) ===
+                // 为了避免重复代码，先收集所有符合十字形保护区外的训练单元
+                // 对于CrossMaxMean, CrossMinMean, 需要独立计算四个分支的均值，
+                // 所以这里将为每个分支维护一个求和和计数
+                
+                // 存储四个分支的功率和和计数
+                double branch_sums[4] = {0.0, 0.0, 0.0, 0.0}; // 0:上, 1:下, 2:左, 3:右
+                int branch_counts[4] = {0, 0, 0, 0};
+
+                // 遍历以CUT为中心的整个窗口，包括保护单元和训练单元
                 for (int r_offset = -(G_r + T_r); r_offset <= (G_r + T_r); ++r_offset) {
                     for (int d_offset = -(G_d + T_d); d_offset <= (G_d + T_d); ++d_offset) {
                         
@@ -100,7 +107,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
                         if (r_cell >= 0 && r_cell < RADAR_CHIRP_POINTS &&
                             d_cell >= 0 && d_cell < RADAR_CHIRP_COUNT) {
                             
-                            // 定义保护区 (方形保护区)
+                            // 确定是否在保护区内
                             bool in_guard_region_range = (abs(r_offset) <= G_r);
                             bool in_guard_region_doppler = (abs(d_offset) <= G_d);
 
@@ -109,59 +116,115 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
                                 continue;
                             }
 
-                            // 训练区（十字形，排除保护区）
-                            // 沿着距离轴的训练单元 (在多普勒保护区内，且自身不在距离保护区内)
-                            bool is_range_training = (abs(r_offset) > G_r && abs(r_offset) <= (G_r + T_r)) && in_guard_region_doppler;
-                            // 沿着多普勒轴的训练单元 (在距离保护区内，且自身不在多普勒保护区内)
-                            bool is_doppler_training = (abs(d_offset) > G_d && abs(d_offset) <= (G_d + T_d)) && in_guard_region_range;
-
-                            if (is_range_training || is_doppler_training) {
-                                if (current_training_cell_count < max_training_cells) {
-                                    training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
-                                } else {
-                                    // 这是一个错误，表明 max_training_cells 计算得不够大
-                                    fprintf(stderr, "Warning: Exceeded pre-allocated training_cell_powers buffer. Increase max_training_cells or adjust CFAR parameters.\n");
+                            // 确定是否是训练单元，并归类到相应的分支
+                            // 上分支 (d_offset < -(G_d)) 且在范围保护区内
+                            if (d_offset < -(G_d) && d_offset >= -(G_d + T_d) && in_guard_region_range) {
+                                branch_sums[0] += power_map[ant][d_cell][r_cell];
+                                branch_counts[0]++;
+                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) { // CA-CFAR 或 OS-CFAR需要所有训练单元
+                                    if (current_training_cell_count < max_training_cells) {
+                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
+                                    }
                                 }
                             }
+                            // 下分支 (d_offset > G_d) 且在范围保护区内
+                            else if (d_offset > G_d && d_offset <= (G_d + T_d) && in_guard_region_range) {
+                                branch_sums[1] += power_map[ant][d_cell][r_cell];
+                                branch_counts[1]++;
+                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
+                                    if (current_training_cell_count < max_training_cells) {
+                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
+                                    }
+                                }
+                            }
+                            // 左分支 (r_offset < -(G_r)) 且在多普勒保护区内
+                            else if (r_offset < -(G_r) && r_offset >= -(G_r + T_r) && in_guard_region_doppler) {
+                                branch_sums[2] += power_map[ant][d_cell][r_cell];
+                                branch_counts[2]++;
+                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
+                                    if (current_training_cell_count < max_training_cells) {
+                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
+                                    }
+                                }
+                            }
+                            // 右分支 (r_offset > G_r) 且在多普勒保护区内
+                            else if (r_offset > G_r && r_offset <= (G_r + T_r) && in_guard_region_doppler) {
+                                branch_sums[3] += power_map[ant][d_cell][r_cell];
+                                branch_counts[3]++;
+                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
+                                    if (current_training_cell_count < max_training_cells) {
+                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
+                                    }
+                                }
+                            }
+                            // 警告：如果走到这里，说明有一个训练单元既不在任何分支条件中，又不在保护区内。
+                            // 这可能发生在角区域，或者训练单元定义不严格的CFAR。
                         }
                     }
                 }
                 
                 // 根据CFAR策略计算参考噪声
                 double noise_estimate = 0.0;
-                if (current_training_cell_count == 0) {
-                    // 如果没有足够的参考单元，无法进行检测，跳过或设置为默认值
-                    output_detection_map[ant][d_cut][r_cut] = 0;
-                    continue; 
-                }
 
-                if (params->cfar_strategy == 0) { // CA-CFAR (平均)
+                if (params->cfar_strategy == 0) { // CA-CFAR (CrossMean)
+                    if (current_training_cell_count == 0) {
+                        output_detection_map[ant][d_cut][r_cut] = 0;
+                        continue; 
+                    }
                     double sum_noise_power = 0.0;
                     for (int i = 0; i < current_training_cell_count; ++i) {
                         sum_noise_power += training_cell_powers[i];
                     }
                     noise_estimate = sum_noise_power / current_training_cell_count;
-                } else if (params->cfar_strategy == 1) { // GO-CFAR (最大值) 或 次大值
-                    // 你的策略是“最大或者次大”，这里我们使用 qsort 排序
-                    // 如果需要次大值，需要修改取值索引
-                    if (current_training_cell_count > 0) {
-                        qsort(training_cell_powers, current_training_cell_count, sizeof(double), compare_doubles);
-                        
-                        // 默认为最大值 (GO-CFAR)
-                        noise_estimate = training_cell_powers[current_training_cell_count - 1]; 
-                        
-                        // 如果需要次大值，并且参考单元足够
-                        // 可以在 CfarParams 中添加一个 int os_k_rank 参数，例如 1 为最大值，2 为次大值
-                        // if (params->os_k_rank > 0 && current_training_cell_count >= params->os_k_rank) {
-                        //     noise_estimate = training_cell_powers[current_training_cell_count - params->os_k_rank];
-                        // }
-                        
-                    } else { // 这种情况应该被 current_training_cell_count == 0 捕获
-                         output_detection_map[ant][d_cut][r_cut] = 0;
-                         continue;
+                } else if (params->cfar_strategy == 1 || params->cfar_strategy == 2) { // GO-CFAR (CrossMaxMean) 或 SO-CFAR (CrossMinMean)
+                    // 计算四个分支的平均功率
+                    double branch_means[4];
+                    int valid_branches = 0;
+                    for(int i = 0; i < 4; ++i) {
+                        if (branch_counts[i] > 0) {
+                            branch_means[i] = branch_sums[i] / branch_counts[i];
+                            valid_branches++;
+                        } else {
+                            // 无效分支，根据策略设置为极大或极小值，使其不影响最终 Max/Min 结果
+                            branch_means[i] = (params->cfar_strategy == 1) ? DBL_MIN : DBL_MAX; 
+                        }
                     }
+
+                    if (valid_branches == 0) { // 如果所有分支都没有有效训练单元
+                        output_detection_map[ant][d_cut][r_cut] = 0;
+                        continue;
+                    }
+
+                    if (params->cfar_strategy == 1) { // CrossMaxMean
+                        noise_estimate = DBL_MIN;
+                        for(int i = 0; i < 4; ++i) {
+                            if (branch_counts[i] > 0 && branch_means[i] > noise_estimate) {
+                                noise_estimate = branch_means[i];
+                            }
+                        }
+                    } else { // CrossMinMean
+                        noise_estimate = DBL_MAX;
+                        for(int i = 0; i < 4; ++i) {
+                            if (branch_counts[i] > 0 && branch_means[i] < noise_estimate) {
+                                noise_estimate = branch_means[i];
+                            }
+                        }
+                    }
+
+                } else if (params->cfar_strategy == 3) { // OS-CFAR (CrossOS)
+                    if (current_training_cell_count == 0 || params->os_k_rank > current_training_cell_count) {
+                        output_detection_map[ant][d_cut][r_cut] = 0;
+                        continue; 
+                    }
+                    qsort(training_cell_powers, current_training_cell_count, sizeof(double), compare_doubles);
+                    // OS-CFAR取排序后第 K 大的值 (索引为 current_training_cell_count - K)
+                    noise_estimate = training_cell_powers[current_training_cell_count - params->os_k_rank];
                 } else {
-                    fprintf(stderr, "Warning: Unknown CFAR strategy. Using default CA-CFAR.\n");
+                    fprintf(stderr, "Warning: Unknown CFAR strategy (%d). Using default CA-CFAR.\n", params->cfar_strategy);
+                    if (current_training_cell_count == 0) {
+                        output_detection_map[ant][d_cut][r_cut] = 0;
+                        continue; 
+                    }
                     double sum_noise_power = 0.0;
                     for (int i = 0; i < current_training_cell_count; ++i) {
                         sum_noise_power += training_cell_powers[i];
