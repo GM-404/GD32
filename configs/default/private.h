@@ -47,16 +47,16 @@ typedef struct {
 #define CONFIG_CFAR_TH_AMP 200.0
 
 /** @brief CFAR 保护单元大小-距离维度 */
-#define CONFIG_CFAR_NUM_GUARD_RANGE 1
+#define CONFIG_CFAR_NUM_GUARD_RANGE 5
 
 /** @brief CFAR 保护单元大小-速度维度 */
-#define CONFIG_CFAR_NUM_GUARD_VEL 1
+#define CONFIG_CFAR_NUM_GUARD_VEL 3
 
 /** @brief CFAR 训练单元大小-距离维度 */
-#define CONFIG_CFAR_NUM_TRAIN_RANGE 2
+#define CONFIG_CFAR_NUM_TRAIN_RANGE 6
 
 /** @brief CFAR 训练单元大小-速度维度 */
-#define CONFIG_CFAR_NUM_TRAIN_VEL 2
+#define CONFIG_CFAR_NUM_TRAIN_VEL 4
 
 /** @brief CFAR 类型 */
 #define CONFIG_CFAR_STRATEGY 1

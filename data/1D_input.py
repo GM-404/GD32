@@ -52,7 +52,7 @@ OUTPUT_FILENAME = 'rfft_input_buffer.txt'
 
 # 设定要提取的 Chirp 数据
 TARGET_ANT = 0
-TARGET_CHIRP = 0
+TARGET_CHIRP = 1
 
 # 1. 读取 JSON 文件
 try:

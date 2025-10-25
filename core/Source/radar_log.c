@@ -55,6 +55,7 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
 {
     if (EN_2DFFT_LOG)
     {
+    //printf("✅ 2DFFT 成功解析数据。\n");
     // 存储前3个最大峰值的信息
     const int NUM_TOP_PEAKS = 3;
     PeakInfo top_peaks[NUM_TOP_PEAKS];

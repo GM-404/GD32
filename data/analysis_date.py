@@ -70,7 +70,7 @@ except Exception as e:
     exit()
 
 # 使用第一帧数据
-frame_info = data[0]
+frame_info = data[45]
 raw_payload = frame_info.get("frame_data", [])
 frame_index = frame_info.get("frame_id", 0)
 
