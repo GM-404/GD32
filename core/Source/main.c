@@ -35,10 +35,10 @@ int main()
             // 3. 1DFFT
             if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
             {
+                radar_1DFFT_log(fft_1d_output_data);
                 // 4. 静态杂波消除
                 if (remove_static_clutter_zero_doppler(fft_1d_output_data) == 0)
                 {
-                    radar_1DFFT_log(fft_1d_output_data);
                     // 5. 2DFFT
                     if (perform_2d_fft(fft_1d_output_data, fft_2d_output_data) == 0)
                     {
