@@ -44,7 +44,7 @@ typedef struct {
 /* CFAR 配置 */
 
 /** @brief CFAR 幅度阈值 */
-#define CONFIG_CFAR_TH_AMP 150.0
+#define CONFIG_CFAR_TH_AMP 8.0
 
 /** @brief CFAR 保护单元大小-距离维度 */
 #define CONFIG_CFAR_NUM_GUARD_RANGE 5
@@ -58,11 +58,8 @@ typedef struct {
 /** @brief CFAR 训练单元大小-速度维度 */
 #define CONFIG_CFAR_NUM_TRAIN_VEL 4
 
-/** @brief CFAR 类型 */
-#define CONFIG_CFAR_STRATEGY 1 // 0: CA-CFAR (CrossMean), 1: GO-CFAR (CrossMaxMean), 2: SO-CFAR (CrossMinMean), 3: OS-CFAR (CrossOS)
-
-/** @brief CFAR OS-CFAR k */
-#define CONFIG_CFAR_OS_K 0
+/** @brief CFAR 阈值*/
+#define CONFIG_CFAR_TH_OFFSET 3
 
 
 #ifdef __cplusplus

@@ -48,7 +48,7 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
 
         // 遍历所有天线和所有 Chirp 的 1D FFT 结果
         //选择一个帧
-        uint8_t chirp = 0;
+        uint8_t chirp = 1;
 
         for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
             fprintf(log_file, "Ant %d / Chirp %d FFT Results:\n", ant, chirp);
@@ -66,6 +66,46 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
         // 关闭文件
         fclose(log_file);
         printf("1D FFT log data saved to radar_1DFFT_log.txt\n"); // 提示用户文件已保存
+    }
+}
+void radar_clutter_removal_log(RadarFFT1DOutput output_fft_1d)
+{
+    if (EN_CLUTTER_REMOVAL_LOG)
+    {
+    printf("✅ 成功去除静态杂波\n");
+     FILE *log_file = fopen("radar_clutter_removal_log.txt", "w"); // 创建或覆盖日志文件
+        if (log_file == NULL) {
+            perror("Error opening clutter removal log file"); // 文件打开失败时打印错误信息
+            return; // 退出函数
+        }
+
+        fprintf(log_file, "--- Clutter Removal Log Data ---\n");
+        fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
+        fprintf(log_file, "RADAR_CHIRP_COUNT: %d\n", RADAR_CHIRP_COUNT);
+        fprintf(log_file, "RADAR_CHIRP_POINTS: %d\n", RADAR_CHIRP_POINTS);
+        fprintf(log_file, "------------------------\n\n");
+
+
+        // 遍历所有天线和所有 Chirp 的 1D FFT 结果
+        //选择一个帧
+        uint8_t chirp = 0;
+
+        for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
+            fprintf(log_file, "Ant %d / Chirp %d FFT Results:\n", ant, chirp);
+            for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
+                double real = output_fft_1d[ant][chirp][i][0];
+                double imag = output_fft_1d[ant][chirp][i][1];
+                double magnitude = sqrt(real * real + imag * imag);
+
+                fprintf(log_file, "  Point %d: R=%.2f, I=%.2f, Magnitude=%.2f\n",
+                        i, real, imag, magnitude);
+            }
+            fprintf(log_file, "\n"); // 每个 Chirp 后加一个空行
+        }
+
+        // 关闭文件
+        fclose(log_file);
+        printf("clutter removal log data saved to radar_1DFFT_log.txt\n"); // 提示用户文件已保存
     }
 }
 void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)

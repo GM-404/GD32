@@ -13,7 +13,7 @@ plt.rcParams['axes.unicode_minus'] = False  # 解决负号 '-' 显示为方块�
 # 1. C 语言输出日志文件路径 (必须是固定的，用于对比)
 # 
 C_LOG_FILEPATH = "C:\\Users\\19513\\Desktop\\GD32\\bin\\Release\\radar_1DFFT_log.txt" 
-
+C_LOG_FILEPATH = "C:\\Users\\19513\\Desktop\\GD32\\bin\\Release\\radar_clutter_removal_log.txt" 
 # 2. Python 输出文件路径 (用于保存 Python 计算结果)
 OUTPUT_DIRECTORY = "C:\\Users\\19513\\Desktop\\GD32\\data" 
 PYTHON_OUTPUT_FILENAME = "fft_python_output.txt"

@@ -1,265 +1,279 @@
 #include "radar_cfar.h"
 #include <stdio.h>
-#include <stdlib.h> // For malloc, free, qsort
-#include <math.h>   // For sqrt, fabs
+#include <stdlib.h> 
+#include <math.h>   // For sqrt, log10
 #include <stdbool.h>
-#include <float.h> // For DBL_MAX, DBL_MIN
-#include "private.h" // 包含雷达数据结构体定义
+#include <string.h> // For memset
+#include <float.h>
 
 
 CfarParams cfar_params = {
-                        .guard_cells_range = CONFIG_CFAR_NUM_GUARD_RANGE,       // 距离维度保护单元 (单侧)
-                        .guard_cells_doppler = CONFIG_CFAR_NUM_GUARD_VEL,     // 多普勒维度保护单元 (单侧)
-                        .training_cells_range = CONFIG_CFAR_NUM_TRAIN_RANGE,    // 距离维度训练单元 (单侧)
-                        .training_cells_doppler = CONFIG_CFAR_NUM_TRAIN_RANGE,  // 多普勒维度训练单元 (单侧)
-                        .threshold_factor = CONFIG_CFAR_TH_AMP,     // 阈值因子 (需要根据实际数据调整)
-                        .cfar_strategy = CONFIG_CFAR_STRATEGY,            // 0: CA-CFAR (平均), 1: GO-CFAR (最大值)
-                        .os_k_rank = CONFIG_CFAR_OS_K
-                    };
-                    
+    .velDim = RADAR_CHIRP_COUNT,
+    .rangeDim = RADAR_CHIRP_POINTS,
+    .refCells = {CONFIG_CFAR_NUM_TRAIN_VEL, CONFIG_CFAR_NUM_TRAIN_RANGE},
+    .guardCells = {CONFIG_CFAR_NUM_GUARD_VEL, CONFIG_CFAR_NUM_GUARD_RANGE},
+    .thresholdFactor = CONFIG_CFAR_TH_AMP
+};
+
+// ... 其他函数实现 ...
+// --- 辅助函数 ---
+
 // 比较函数，用于qsort排序double数组
 static int compare_doubles(const void *a, const void *b) {
-    double arg1 = *(const double*)a;
-    double arg2 = *(const double*)b;
-    if (arg1 < arg2) return -1;
-    if (arg1 > arg2) return 1;
+    if (*(const double*)a < *(const double*)b) return -1;
+    if (*(const double*)a > *(const double*)b) return 1;
     return 0;
 }
 
-int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
-                        RadarDetectionMap output_detection_map,
-                           const CfarParams *params) {
+// 辅助函数：找到四个数的中位数 (用于 median(refCellsData))
+static double median_of_four(double a, double b, double c, double d) {
+    double temp[4] = {a, b, c, d};
+    // 排序
+    qsort(temp, 4, sizeof(double), compare_doubles);
+    // 返回排序后的第三个值 (索引 2) 作为中位数近似
+    // (如果严格中位数是 (temp[1]+temp[2])/2，但 MatLab 逻辑通常取第三个值)
+    return temp[2]; 
+}
+
+// 辅助函数：找到四个数中的最大值 (用于峰值分组)
+static double max_of_four(double a, double b, double c, double d) {
+    double m = a;
+    if (b > m) m = b;
+    if (c > m) m = c;
+    if (d > m) m = d;
+    return m;
+}
+
+// 辅助函数：处理循环移位边界，返回合法的索引
+// 注意：该函数返回的索引是 [0, size-1] 之间的，可以直接用于数组访问
+static int get_circular_index(int index, int size) {
+    // 确保索引在 [0, size-1] 范围内
+    if (index >= size) {
+        return index - size;
+    }
+    if (index < 0) {
+        return index + size;
+    }
+    return index;
+}
+
+
+// --- 核心 CFAR 检测逻辑 (单个天线) ---
+
+/**
+ * @brief 核心二维CFAR检测，用于单个天线的功率图。
+ * @param power_map 单个天线的 N x M 功率图。
+ * @param N 速度维大小 (VEL_DIM)。
+ * @param M 距离维大小 (RANGE_DIM)。
+ * @param params CFAR参数配置。
+ * @param out_detection_list 返回的详细检测列表指针地址。
+ * @return int 检测到的目标数量。
+ */
+static int cfar2d_core(
+    const double power_map[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+    const int N, // VEL_DIM
+    const int M, // RANGE_DIM
+    const CfarParams *params,
+    DetectionInfo **out_detection_list // 动态分配的列表
+) 
+{
+    const int ref_vel = params->refCells[0];    
+    const int ref_range = params->refCells[1]; 
+    const int guard_vel = params->guardCells[0];
+    const int guard_range = params->guardCells[1];
+    const double thresholdFactor = params->thresholdFactor;
+
+    int detCount = 0;
+    int maxDetCount = 32; 
+    DetectionInfo *detections = (DetectionInfo*)malloc(maxDetCount * sizeof(DetectionInfo));
+    if (detections == NULL) {
+        fprintf(stderr, "Error: Memory allocation failed for detections.\n");
+        *out_detection_list = NULL;
+        return 0;
+    }
     
-    // 检查参数合法性
-    if (params->guard_cells_range < 0 || params->guard_cells_doppler < 0 ||
-        params->training_cells_range < 0 || params->training_cells_doppler < 0 ||
-        params->threshold_factor <= 0) {
-        fprintf(stderr, "Error: Invalid CFAR parameters (guard/training cells must be >= 0, threshold factor > 0).\n");
-        return -1;
+    // MATLAB 逻辑的简化噪声估计 (用于峰值分组的快速排除)
+    double noiseEstm = 0.0;
+    for (int i = N - 6; i < N; i++) {
+        for (int j = M - 6; j < M; j++) {
+            noiseEstm += power_map[get_circular_index(i, N)][get_circular_index(j, M)];
+        }
     }
-    if (params->cfar_strategy == 3 && params->os_k_rank <= 0) {
-        fprintf(stderr, "Error: For OS-CFAR, os_k_rank must be greater than 0.\n");
-        return -1;
-    }
+    noiseEstm /= 36.0; 
 
-    // 将2D FFT的复数结果转换为幅度平方 (能量)
-    // 使用动态分配，确保不会栈溢出
-    double (*power_map)[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS] = 
-        (double (*)[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
-        malloc(sizeof(double) * RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS);
+    // 遍历：从 0-based 索引 1 到 倒数第 2 个索引 (避免边界检查的复杂性)
+    // 距离维从 1 开始，排除 MATLAB 逻辑中的第 0 个距离 bin
+    for (int r_idx = 1; r_idx < M - 1; r_idx++) { 
+        for (int v_idx = 1; v_idx < N - 1; v_idx++) { 
+            
+            const double currentAmp = power_map[v_idx][r_idx];
 
-    if (power_map == NULL) {
-        fprintf(stderr, "Error: Failed to allocate memory for CFAR power map.\n");
-        return -1;
-    }
+            if (currentAmp <= 2.0 * noiseEstm) { // 快速排除
+                continue;
+            }
 
-    for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        for (int r_idx = 0; r_idx < RADAR_CHIRP_POINTS; ++r_idx) {
-            for (int d_idx = 0; d_idx < RADAR_CHIRP_COUNT; ++d_idx) {
-                double real = input_fft_2d_data[ant][d_idx][r_idx][0];
-                double imag = input_fft_2d_data[ant][d_idx][r_idx][1];
-                power_map[ant][d_idx][r_idx] = real * real + imag * imag;
-                output_detection_map[ant][d_idx][r_idx] = 0; // 初始化为未检测
+            // 峰值分组/局部最大值检查 (Peak Grouping)
+            // MATLAB: data(velIdx-1, rangeIdx), data(velIdx+1, rangeIdx), ...
+            double neighborMax = max_of_four(
+                power_map[v_idx - 1][r_idx], power_map[v_idx + 1][r_idx],
+                power_map[v_idx][r_idx - 1], power_map[v_idx][r_idx + 1]
+            );
+            if (currentAmp < neighborMax) {
+                continue;
+            }
+            
+            // --- 提取参考单元数据 (循环移位处理边界) ---
+            double sum_up = 0.0, sum_down = 0.0;
+            double sum_left = 0.0, sum_right = 0.0;
+            
+            // 速度维（上下）参考单元求和
+            for (int i = 0; i < ref_vel; i++) {
+                // 上侧参考单元 (Up): velIdx - guard_vel - ref_vel + i
+                int index_up = v_idx - guard_vel - ref_vel + i;
+                sum_up += power_map[get_circular_index(index_up, N)][r_idx];
+                
+                // 下侧参考单元 (Down): velIdx + guard_vel + 1 + i
+                int index_down = v_idx + guard_vel + 1 + i;
+                sum_down += power_map[get_circular_index(index_down, N)][r_idx];
+            }
+            
+            // 距离维（左右）参考单元求和
+            for (int i = 0; i < ref_range; i++) {
+                // 左侧参考单元 (Left): rangeIdx - guard_range - ref_range + i
+                int index_left = r_idx - guard_range - ref_range + i;
+                sum_left += power_map[v_idx][get_circular_index(index_left, M)];
+                
+                // 右侧参考单元 (Right): rangeIdx + guard_range + 1 + i
+                int index_right = r_idx + guard_range + 1 + i;
+                sum_right += power_map[v_idx][get_circular_index(index_right, M)];
+            }
+            
+            // --------------------------
+            // 合并参考单元并估计噪声 (中位数估计)
+            // --------------------------
+            double mean_up = sum_up / ref_vel;
+            double mean_down = sum_down / ref_vel;
+            double mean_left = sum_left / ref_range;
+            double mean_right = sum_right / ref_range;
+            
+            double noiseEst = median_of_four(mean_up, mean_down, mean_left, mean_right);
+            
+            // --------------------------
+            // 检测判决与结果存储
+            // --------------------------
+            const double threshold = thresholdFactor * noiseEst;
+
+            if (currentAmp > threshold) {
+                // 动态数组扩展
+                if (detCount >= maxDetCount) {
+                    maxDetCount *= 2;
+                    DetectionInfo *new_detections = (DetectionInfo*)realloc(detections, maxDetCount * sizeof(DetectionInfo));
+                    if (new_detections == NULL) {
+                        fprintf(stderr, "Error: Reallocation failed. Returning partial results.\n");
+                        break; // 跳出内层循环
+                    }
+                    detections = new_detections;
+                }
+
+                // 信噪比计算 (20 * log10(幅度比))
+                double snr = 0.0;
+                if (noiseEst > DBL_MIN) { // 使用 DBL_MIN 避免除以零或极小值
+                    snr = 20.0 * log10( currentAmp / noiseEst);
+                } else {
+                    snr = 99.0; 
+                }
+                
+                // 存储结果
+                detections[detCount].rangeIdx = r_idx;  // 0-based 距离索引
+                detections[detCount].velIdx = v_idx;    // 0-based 速度索引
+                detections[detCount].amplitude = currentAmp;
+                detections[detCount].snr = snr;
+                detections[detCount].noise = noiseEst;
+                
+                detCount++;
             }
         }
     }
+    
+    // 返回结果列表
+    if (detCount == 0) {
+        free(detections);
+        *out_detection_list = NULL;
+    } else {
+        // 调整大小到实际检测到的数量
+        DetectionInfo *final_detections = (DetectionInfo*)realloc(detections, detCount * sizeof(DetectionInfo));
+        if (final_detections != NULL) {
+            detections = final_detections;
+        }
+        *out_detection_list = detections;
+    }
+    
+    return detCount;
+}
 
-    // 定义CFAR窗口参数
-    int G_r = params->guard_cells_range;
-    int G_d = params->guard_cells_doppler;
-    int T_r = params->training_cells_range;
-    int T_d = params->training_cells_doppler;
-    double alpha = params->threshold_factor;
+// --- 外部接口实现 ---
 
-    // 预估最大参考单元数量，分配临时数组
-    // 一个完整方形窗口的最大训练单元数 (2*Tr + 2*Gr + 1) * (2*Td + 2*Gd + 1) - (2*Gr + 1)*(2*Gd + 1)
-    // 对于十字形，最大训练单元数
-    // 距离方向上的训练单元总数: 2 * T_r * (2 * G_d + 1)  (不包括中心的 (2*G_r+1) * (2*G_d+1) 部分)
-    // 多普勒方向上的训练单元总数: 2 * T_d * (2 * G_r + 1) (不包括中心的 (2*G_r+1) * (2*G_d+1) 部分)
-    // 交叉部分：(2*T_r+1)*(2*G_d+1) + (2*T_d+1)*(2*G_r+1) - (2*G_r+1)*(2*G_d+1)
-    // 纯粹的十字形训练区数量:
-    int max_training_cells = 2 * T_r * (2 * G_d + 1) + 2 * T_d * (2 * G_r + 1);
-    if (max_training_cells == 0) max_training_cells = 1; // 至少分配一个，避免malloc(0)行为不确定
-
-    double *training_cell_powers = (double*)malloc(sizeof(double) * max_training_cells);
-    if (training_cell_powers == NULL) {
-        fprintf(stderr, "Error: Failed to allocate memory for training cell powers.\n");
-        free(power_map);
+/**
+ * @brief 对2D FFT结果进行CFAR目标检测。
+ */
+int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
+                           RadarDetectionMap output_detection_map,
+                           const CfarParams *params,
+                           DetectionInfo **out_detection_info)
+{
+    // 检查参数合理性
+    if (params == NULL) return -1;
+    if (params->refCells[0] <= 0 || params->refCells[1] <= 0 || params->guardCells[0] < 0 || params->guardCells[1] < 0) {
+        fprintf(stderr, "Error: CFAR parameters must be positive for refCells and non-negative for guardCells.\n");
         return -1;
     }
-
-    // 遍历每个单元格作为CUT
+    
+    // 1. 初始化检测图为0
+    memset(output_detection_map, 0, RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS * sizeof(uint8_t));
+    
+    // 2. 遍历每个天线
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        for (int r_cut = 0; r_cut < RADAR_CHIRP_POINTS; ++r_cut) {
-            for (int d_cut = 0; d_cut < RADAR_CHIRP_COUNT; ++d_cut) {
-                
-                int current_training_cell_count = 0;
-                
-                // === 通用训练单元收集逻辑 (适用于所有十字形策略，但后续处理不同) ===
-                // 为了避免重复代码，先收集所有符合十字形保护区外的训练单元
-                // 对于CrossMaxMean, CrossMinMean, 需要独立计算四个分支的均值，
-                // 所以这里将为每个分支维护一个求和和计数
-                
-                // 存储四个分支的功率和和计数
-                double branch_sums[4] = {0.0, 0.0, 0.0, 0.0}; // 0:上, 1:下, 2:左, 3:右
-                int branch_counts[4] = {0, 0, 0, 0};
-
-                // 遍历以CUT为中心的整个窗口，包括保护单元和训练单元
-                for (int r_offset = -(G_r + T_r); r_offset <= (G_r + T_r); ++r_offset) {
-                    for (int d_offset = -(G_d + T_d); d_offset <= (G_d + T_d); ++d_offset) {
-                        
-                        // 跳过CUT自身
-                        if (r_offset == 0 && d_offset == 0) continue;
-
-                        int r_cell = r_cut + r_offset;
-                        int d_cell = d_cut + d_offset;
-
-                        // 检查边界
-                        if (r_cell >= 0 && r_cell < RADAR_CHIRP_POINTS &&
-                            d_cell >= 0 && d_cell < RADAR_CHIRP_COUNT) {
-                            
-                            // 确定是否在保护区内
-                            bool in_guard_region_range = (abs(r_offset) <= G_r);
-                            bool in_guard_region_doppler = (abs(d_offset) <= G_d);
-
-                            // 如果在保护区内，跳过 (不用于噪声估计)
-                            if (in_guard_region_range && in_guard_region_doppler) {
-                                continue;
-                            }
-
-                            // 确定是否是训练单元，并归类到相应的分支
-                            // 上分支 (d_offset < -(G_d)) 且在范围保护区内
-                            if (d_offset < -(G_d) && d_offset >= -(G_d + T_d) && in_guard_region_range) {
-                                branch_sums[0] += power_map[ant][d_cell][r_cell];
-                                branch_counts[0]++;
-                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) { // CA-CFAR 或 OS-CFAR需要所有训练单元
-                                    if (current_training_cell_count < max_training_cells) {
-                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
-                                    }
-                                }
-                            }
-                            // 下分支 (d_offset > G_d) 且在范围保护区内
-                            else if (d_offset > G_d && d_offset <= (G_d + T_d) && in_guard_region_range) {
-                                branch_sums[1] += power_map[ant][d_cell][r_cell];
-                                branch_counts[1]++;
-                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
-                                    if (current_training_cell_count < max_training_cells) {
-                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
-                                    }
-                                }
-                            }
-                            // 左分支 (r_offset < -(G_r)) 且在多普勒保护区内
-                            else if (r_offset < -(G_r) && r_offset >= -(G_r + T_r) && in_guard_region_doppler) {
-                                branch_sums[2] += power_map[ant][d_cell][r_cell];
-                                branch_counts[2]++;
-                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
-                                    if (current_training_cell_count < max_training_cells) {
-                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
-                                    }
-                                }
-                            }
-                            // 右分支 (r_offset > G_r) 且在多普勒保护区内
-                            else if (r_offset > G_r && r_offset <= (G_r + T_r) && in_guard_region_doppler) {
-                                branch_sums[3] += power_map[ant][d_cell][r_cell];
-                                branch_counts[3]++;
-                                if (params->cfar_strategy == 0 || params->cfar_strategy == 3) {
-                                    if (current_training_cell_count < max_training_cells) {
-                                        training_cell_powers[current_training_cell_count++] = power_map[ant][d_cell][r_cell];
-                                    }
-                                }
-                            }
-                            // 警告：如果走到这里，说明有一个训练单元既不在任何分支条件中，又不在保护区内。
-                            // 这可能发生在角区域，或者训练单元定义不严格的CFAR。
-                        }
-                    }
-                }
-                
-                // 根据CFAR策略计算参考噪声
-                double noise_estimate = 0.0;
-
-                if (params->cfar_strategy == 0) { // CA-CFAR (CrossMean)
-                    if (current_training_cell_count == 0) {
-                        output_detection_map[ant][d_cut][r_cut] = 0;
-                        continue; 
-                    }
-                    double sum_noise_power = 0.0;
-                    for (int i = 0; i < current_training_cell_count; ++i) {
-                        sum_noise_power += training_cell_powers[i];
-                    }
-                    noise_estimate = sum_noise_power / current_training_cell_count;
-                } else if (params->cfar_strategy == 1 || params->cfar_strategy == 2) { // GO-CFAR (CrossMaxMean) 或 SO-CFAR (CrossMinMean)
-                    // 计算四个分支的平均功率
-                    double branch_means[4];
-                    int valid_branches = 0;
-                    for(int i = 0; i < 4; ++i) {
-                        if (branch_counts[i] > 0) {
-                            branch_means[i] = branch_sums[i] / branch_counts[i];
-                            valid_branches++;
-                        } else {
-                            // 无效分支，根据策略设置为极大或极小值，使其不影响最终 Max/Min 结果
-                            branch_means[i] = (params->cfar_strategy == 1) ? DBL_MIN : DBL_MAX; 
-                        }
-                    }
-
-                    if (valid_branches == 0) { // 如果所有分支都没有有效训练单元
-                        output_detection_map[ant][d_cut][r_cut] = 0;
-                        continue;
-                    }
-
-                    if (params->cfar_strategy == 1) { // CrossMaxMean
-                        noise_estimate = DBL_MIN;
-                        for(int i = 0; i < 4; ++i) {
-                            if (branch_counts[i] > 0 && branch_means[i] > noise_estimate) {
-                                noise_estimate = branch_means[i];
-                            }
-                        }
-                    } else { // CrossMinMean
-                        noise_estimate = DBL_MAX;
-                        for(int i = 0; i < 4; ++i) {
-                            if (branch_counts[i] > 0 && branch_means[i] < noise_estimate) {
-                                noise_estimate = branch_means[i];
-                            }
-                        }
-                    }
-
-                } else if (params->cfar_strategy == 3) { // OS-CFAR (CrossOS)
-                    if (current_training_cell_count == 0 || params->os_k_rank > current_training_cell_count) {
-                        output_detection_map[ant][d_cut][r_cut] = 0;
-                        continue; 
-                    }
-                    qsort(training_cell_powers, current_training_cell_count, sizeof(double), compare_doubles);
-                    // OS-CFAR取排序后第 K 大的值 (索引为 current_training_cell_count - K)
-                    noise_estimate = training_cell_powers[current_training_cell_count - params->os_k_rank];
-                } else {
-                    fprintf(stderr, "Warning: Unknown CFAR strategy (%d). Using default CA-CFAR.\n", params->cfar_strategy);
-                    if (current_training_cell_count == 0) {
-                        output_detection_map[ant][d_cut][r_cut] = 0;
-                        continue; 
-                    }
-                    double sum_noise_power = 0.0;
-                    for (int i = 0; i < current_training_cell_count; ++i) {
-                        sum_noise_power += training_cell_powers[i];
-                    }
-                    noise_estimate = sum_noise_power / current_training_cell_count;
-                }
-
-                // 计算阈值
-                double threshold = alpha * noise_estimate;
-
-                // 待检测单元的能量
-                double cut_power = power_map[ant][d_cut][r_cut];
-
-                // 检测判断
-                if (cut_power > threshold) {
-                    output_detection_map[ant][d_cut][r_cut] = 1; // 检测到目标
-                } else {
-                    output_detection_map[ant][d_cut][r_cut] = 0; // 未检测到
-                }
+        
+        // 临时存储功率图 (Matlab CFAR要求实数输入)
+        double power_map[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+        
+        // a. 从 fftw_complex (double[2]) 转换为功率图 (幅度)
+        for (int v = 0; v < RADAR_CHIRP_COUNT; ++v) {
+            for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
+                // fftw_complex[0] 是实部，[1] 是虚部
+                double real = input_fft_2d_data[ant][v][r][0];
+                double imag = input_fft_2d_data[ant][v][r][1];
+                // 使用幅度作为 CFAR 输入 (幅度 = sqrt(R^2 + I^2))
+                power_map[v][r] = sqrt(real * real + imag * imag);
             }
         }
+        
+        DetectionInfo *det_list = NULL;
+        // 注意：这里我们使用核心CFAR函数，并要求它将详细检测信息写入 params->outputDetectionInfo
+        // 我们假设调用者已经设置了 params->outputDetectionInfo 的指针地址。
+        int det_count = cfar2d_core(
+            power_map,
+            RADAR_CHIRP_COUNT,
+            RADAR_CHIRP_POINTS,
+            params,
+            &det_list // 接收详细检测列表
+        );
+        
+        // b. 将详细检测结果映射到二进制检测图
+        if (det_count > 0) {
+            for (int i = 0; i < det_count; ++i) {
+                int r_idx = det_list[i].rangeIdx;
+                int v_idx = det_list[i].velIdx;
+                
+                // 确保索引在范围内
+                if (r_idx < RADAR_CHIRP_POINTS && v_idx < RADAR_CHIRP_COUNT) {
+                    output_detection_map[ant][v_idx][r_idx] = 1;
+                }
+            }
+            // 释放核心函数分配的内存
+            free(det_list);
+        }
     }
-
-    free(power_map);
-    free(training_cell_powers);
+    
     return 0; // 成功
 }
