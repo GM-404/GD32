@@ -1,28 +1,31 @@
 #include "radar_log.h" 
-
-
+#include <stdio.h> 
+#define EN_SAVE_DISMANTLE_LOG 1 // 解析日志开关
 void radar_dismantle_log(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
 {
     if (EN_DISMANTLE_LOG)
     {
-        // 验证点 1: 天线 0 / Chirp 0 / 第 0 个点 
-        printf("Ant 0 / Chirp 0 / Point 0 (Raw: %u, Parsed: %d)\n", 
-               frame->data[0], data[0][0][0]); // 预期: 255 和 -1
-
-        // 验证点 2: 天线 0 / Chirp 0 / 第 1 个点 
-        printf("Ant 0 / Chirp 0 / Point 1 (Raw: %u, Parsed: %d)\n", 
-               frame->data[1], data[0][0][1]); // 预期: 3 和 3
-
-        // 验证点 3: 天线 1 / 最后一个 Chirp / 最后一个点 
-        uint32_t last_idx = frame->data_bytes - 1;
-        printf("Ant 1 / Chirp 63 / Point 127 (Raw Index %u, Parsed: %d)\n", 
-            last_idx,data[1][63][127]); 
-            
-        // 打印 Ant 0 的前 8 个 Chirp 的第一个点
-        printf("\nAnt 0 / Chirp 0-7 / Point 0 (验证重排): \n");
-        for (int i = 0; i < 8; i++) {
-            printf("Chirp %d: %d\n", i, data[0][i][0]);
+        FILE *log_file = fopen("radar_dismantle_log.txt", "w");
+        if (log_file == NULL) {
+            perror("Error opening log file");
+            return; // 文件打开失败，退出函数
         }
+        //选择一个帧
+        uint8_t chirp = 0;
+        // 1. 遍历天线 (RADAR_ANT_COUNT根)
+        for (int ant = 0; ant < RADAR_ANT_COUNT; ant++) {
+            // 2. 遍历采样点 ( RADAR_CHIRP_POINTS个)
+                for (int point = 0; point < RADAR_CHIRP_POINTS; point++) {
+                //printf("Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n", ant, chirp, point, frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point], data[ant][chirp][point]);
+                    fprintf(log_file, "Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n",
+                    ant, chirp, point,
+                    frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point],
+                    data[ant][chirp][point]);
+            }
+        }
+        // 关闭文件
+        fclose(log_file);
+        printf("Log data saved to radar_dismantle_log.txt\n"); // 提示用户文件已保存
     }
 }
 void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
@@ -30,25 +33,39 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
     if (EN_1DFFT_LOG)
     {
     printf("✅ 1DFFT 成功解析数据。\n");
-             // 验证1D FFT结果 (打印第一个天线，第一个Chirp的前几个点的幅度)
-            printf("\n1D FFT 结果示例 (Ant 0, Chirp 0, 前10个点的幅度):\n");
-            for (int i = 0; i < 10 && i < RADAR_CHIRP_POINTS; ++i) {
-                double real = output_fft_1d[0][0][i][0];
-                double imag = output_fft_1d[0][0][i][1];
+     FILE *log_file = fopen("radar_1DFFT_log.txt", "w"); // 创建或覆盖日志文件
+        if (log_file == NULL) {
+            perror("Error opening 1D FFT log file"); // 文件打开失败时打印错误信息
+            return; // 退出函数
+        }
+
+        fprintf(log_file, "--- 1D FFT Log Data ---\n");
+        fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
+        fprintf(log_file, "RADAR_CHIRP_COUNT: %d\n", RADAR_CHIRP_COUNT);
+        fprintf(log_file, "RADAR_CHIRP_POINTS: %d\n", RADAR_CHIRP_POINTS);
+        fprintf(log_file, "------------------------\n\n");
+
+
+        // 遍历所有天线和所有 Chirp 的 1D FFT 结果
+        //选择一个帧
+        uint8_t chirp = 0;
+
+        for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
+            fprintf(log_file, "Ant %d / Chirp %d FFT Results:\n", ant, chirp);
+            for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
+                double real = output_fft_1d[ant][chirp][i][0];
+                double imag = output_fft_1d[ant][chirp][i][1];
                 double magnitude = sqrt(real * real + imag * imag);
-                printf("  Point %d: %lf\n", i, magnitude);
+
+                fprintf(log_file, "  Point %d: R=%.2f, I=%.2f, Magnitude=%.2f\n",
+                        i, real, imag, magnitude);
             }
-            if (RADAR_CHIRP_POINTS > 10) {
-                printf("  ...\n");
-            }
-            // 打印后10个点
-            printf("1D FFT 结果示例 (Ant 0, Chirp 0, 后10个点的幅度):\n");
-            for (int i = (RADAR_CHIRP_POINTS > 10 ? RADAR_CHIRP_POINTS - 10 : 0); i < RADAR_CHIRP_POINTS; ++i) {
-                double real = output_fft_1d[0][0][i][0];
-                double imag = output_fft_1d[0][0][i][1];
-                double magnitude = sqrt(real * real + imag * imag);
-                printf("  Point %d: %lf\n", i, magnitude);
-            }
+            fprintf(log_file, "\n"); // 每个 Chirp 后加一个空行
+        }
+
+        // 关闭文件
+        fclose(log_file);
+        printf("1D FFT log data saved to radar_1DFFT_log.txt\n"); // 提示用户文件已保存
     }
 }
 void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)

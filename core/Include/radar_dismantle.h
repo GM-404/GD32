@@ -9,7 +9,7 @@
 // 解析函数
 int frame_data_dismantle(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS]);
 
-#define TOTAL_FRAMES_IN_ARRAY 5// 假设有10帧
+#define TOTAL_FRAMES_IN_ARRAY 1// 假设有10帧
 #define PACKED_FRAME_SIZE 16412
 extern const uint8_t packed_frame_data[TOTAL_FRAMES_IN_ARRAY * PACKED_FRAME_SIZE];  
 

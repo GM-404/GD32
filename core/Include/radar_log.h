@@ -8,8 +8,8 @@
 #include "radar_2dfft.h"
 
 #define EN_DISMANTLE_LOG         0
-#define EN_1DFFT_LOG             0
-#define EN_2DFFT_LOG             1
+#define EN_1DFFT_LOG             1
+#define EN_2DFFT_LOG             0
 #define EN_CFAR_LOG              0
 
 void radar_dismantle_log(const sample_frame_t *frame,int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS]); // 解析日志打印

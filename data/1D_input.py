@@ -52,7 +52,7 @@ OUTPUT_FILENAME = 'rfft_input_buffer.txt'
 
 # 设定要提取的 Chirp 数据
 TARGET_ANT = 0
-TARGET_CHIRP = 1
+TARGET_CHIRP = 0
 
 # 1. 读取 JSON 文件
 try:
@@ -89,7 +89,7 @@ c_array_lines = []
 for i in range(0, len(rfft_input_buffer_float32), 8): # 每行 8 个 float
     chunk = rfft_input_buffer_float32[i:i + 8]
     # 使用 %.4ff 格式，保证精度，并添加 'f' 后缀
-    float_values = [f"{f:.4f}" for f in chunk]
+    float_values = [f"{f:.0f}" for f in chunk]
     c_array_lines.append(f"    {', '.join(float_values)},")
 
 c_array_output = f"""

@@ -36,7 +36,7 @@ int main()
             if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
             {
                 // 4. 静态杂波消除
-                if (remove_static_clutter(fft_1d_output_data) == 0)
+                if (remove_static_clutter_zero_doppler(fft_1d_output_data) == 0)
                 {
                     radar_1DFFT_log(fft_1d_output_data);
                     // 5. 2DFFT
@@ -49,7 +49,7 @@ int main()
                             // printf("✅ CFAR 成功解析数据。\n");
                             //radar_CFAR_log();
                             //打印CFAR检测结果 (示例)
-                            printf("\nCFAR 检测结果示例 (Ant 0):\n");
+                            printf("\nCFAR 检测结果 (Ant 0):\n");
                             int detected_count = 0;
                             for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
                                 for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {

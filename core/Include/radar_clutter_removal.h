@@ -15,5 +15,5 @@
  * @return 0 成功，-1 失败 (例如参数不合理)。
  */
 int remove_static_clutter(RadarFFT1DOutput input_output_1d_fft_data);
-
+int remove_static_clutter_zero_doppler(RadarFFT1DOutput input_output_1d_fft_data);
 #endif // RADAR_CLUTTER_REMOVAL_H
