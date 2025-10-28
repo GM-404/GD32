@@ -30,12 +30,12 @@ void radar_dismantle_log(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUN
 
         //单独看数据
         //point
-        for(int j = 0; j < 3; j++){
-            //chirp
-            for(int k = 0; k < RADAR_CHIRP_COUNT; k++){
-                printf("Ant %d / Chirp %d / Point %d ( Parsed: %d)\n", 0, k, j,  data[0][k][j]);
-            }
-        }
+        // for(int j = 0; j < 3; j++){
+        //     //chirp
+        //     for(int k = 0; k < RADAR_CHIRP_COUNT; k++){
+        //         printf("Ant %d / Chirp %d / Point %d ( Parsed: %d)\n", 0, k, j,  data[0][k][j]);
+        //     }
+        // }
     }
     
 }
@@ -43,40 +43,50 @@ void radar_1DFFT_log(RadarFFT1DOutput output_fft_1d)
 {
     if (EN_1DFFT_LOG)
     {
-    printf("✅ 1DFFT 成功解析数据。\n");
-     FILE *log_file = fopen("radar_1DFFT_log.txt", "w"); // 创建或覆盖日志文件
+        printf("✅ 1DFFT 结果解析中...\n");
+        FILE *log_file = fopen("radar_1DFFT_log.txt", "w"); // 创建或覆盖日志文件
         if (log_file == NULL) {
-            perror("Error opening 1D FFT log file"); // 文件打开失败时打印错误信息
+            perror("Error opening 1D FFT log file"); 
             return; // 退出函数
         }
 
-        fprintf(log_file, "--- 1D FFT Log Data ---\n");
+        // 定义正确的范围点数 (M_sample / 2)
+        const int HALF_POINTS = RADAR_CHIRP_POINTS / 2; 
+        
+        fprintf(log_file, "--- 1D FFT Log Data (Full Output) ---\n");
         fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
         fprintf(log_file, "RADAR_CHIRP_COUNT: %d\n", RADAR_CHIRP_COUNT);
-        fprintf(log_file, "RADAR_CHIRP_POINTS: %d\n", RADAR_CHIRP_POINTS);
-        fprintf(log_file, "------------------------\n\n");
+        fprintf(log_file, "FFT Range Bins (Output): %d\n", HALF_POINTS);
+        fprintf(log_file, "-------------------------------------\n\n");
 
-
-        // 遍历所有天线和所有 Chirp 的 1D FFT 结果
-        //选择一个帧
-        uint8_t chirp = 1;
-
+        
+        // 1. 遍历所有天线
         for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-            fprintf(log_file, "Ant %d / Chirp %d FFT Results:\n", ant, chirp);
-            for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
-                double real = output_fft_1d[ant][chirp][i][0];
-                double imag = output_fft_1d[ant][chirp][i][1];
-                double magnitude = sqrt(real * real + imag * imag);
+            
+            // 2. 遍历所有 Chirp
+            for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
+                
+                fprintf(log_file, "--- Ant %d / Chirp %d FFT Results ---\n", ant, chirp);
+                
+                // 3. 遍历所有 Range Bin (M/2 点)
+                for (int i = 0; i < HALF_POINTS; ++i) { 
+                    
+                    // 从四维数组中取出实部和虚部
+                    double real = output_fft_1d[ant][chirp][i][0];
+                    double imag = output_fft_1d[ant][chirp][i][1];
+                    double magnitude = sqrt(real * real + imag * imag);
 
-                fprintf(log_file, "  Point %d: R=%.2f, I=%.2f, Magnitude=%.2f\n",
-                        i, real, imag, magnitude);
+                    // 使用 .4f 精度打印
+                    fprintf(log_file, "  Range Bin %d: R=%.4f, I=%.4f, Magnitude=%.4f\n",
+                                    i, real, imag, magnitude);
+                }
+                fprintf(log_file, "\n"); // 每个 Chirp 块后加一个空行
             }
-            fprintf(log_file, "\n"); // 每个 Chirp 后加一个空行
         }
 
         // 关闭文件
         fclose(log_file);
-        printf("1D FFT log data saved to radar_1DFFT_log.txt\n"); // 提示用户文件已保存
+        printf("✅ 1D FFT 完整日志已保存至 radar_1DFFT_log.txt\n");
     }
 }
 void radar_clutter_removal_log(RadarFFT1DOutput output_fft_1d)

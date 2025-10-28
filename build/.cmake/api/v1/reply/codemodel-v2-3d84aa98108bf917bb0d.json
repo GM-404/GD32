@@ -119,14 +119,14 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "gd32_radar_demo::@57760688d1f824db5d9c",
-					"jsonFile" : "target-gd32_radar_demo-Release-df4d4e4bf83dc8d1547d.json",
+					"jsonFile" : "target-gd32_radar_demo-Release-ad01826ebad8de52e107.json",
 					"name" : "gd32_radar_demo",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "lesson1_1::@57760688d1f824db5d9c",
-					"jsonFile" : "target-lesson1_1-Release-91fbd6a8bafab6406baa.json",
+					"jsonFile" : "target-lesson1_1-Release-2276e2afb76a70b48519.json",
 					"name" : "lesson1_1",
 					"projectIndex" : 0
 				},

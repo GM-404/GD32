@@ -3,7 +3,7 @@ import re
 import tkinter as tk
 from tkinter import filedialog
 import os
-
+print(f"此脚本暂不可用❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ❌ ")
 def parse_radar_log_content(log_content):
     """
     从日志内容字符串中解析雷达数据。

@@ -41,11 +41,11 @@ dt=(0:1:M_sample-1);
 df = (0:1:M_sample/2-1);
 dv=(-N_chirp/2:1:(N_chirp / 2 -1));% 快时间维（距离）频点分布
 rWin = hamming(M_sample);%距离维窗序列
-rWin = rWin./sum(rWin)*length(rWin);
+%%rWin = rWin./sum(rWin)*length(rWin);
 rWin = ones(M_sample,1);%%% 矩形窗，等效未加窗！！！！！！！！！！！
 
 vWin = hann(N_chirp);%速度维窗序列
-vWin = vWin./sum(vWin)*length(vWin);
+%%vWin = vWin./sum(vWin)*length(vWin);
 vWin = ones(N_chirp,1);%%% 矩形窗，等效未加窗！！！！！！！！！！！
 %% 雷达变量声明
 dataFft1d = zeros(N_chirp,M_sample/2,N_rx);

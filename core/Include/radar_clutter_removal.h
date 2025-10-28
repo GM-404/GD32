@@ -7,13 +7,14 @@
 #include "private.h" // 包含雷达参数定义
 #include "radar_1dfft.h" // 包含RadarFFT1DOutput类型定义
 
+
+#define EN_RADAR_CLUTTER_REMOVAL   0
+// ----------------------------------------------------
+// 3. 独立去直流函数
+// ----------------------------------------------------
 /**
- * @brief 对1D FFT后的数据进行静态杂波去除 (零多普勒DC分量去除)。
- *        该操作在Chirp维度上对每个天线、每个距离门进行均值减法。
- *
- * @param input_output_1d_fft_data 1D FFT后的复数数据。该数据将被修改为去除杂波后的结果。
- * @return 0 成功，-1 失败 (例如参数不合理)。
+ * @brief 对 FFT 结果执行去直流操作 (减去平均值)。
+ * @param data FFT结果数据 [Ant][Chirp][RangeBins/2][Re/Im] (将被原地修改)
  */
-int remove_static_clutter(RadarFFT1DOutput input_output_1d_fft_data);
-int remove_static_clutter_zero_doppler(RadarFFT1DOutput input_output_1d_fft_data);
+void perform_dc_removal(RadarFFT1DOutput data);
 #endif // RADAR_CLUTTER_REMOVAL_H

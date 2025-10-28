@@ -1,24 +1,29 @@
-// radar_fft.c
+// radar_1dfft.c
 #include "radar_1dfft.h"
 #include <stdio.h>
 #include <stdlib.h> 
+#include <string.h> 
+#include <math.h>   
 
+// ----------------------------------------------------
+// 1. FFT 主函数实现（只执行 FFT 和截断）
+// ----------------------------------------------------
 int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d) {
     
-    // FFTW 计划 (plan)
     fftw_plan plan;
-    // 输入和输出数组
     fftw_complex *in;
     fftw_complex *out;
-
+    
+    const int HALF_POINTS = RADAR_CHIRP_POINTS / 2;
+    
     // 为FFTW分配内存
     in = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * RADAR_CHIRP_POINTS);
     out = (fftw_complex*) fftw_malloc(sizeof(fftw_complex) * RADAR_CHIRP_POINTS);
 
     if (in == NULL || out == NULL) {
-        fprintf(stderr, "Error: Failed to allocate memory for FFTW input/output buffers.\n");
-        fftw_free(in); // 尝试释放已分配的
+        fprintf(stderr, "Error: Failed to allocate memory for FFTW buffers.\n");
+        fftw_free(in); 
         fftw_free(out);
         return -1;
     }
@@ -32,20 +37,24 @@ int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][R
         fftw_free(out);
         return -1;
     }
-
+    
+    // 循环：读取输入，执行 FFT，存储结果
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
         for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
-            // 将int8_t数据转换为fftw_complex格式
+            
             for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
-                in[i][0] = (double)input_data[ant][chirp][i]; // 实部
-                in[i][1] = 0.0;                                // 虚部 (因为原始数据是实数)
+                // ** 对应 MATLAB: chirpData = squeeze(atData(lane, chirp, :)); **
+                // 将 int8_t 数据转换为 fftw_complex 格式 (虚部为 0)
+                in[i][0] = (double)input_data[ant][chirp][i]; 
+                in[i][1] = 0.0;
             }
 
-            // 执行FFT
+            // ** 对应 MATLAB: rangFftOri = fft(chirpData, M_sample); **
             fftw_execute(plan);
 
-            // 将FFT结果存储到输出数组中
-            for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
+            // ** 对应 MATLAB: rangFft = rangFftOri(1:M_sample/2); **
+            // 将FFT结果的前一半存储到输出数组中
+            for (int i = 0; i < HALF_POINTS; ++i) {
                 output_fft_1d[ant][chirp][i][0] = out[i][0]; // 实部
                 output_fft_1d[ant][chirp][i][1] = out[i][1]; // 虚部
             }
@@ -59,3 +68,5 @@ int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][R
 
     return 0; // 成功
 }
+
+

@@ -3,62 +3,41 @@
 #include <stdio.h>
 #include <math.h> // For hypot
 
-int remove_static_clutter(RadarFFT1DOutput input_output_1d_fft_data) {
-    
-    // 遍历每个天线和每个距离门
+// ----------------------------------------------------
+// 2. 独立去直流函数实现 
+// ----------------------------------------------------
+void perform_dc_removal(RadarFFT1DOutput data)
+{
+    double mean_re = 0.0;
+    double mean_im = 0.0;
+    const int NUM_RANGE_BINS = RADAR_CHIRP_POINTS / 2;
+    // 总元素数量 (Re 和 Im 视为独立元素)
+    const int num_elements = RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS;
+
+    if (num_elements == 0) return;
+
+    // 4a. 计算平均值 (求和)
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        for (int r_idx = 0; r_idx < RADAR_CHIRP_POINTS; ++r_idx) {
-            // 对于当前天线和距离门，计算所有Chirp的平均值
-            double sum_real = 0.0;
-            double sum_imag = 0.0;
-
-            for (int chirp_idx = 0; chirp_idx < RADAR_CHIRP_COUNT; ++chirp_idx) {
-                sum_real += input_output_1d_fft_data[ant][chirp_idx][r_idx][0];
-                sum_imag += input_output_1d_fft_data[ant][chirp_idx][r_idx][1];
-            }
-
-            double mean_real = sum_real / RADAR_CHIRP_COUNT;
-            double mean_imag = sum_imag / RADAR_CHIRP_COUNT;
-
-            // 从每个Chirp的数据中减去平均值
-            for (int chirp_idx = 0; chirp_idx < RADAR_CHIRP_COUNT; ++chirp_idx) {
-                input_output_1d_fft_data[ant][chirp_idx][r_idx][0] -= mean_real;
-                input_output_1d_fft_data[ant][chirp_idx][r_idx][1] -= mean_imag;
+        for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
+            for (int i = 0; i < NUM_RANGE_BINS; ++i) {
+                mean_re += data[ant][chirp][i][0];
+                mean_im += data[ant][chirp][i][1];
             }
         }
     }
     
-    return 0; // 成功
-}
-int remove_static_clutter_zero_doppler(RadarFFT1DOutput input_output_1d_fft_data) {
-    
-    float avg_R, avg_I; // 用于存储每个距离门和天线的平均值
+    // 计算平均值
+    mean_re /= num_elements;
+    mean_im /= num_elements;
 
-    // 1. 遍历每个天线
+    // 4b. 减去平均值 (原地修改)
+    // 对应 MATLAB 逻辑: dataFft1d = dataFft1d - mean(dataFft1d);
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        
-        // 2. 遍历每个距离门
-        for (int r_idx = 0; r_idx < RADAR_CHIRP_POINTS; ++r_idx) {
-            
-            // a. 计算该 (天线, 距离门) 组合在所有 Chirp 上的平均值 (DC 偏移)
-            avg_R = 0.0;
-            avg_I = 0.0;
-            for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
-                // 索引: [ant][chirp][r_idx][R/I]
-                avg_R += input_output_1d_fft_data[ant][chirp][r_idx][0];
-                avg_I += input_output_1d_fft_data[ant][chirp][r_idx][1];
-            }
-            avg_R /= RADAR_CHIRP_COUNT;
-            avg_I /= RADAR_CHIRP_COUNT;
-
-            // b. 从每个 Chirp 的数据中减去这个平均值
-            for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
-                input_output_1d_fft_data[ant][chirp][r_idx][0] -= avg_R; // 减去实部平均值
-                input_output_1d_fft_data[ant][chirp][r_idx][1] -= avg_I; // 减去虚部平均值
+        for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
+            for (int i = 0; i < NUM_RANGE_BINS; ++i) {
+                data[ant][chirp][i][0] -= mean_re;
+                data[ant][chirp][i][1] -= mean_im;
             }
         }
     }
-    
-    //printf("✅ 静态杂波消除：DC 偏移减除法执行成功。\n");
-    return 0;
 }
