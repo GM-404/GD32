@@ -147,7 +147,6 @@ void radar_clutter_removal_log(RadarFFT1DOutput output_fft_1d)
 }
 void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
 {
-    // 请确保 EN_2DFFT_LOG 宏已定义
     if (EN_2DFFT_LOG)
     {
         printf("✅ 2D FFT (Range-Doppler) 结果解析中...\n");

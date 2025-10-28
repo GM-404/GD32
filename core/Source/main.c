@@ -47,7 +47,7 @@ int main()
                     // 6. CFAR
                     printf("\n开始执行 CFAR 目标检测...\n");
                     if (perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL) >= 0) {
-                        radar_cfar_log(detection_map);
+                    radar_cfar_log(detection_map);
                     } else {
                     }
                 }
