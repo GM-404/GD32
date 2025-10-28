@@ -225,7 +225,6 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     if (params == NULL) { fprintf(stderr, "Error: CFAR parameters are null.\n"); return -1;}
     if (params->refCells[0] <= 0 || params->refCells[1] <= 0 || params->guardCells[0] < 0 || params->guardCells[1] < 0) {
         fprintf(stderr, "Error: CFAR parameters must be positive for refCells and non-negative for guardCells.\n");
-        return -1;
     }
     const int NUM_ANT = RADAR_ANT_COUNT;
     const int NUM_RANGE_BINS = RANGE_BINS; 

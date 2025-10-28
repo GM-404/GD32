@@ -36,16 +36,13 @@ int main()
     // 4. 静态杂波消除
     perform_dc_removal(fft_1d_output_data);
     radar_clutter_removal_log(fft_1d_output_data);
-    
+
     // 5. 2DFFT
     perform_2d_fft(fft_1d_output_data, fft_2d_output_data);
     radar_2DFFT_log(fft_2d_output_data);
 
     // 6. CFAR
-    printf("\n开始执行 CFAR 目标检测...\n");
-    if (perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL) >= 0) {
+    int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL);
     radar_cfar_log(detection_map);
-    } else {
-    }  
     return 0;
 }
