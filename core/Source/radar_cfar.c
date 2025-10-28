@@ -9,7 +9,7 @@
 
 CfarParams cfar_params = {
     .velDim = RADAR_CHIRP_COUNT,
-    .rangeDim = RADAR_CHIRP_POINTS,
+    .rangeDim = RANGE_BINS,
     .refCells = {CONFIG_CFAR_NUM_TRAIN_VEL, CONFIG_CFAR_NUM_TRAIN_RANGE},
     .guardCells = {CONFIG_CFAR_NUM_GUARD_VEL, CONFIG_CFAR_NUM_GUARD_RANGE},
     .thresholdFactor = CONFIG_CFAR_TH_AMP
@@ -70,7 +70,7 @@ static int get_circular_index(int index, int size) {
  * @return int 检测到的目标数量。
  */
 static int cfar2d_core(
-    const double power_map[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+    const double power_map[RADAR_CHIRP_COUNT][RANGE_BINS],
     const int N, // VEL_DIM
     const int M, // RANGE_DIM
     const CfarParams *params,
@@ -217,7 +217,7 @@ static int cfar2d_core(
  * @brief 对2D FFT结果进行CFAR目标检测。
  */
 int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
-                           RadarDetectionMap output_detection_map,
+                            RadarDetectionMap output_detection_map,
                            const CfarParams *params,
                            DetectionInfo **out_detection_info)
 {
@@ -227,19 +227,20 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         fprintf(stderr, "Error: CFAR parameters must be positive for refCells and non-negative for guardCells.\n");
         return -1;
     }
-    
+    const int NUM_RANGE_BINS = RANGE_BINS; 
+    const int NUM_DOPPLER_BINS = RADAR_CHIRP_COUNT;
     // 1. 初始化检测图为0
-    memset(output_detection_map, 0, RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS * sizeof(uint8_t));
+    memset(output_detection_map, 0, RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS * sizeof(uint8_t));
     
     // 2. 遍历每个天线
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
         
         // 临时存储功率图 (Matlab CFAR要求实数输入)
-        double power_map[RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+        double power_map[RADAR_CHIRP_COUNT][NUM_RANGE_BINS];
         
         // a. 从 fftw_complex (double[2]) 转换为功率图 (幅度)
         for (int v = 0; v < RADAR_CHIRP_COUNT; ++v) {
-            for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
+            for (int r = 0; r < NUM_RANGE_BINS; ++r) {
                 // fftw_complex[0] 是实部，[1] 是虚部
                 double real = input_fft_2d_data[ant][v][r][0];
                 double imag = input_fft_2d_data[ant][v][r][1];
@@ -253,7 +254,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         // 我们假设调用者已经设置了 params->outputDetectionInfo 的指针地址。
         int det_count = cfar2d_core(
             power_map,
-            RADAR_CHIRP_COUNT,
+            NUM_RANGE_BINS,
             RADAR_CHIRP_POINTS,
             params,
             &det_list // 接收详细检测列表

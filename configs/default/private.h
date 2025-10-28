@@ -46,7 +46,7 @@ typedef struct {
 /* CFAR 配置 */
 
 /** @brief CFAR 幅度阈值 */
-#define CONFIG_CFAR_TH_AMP 5.0
+#define CONFIG_CFAR_TH_AMP 3.0
 
 /** @brief CFAR 保护单元大小-距离维度 */
 #define CONFIG_CFAR_NUM_GUARD_RANGE 5

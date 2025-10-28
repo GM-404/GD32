@@ -204,3 +204,63 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
         printf("✅ 2D FFT 完整日志已保存至 radar_2DFFT_log.txt\n");
     }
 }
+/**
+ * @brief 打印 CFAR 二值检测图的日志。
+ * @param detection_map CFAR 检测结果（二值图）
+ */
+void radar_cfar_log(uint8_t detection_map[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS])
+{
+    // 您可能需要定义一个 EN_CFAR_LOG 宏来控制是否生成日志
+    if (EN_CFAR_LOG) 
+    {
+        printf("✅ CFAR 二值检测图结果解析中...\n");
+        // 创建或覆盖日志文件
+        FILE *log_file = fopen("radar_cfar_detection_log.txt", "w"); 
+        if (log_file == NULL) {
+            perror("Error opening CFAR detection log file"); 
+            return; 
+        }
+
+        // 定义正确的维度点数
+        const int DOPPLER_POINTS = RADAR_CHIRP_COUNT;
+        const int RANGE_POINTS = RANGE_BINS; 
+        
+        // 写入日志文件头部信息
+        fprintf(log_file, "--- CFAR Detection Map Log ---\n");
+        fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
+        fprintf(log_file, "DOPPLER_POINTS: %d\n", DOPPLER_POINTS);
+        fprintf(log_file, "RANGE_BINS_USED: %d\n", RANGE_POINTS);
+        fprintf(log_file, "--------------------------------\n\n");
+
+        
+        // 1. 遍历所有天线
+        for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
+            
+            fprintf(log_file, "=== Antenna %d Detections ===\n", ant);
+            int ant_det_count = 0;
+
+            // 2. 遍历所有 Range Bin
+            for (int r_idx = 0; r_idx < RANGE_POINTS; ++r_idx) {
+                
+                // 3. 遍历所有 Doppler Bin
+                for (int d_idx = 0; d_idx < DOPPLER_POINTS; ++d_idx) { 
+                    
+                    // 如果该单元检测到目标 (值为 1)
+                    if (detection_map[ant][d_idx][r_idx] == 1) {
+                        
+                        // 记录目标位置 (Range-Doppler 坐标)
+                        fprintf(log_file, "  Target Detected: Range Bin %d, Doppler Bin %d\n",
+                                        r_idx, d_idx);
+                        ant_det_count++;
+                    }
+                }
+            }
+            
+            fprintf(log_file, "--- Antenna %d Total Detections: %d ---\n\n", ant, ant_det_count);
+        }
+
+        // 关闭文件
+        fclose(log_file);
+        printf("✅ CFAR 检测结果日志已保存至 radar_cfar_detection_log.txt\n");
+    }
+}

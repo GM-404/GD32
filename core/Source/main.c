@@ -47,56 +47,11 @@ int main()
                     // 6. CFAR
                     printf("\n开始执行 CFAR 目标检测...\n");
                     if (perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL) == 0) {
+                        //radar_cfar_log(detection_map);
                         printf("---------------------------------------------------\n");
                         printf("✅ CFAR 检测成功。\n");
                         printf("---------------------------------------------------\n");
-                        
-                        // 打印CFAR检测结果 (Ant 0)
-                        int detected_count = 0;
-                        const int target_ant = 0; // 只打印天线 0 的结果
-
-                        printf("CFAR 检测结果 (Ant %d):\n", target_ant);
-                        
-                        // 遍历距离维 (Range)
-                        for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
-                            
-                            bool range_has_detection = false;
-                            // 检查该距离门是否有目标
-                            for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
-                                if (detection_map[target_ant][d][r] == 1) {
-                                    range_has_detection = true;
-                                    break;
-                                }
-                            }
-
-                            if (range_has_detection) {
-                                printf("  Range Bin %-3d 检测到目标，位于 Doppler Bin(s): [", r);
-                                
-                                // 遍历速度/多普勒维 (Doppler) 并打印检测到的点
-                                for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
-                                    if (detection_map[target_ant][d][r] == 1) {
-                                        printf("%d, ", d);
-                                        detected_count++;
-                                    }
-                                }
-                                // 打印目标结束
-                                printf("\b\b]\n"); // 使用 \b\b 擦除最后的 ", "
-                            }
-                        }
-                        
-                        printf("\n总检测到的目标点数 (Ant %d): %d 个\n", target_ant, detected_count);
-                        
-                        // 如果需要更详细的表格打印，可以使用以下代码：
-                        /*
-                        printf("\n详细检测点列表:\n");
-                        for (int r = 0; r < RADAR_CHIRP_POINTS; ++r) {
-                            for (int d = 0; d < RADAR_CHIRP_COUNT; ++d) {
-                                if (detection_map[target_ant][d][r] == 1) {
-                                    printf("  [Ant %d] R_Bin: %-3d, D_Bin: %-3d\n", target_ant, r, d);
-                                }
-                            }
-                        }
-                        */
+                        radar_cfar_log(detection_map);
                     } else {
                         printf("---------------------------------------------------\n");
                         printf("❌ CFAR 检测失败。\n");

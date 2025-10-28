@@ -33,9 +33,9 @@ typedef struct {
 extern CfarParams cfar_params; // 全局CFAR参数实例
 
 // 定义CFAR的输出数据类型：一个三维uint8_t数组，1表示检测到目标，0表示未检测到
-typedef uint8_t RadarDetectionMap[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+typedef uint8_t RadarDetectionMap[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS];
 
-/**
+/*
  * @brief 对2D FFT结果进行CFAR目标检测。
  *
  * @param input_fft_2d_data 2D FFT后的复数数据（Range-Doppler谱）。
