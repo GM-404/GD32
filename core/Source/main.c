@@ -25,7 +25,7 @@ int main()
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
     const sample_frame_t *frame = (const sample_frame_t *)packed_frame_data;
     // 2. 调用解析函数
-    if (frame_data_dismantle(frame, parsed_radar_data) == 0) {
+    frame_data_dismantle(frame, parsed_radar_data);
         radar_dismantle_log(frame, parsed_radar_data);
         //3. 1DFFT
         if (perform_1d_fft(parsed_radar_data, fft_1d_output_data) == 0)
@@ -52,9 +52,5 @@ int main()
         else{
             printf("❌ 1DFFT 解析失败。\n");
         }
-    }
-    else{
-        printf("❌ frame_data_dismantle 解析失败。\n");
-    }
     return 0;
 }

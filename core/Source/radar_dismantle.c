@@ -26,13 +26,12 @@ static int frame_prepare_parse(const sample_frame_t *frame)
  * data: 目标三维数组 (Ant x Chirp x Point)
  * 返回说明: 0 成功, -1 失败
  */
-int frame_data_dismantle(const sample_frame_t *frame, 
+void frame_data_dismantle(const sample_frame_t *frame, 
                         int8_t data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
 {
     // 检查帧数据是否接收完整
     if (frame_prepare_parse(frame) != 0) {
         printf("Error: Frame prepare parse failed or data size mismatch.\n");
-        return -1;
     }
     
     // 原始数据指针 (指向 struct data[] 的起始)
@@ -61,12 +60,9 @@ int frame_data_dismantle(const sample_frame_t *frame,
     // 验证数据字节计数
     if (current_index != frame->data_bytes) {
         printf("Error: Data byte count mismatch after processing.\n");
-        return -1;
     }
-    
-    return 0;
 }
-const uint8_t packed_frame_data[PACKED_FRAME_SIZE * TOTAL_FRAMES_IN_ARRAY] = {
+const uint8_t packed_frame_data[PACKED_FRAME_SIZE] = {
     0xBB, 0x55, 0xAA, 0x55, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x02, 0xAD, 0xDE,
     0x80, 0x00, 0x40, 0x00, 0x00, 0x40, 0x00, 0x00, 
     //天线0的第一个chirp
