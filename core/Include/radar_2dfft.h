@@ -9,7 +9,7 @@
 
 // 2D FFT的输入就是1D FFT的输出 (RadarFFT1DOutput)
 // 定义2D FFT的输出数据类型：一个三维fftw_complex数组
-typedef fftw_complex RadarFFT2DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+typedef fftw_complex RadarFFT2DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS];
 
 // 用于存储峰值信息的结构体
 typedef struct {

@@ -14,6 +14,8 @@ extern "C" {
 #define RADAR_CHIRP_POINTS                  (128)       /* 采样点数 */
 #define DATA_FIELD_BYTES                    (RADAR_DATA_BYTE*RADAR_ANT_COUNT*RADAR_CHIRP_POINTS*RADAR_CHIRP_COUNT)
 
+#define RANGE_BINS       (20)  
+
 /* 雷达采样信息结构体 */
 typedef struct {
     uint32_t frame_head;                    /* 帧头(0x55AA55BB) */
@@ -44,7 +46,7 @@ typedef struct {
 /* CFAR 配置 */
 
 /** @brief CFAR 幅度阈值 */
-#define CONFIG_CFAR_TH_AMP 3.0
+#define CONFIG_CFAR_TH_AMP 5.0
 
 /** @brief CFAR 保护单元大小-距离维度 */
 #define CONFIG_CFAR_NUM_GUARD_RANGE 5

@@ -1,43 +1,57 @@
 // radar_clutter_removal.c
+
 #include "radar_clutter_removal.h"
 #include <stdio.h>
-#include <math.h> // For hypot
+#include <math.h>
 
-// ----------------------------------------------------
-// 2. 独立去直流函数实现 
-// ----------------------------------------------------
+/**
+ * @brief 对 FFT 结果执行去直流操作 (减去所有元素的平均值)。
+ * 对应 MATLAB 逻辑: dataFft1d = dataFft1d - mean(dataFft1d);
+ */
 void perform_dc_removal(RadarFFT1DOutput data)
 {
-    double mean_re = 0.0;
-    double mean_im = 0.0;
+    // 检查是否启用了去直流
+    if (!EN_RADAR_CLUTTER_REMOVAL) {
+        return;
+    }
+
+    double sum_re = 0.0;
+    double sum_im = 0.0;
     const int NUM_RANGE_BINS = RADAR_CHIRP_POINTS / 2;
-    // 总元素数量 (Re 和 Im 视为独立元素)
-    const int num_elements = RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS;
+    
+    // 总复数元素数量 (用于计算平均值)
+    const long long total_elements = (long long)RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS;
 
-    if (num_elements == 0) return;
+    if (total_elements == 0) {
+        fprintf(stderr, "Warning: Total FFT elements is zero, skipping DC removal.\n");
+        return;
+    }
 
-    // 4a. 计算平均值 (求和)
+    // 1. 遍历所有维度，计算所有元素的实部和虚部之和
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
         for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
             for (int i = 0; i < NUM_RANGE_BINS; ++i) {
-                mean_re += data[ant][chirp][i][0];
-                mean_im += data[ant][chirp][i][1];
+                // data[ant][chirp][i][0] 是实部
+                // data[ant][chirp][i][1] 是虚部
+                sum_re += data[ant][chirp][i][0];
+                sum_im += data[ant][chirp][i][1];
             }
         }
     }
     
-    // 计算平均值
-    mean_re /= num_elements;
-    mean_im /= num_elements;
+    // 2. 计算平均值 (mean_re + i * mean_im)
+    const double mean_re = sum_re / total_elements;
+    const double mean_im = sum_im / total_elements;
 
-    // 4b. 减去平均值 (原地修改)
-    // 对应 MATLAB 逻辑: dataFft1d = dataFft1d - mean(dataFft1d);
+    // 3. 遍历所有维度，将平均值从每个元素中减去 (原地修改)
     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
         for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
             for (int i = 0; i < NUM_RANGE_BINS; ++i) {
-                data[ant][chirp][i][0] -= mean_re;
-                data[ant][chirp][i][1] -= mean_im;
+                data[ant][chirp][i][0] -= mean_re; // 实部减去平均实部
+                data[ant][chirp][i][1] -= mean_im; // 虚部减去平均虚部
             }
         }
     }
+
+    printf("✅ DC removal successful. Subtracted mean (R=%.4f, I=%.4f) from all elements.\n", mean_re, mean_im);
 }

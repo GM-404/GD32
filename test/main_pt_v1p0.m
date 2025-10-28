@@ -68,6 +68,7 @@ for ii=1
             dataFft1d(chirp,:,lane) = rangFft.';
         end
         if crEn ==1
+            dataFft1d_mean = mean(dataFft1d);
             dataFft1d = dataFft1d - mean(dataFft1d);
         end
         %% 2dfft
