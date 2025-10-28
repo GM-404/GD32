@@ -27,7 +27,7 @@ static void fftshift_fftw(fftw_complex *out, int N) {
 }
 
 
-int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
+void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
                 RadarFFT2DOutput output_fft_2d) {
     
     fftw_plan plan;
@@ -46,7 +46,6 @@ int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
         fprintf(stderr, "Error: Failed to allocate memory for 2D FFTW buffers.\n");
         fftw_free(in); 
         fftw_free(out);
-        return -1;
     }
 
     // 创建一个1D FFT计划，针对 Chirp 维度 (Doppler)
@@ -56,7 +55,6 @@ int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
         fprintf(stderr, "Error: Could not create 2D FFTW plan.\n");
         fftw_free(in);
         fftw_free(out);
-        return -1;
     }
     
     // ** Doppler 窗函数已被移除 **
@@ -101,5 +99,4 @@ int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
     fftw_free(out);
 
     printf("✅ 2D FFT (Range-Doppler) calculation completed (No Doppler Window).\n");
-    return 0;
 }

@@ -27,7 +27,7 @@ typedef struct {
  *                      此数组应在调用前被分配好内存。
  * @return 0 成功，-1 失败 (例如FFTW计划创建失败或内存分配失败)。
  */
-int perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
+void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
                 RadarFFT2DOutput output_fft_2d);
 
 #endif // RADAR_FFT_2D_H
