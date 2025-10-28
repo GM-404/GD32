@@ -8,7 +8,7 @@
 // ----------------------------------------------------
 // 1. FFT 主函数实现（只执行 FFT 和截断）
 // ----------------------------------------------------
-int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+void perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d) {
     
     fftw_plan plan;
@@ -25,7 +25,6 @@ int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][R
         fprintf(stderr, "Error: Failed to allocate memory for FFTW buffers.\n");
         fftw_free(in); 
         fftw_free(out);
-        return -1;
     }
 
     // 创建一个1D FFT计划
@@ -35,7 +34,6 @@ int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][R
         fprintf(stderr, "Error: Could not create FFTW plan.\n");
         fftw_free(in);
         fftw_free(out);
-        return -1;
     }
     
     // 循环：读取输入，执行 FFT，存储结果
@@ -65,8 +63,6 @@ int perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][R
     fftw_destroy_plan(plan);
     fftw_free(in);
     fftw_free(out);
-
-    return 0; // 成功
 }
 
 
