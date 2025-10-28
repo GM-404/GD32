@@ -63,7 +63,7 @@ OUTPUT_FILENAME = 'packed_frame_data.txt'
 
 # 1. 读取 JSON 文件
 try:
-    with open('TEST2.json', 'r') as f:
+    with open('frame_3_data.json', 'r') as f:
         data = json.load(f)
 except Exception as e:
     print(f"错误: 无法读取或解析 TEST2.json: {e}")

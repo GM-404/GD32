@@ -9,7 +9,7 @@ clear all;
 clc;
 addpath(genpath(pwd));
 % 调用函数解析JSON文件
-datafile = 'hand_rl_1021_20cm.json';
+datafile = 'frame_3_data.json';
 
 matrix = jsonToMatrix(datafile);
 %% 雷达参数设置
@@ -21,10 +21,10 @@ lamda = 0.0125;
 T_frame = 0.05;
 vRes = lamda/2/T_frame;
 rbinCut = 20; %% max:M_sample/2
-dataFrame = vec2arrFrms(matrix, N_rx, N_chirp, M_sample);%% 雷达数据转换
+dataFrame = vec2arrFrms(matrix, N_rx, N_chirp, M_sample);%% 雷达数据转+换
 frmNum = size(dataFrame,1)
 %% 信号检测算法参数设置
-crEn= 1; % 0=不去直流，1=去直流
+crEn= 0; % 0=不去直流，1=去直流
 theta_scan = -90:0.1:90;
 % CFAR参数设置
 % refCells = [6, 6];    % 速度维单侧6个，距离维单侧6个参考单元
@@ -55,7 +55,7 @@ tarVs = zeros(1,frmNum);
 tarAs = zeros(1,frmNum);
 tarPs = zeros(1,frmNum);
 %% main
-for ii=3
+for ii=1
     atData = squeeze(dataFrame(ii,:, :, :));%2*64*128
     for lane=1:N_rx
         %% 1dfft

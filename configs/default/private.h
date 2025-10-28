@@ -56,7 +56,7 @@ typedef struct {
 #define CONFIG_CFAR_NUM_TRAIN_RANGE 6
 
 /** @brief CFAR 训练单元大小-速度维度 */
-#define CONFIG_CFAR_NUM_TRAIN_VEL 4
+#define CONFIG_CFAR_NUM_TRAIN_VEL 6
 
 /** @brief CFAR 阈值*/
 #define CONFIG_CFAR_TH_OFFSET 3
