@@ -222,59 +222,87 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
                            DetectionInfo **out_detection_info)
 {
     // 检查参数合理性
-    if (params == NULL) return -1;
+    if (params == NULL) { fprintf(stderr, "Error: CFAR parameters are null.\n"); return -1;}
     if (params->refCells[0] <= 0 || params->refCells[1] <= 0 || params->guardCells[0] < 0 || params->guardCells[1] < 0) {
         fprintf(stderr, "Error: CFAR parameters must be positive for refCells and non-negative for guardCells.\n");
         return -1;
     }
+    const int NUM_ANT = RADAR_ANT_COUNT;
     const int NUM_RANGE_BINS = RANGE_BINS; 
     const int NUM_DOPPLER_BINS = RADAR_CHIRP_COUNT;
     // 1. 初始化检测图为0
-    memset(output_detection_map, 0, RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS * sizeof(uint8_t));
-    
-    // 2. 遍历每个天线
-    for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        
-        // 临时存储功率图 (Matlab CFAR要求实数输入)
-        double power_map[RADAR_CHIRP_COUNT][NUM_RANGE_BINS];
-        
-        // a. 从 fftw_complex (double[2]) 转换为功率图 (幅度)
-        for (int v = 0; v < RADAR_CHIRP_COUNT; ++v) {
+    memset(output_detection_map, 0, NUM_ANT * NUM_DOPPLER_BINS * NUM_RANGE_BINS * sizeof(uint8_t));
+
+    // 2. 创建并计算“平均幅度图” (ncidata)
+    // 维度: [DopplerBins][RangeBins]
+    // 初始化为零，用于累加
+    double avg_amplitude_map[NUM_DOPPLER_BINS][NUM_RANGE_BINS]; 
+    memset(avg_amplitude_map, 0, NUM_DOPPLER_BINS * NUM_RANGE_BINS * sizeof(double));
+
+    // a. 累加所有天线的幅度
+    for (int ant = 0; ant < NUM_ANT; ++ant) {
+        for (int v = 0; v < NUM_DOPPLER_BINS; ++v) {
             for (int r = 0; r < NUM_RANGE_BINS; ++r) {
-                // fftw_complex[0] 是实部，[1] 是虚部
+                // 1. abs(dataFft2d) - 计算幅度
                 double real = input_fft_2d_data[ant][v][r][0];
                 double imag = input_fft_2d_data[ant][v][r][1];
-                // 使用幅度作为 CFAR 输入 (幅度 = sqrt(R^2 + I^2))
-                power_map[v][r] = sqrt(real * real + imag * imag);
+                double magnitude = sqrt(real * real + imag * imag);
+                
+                // 2. 累加到平均图
+                avg_amplitude_map[v][r] += magnitude;
             }
         }
-        
-        DetectionInfo *det_list = NULL;
-        // 注意：这里我们使用核心CFAR函数，并要求它将详细检测信息写入 params->outputDetectionInfo
-        // 我们假设调用者已经设置了 params->outputDetectionInfo 的指针地址。
-        int det_count = cfar2d_core(
-            power_map,
-            NUM_RANGE_BINS,
-            RADAR_CHIRP_POINTS,
-            params,
-            &det_list // 接收详细检测列表
-        );
-        
-        // b. 将详细检测结果映射到二进制检测图
-        if (det_count > 0) {
-            for (int i = 0; i < det_count; ++i) {
-                int r_idx = det_list[i].rangeIdx;
-                int v_idx = det_list[i].velIdx;
-                
-                // 确保索引在范围内
-                if (r_idx < RADAR_CHIRP_POINTS && v_idx < RADAR_CHIRP_COUNT) {
-                    output_detection_map[ant][v_idx][r_idx] = 1;
-                }
-            }
-            // 释放核心函数分配的内存
-            free(det_list);
+    }
+    // b. 除以天线数得到平均 (ncidata = mean(absdata, 3))
+    for (int v = 0; v < NUM_DOPPLER_BINS; ++v) {
+        for (int r = 0; r < NUM_RANGE_BINS; ++r) {
+            avg_amplitude_map[v][r] /= NUM_ANT;
         }
     }
     
-    return 0; // 成功
+    // 3. 在“平均幅度图”上执行核心 CFAR 检测
+    DetectionInfo *det_list = NULL;
+    int det_count = cfar2d_core(
+        avg_amplitude_map, // 使用平均图
+        NUM_DOPPLER_BINS,
+        NUM_RANGE_BINS,
+        params,
+        &det_list
+    );
+            // 4. 将检测结果应用于所有天线的二值图 (如果需要)
+    if (det_count > 0) {
+        for (int i = 0; i < det_count; ++i) {
+            int r_idx = det_list[i].rangeIdx;
+            int v_idx = det_list[i].velIdx;
+            
+            // 确保索引在范围内
+            if (r_idx < NUM_RANGE_BINS && v_idx < NUM_DOPPLER_BINS) {
+                // 将同一个检测结果标记到所有天线的二值图上
+                for (int ant = 0; ant < NUM_ANT; ++ant) {
+                    output_detection_map[ant][v_idx][r_idx] = 1;
+                }
+            }
+        }
+        
+        // 5. 将核心检测结果列表复制到外部输出指针 (可选)
+        // 注意：如果您的 MATLAB 只需要一个检测列表 (即不关心天线)，
+        // 则此处的 det_list 就是最终结果。
+        if (out_detection_info != NULL) {
+             // 深度拷贝或直接赋值给 out_detection_info (取决于您的调用逻辑)
+             // 简单起见，我们假设外部只需要这一个列表的拷贝
+             *out_detection_info = det_list;
+        } else {
+             // 如果不需要外部存储，释放内存
+            free(det_list);
+        }
+        
+    } else {
+        // 没有检测到目标，确保 out_detection_info 被清除
+        if (out_detection_info != NULL) {
+            *out_detection_info = NULL;
+        }
+    }
+    
+    // 返回检测到的目标数量
+    return det_count; 
 }
