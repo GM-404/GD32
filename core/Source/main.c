@@ -46,9 +46,8 @@ int main()
     perform_dc_removal(fft_1d_output_data);
     radar_clutter_removal_log(fft_1d_output_data);
 
-    // 5. 速度维加窗(待完成)
-    //apply_doppler_windowing(WINDOW_HAMMING, fft_1d_output_data);
-
+    // 5. 速度维加窗
+    apply_doppler_windowing(fft_1d_output_data);
 
     // 7. 2DFFT
     perform_2d_fft(fft_1d_output_data, fft_2d_output_data);

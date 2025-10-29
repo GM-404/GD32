@@ -24,8 +24,6 @@ void perform_dc_removal(RadarFFT1DOutput data)
         fprintf(stderr, "Warning: FFT dimensions are zero, skipping DC removal.\n");
         return;
     }
-    
-    printf("--- Starting DC Clutter Removal (Per Antenna, Per Range Bin) ---\n");
 
     // 1. 遍历天线 (Lane)
     for (int ant = 0; ant < NUM_ANT; ++ant) {
@@ -45,12 +43,6 @@ void perform_dc_removal(RadarFFT1DOutput data)
             // b. 计算平均值 (Mean Range Profile for this specific Ant/Range bin)
             const double mean_re = sum_re / NUM_CHIRP;
             const double mean_im = sum_im / NUM_CHIRP;
-            
-            // 打印Range Bin 0 的平均值进行验证 (Range Bin 0是Range FFT的DC分量)
-            if (i == 0) { 
-                printf("  Ant %d / Range Bin 0 Mean Subtracted: (R=%.4f, I=%.4f)\n", ant, mean_re, mean_im);
-            }
-
 
             // c. 遍历Chirp，从每个元素中减去平均值 (原地修改)
             for (int chirp = 0; chirp < NUM_CHIRP; ++chirp) {

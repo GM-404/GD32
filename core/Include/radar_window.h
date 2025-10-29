@@ -2,7 +2,7 @@
 #define RADAR_WINDOW_H
 
 #include "private.h"
-
+#include "radar_1dfft.h"
 
 // 窗函数类型选择
 typedef enum {
@@ -27,5 +27,9 @@ void apply_range_windowing(
     WindowType type,
     const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
     double output_windowed[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS]);
-
+/**
+ * @brief 将选定的窗函数应用于1D FFT后的数据（速度维
+ * @param data 1D FFT后的复数数据。
+ */
+void apply_doppler_windowing(RadarFFT1DOutput data);
 #endif // RADAR_WINDOW_H

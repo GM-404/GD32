@@ -46,7 +46,7 @@ rWin = rWin./sum(rWin)*length(rWin);
 
 vWin = hann(N_chirp);%速度维窗序列
 vWin = vWin./sum(vWin)*length(vWin);
-vWin = ones(N_chirp,1);%%% 矩形窗，等效未加窗！！！！！！！！！！！
+%%vWin = ones(N_chirp,1);%%% 矩形窗，等效未加窗！！！！！！！！！！！
 %% 雷达变量声明
 dataFft1d = zeros(N_chirp,M_sample/2,N_rx);
 dataFft2d = zeros(N_chirp,rbinCut,N_rx);
