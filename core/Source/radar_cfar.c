@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include <string.h> // For memset
 #include <float.h>
-
+#include "radar_log.h"
 
 CfarParams cfar_params = {
     .velDim = RADAR_CHIRP_COUNT,
@@ -185,7 +185,9 @@ static int cfar2d_core(
                 
                 // 存储结果
                 detections[detCount].rangeIdx = r_idx;  // 0-based 距离索引
+                detections[detCount].rangeFine = (double)r_idx; // **新增：初始化为粗糙索引**
                 detections[detCount].velIdx = v_idx;    // 0-based 速度索引
+                detections[detCount].velFine = (double)v_idx;   // **新增：初始化为粗糙索引**
                 detections[detCount].amplitude = currentAmp;
                 detections[detCount].snr = snr;
                 detections[detCount].noise = noiseEst;
@@ -268,7 +270,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         params,
         &det_list
     );
-            // 4. 将检测结果应用于所有天线的二值图 (如果需要)
+    // 4. 将检测结果应用于所有天线的二值图 (如果需要)
     if (det_count > 0) {
         for (int i = 0; i < det_count; ++i) {
             int r_idx = det_list[i].rangeIdx;
@@ -305,3 +307,11 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     // 返回检测到的目标数量
     return det_count; 
 }
+
+
+/**
+ * @brief 打印CFAR检测结果的详细信息
+ * @param frame_num 当前帧序号 (可选，用于日志)。
+ * @param detections 检测列表。
+ * @param count 检测到的目标数量。
+ */

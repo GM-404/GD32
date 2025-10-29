@@ -209,57 +209,80 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
  */
 void radar_cfar_log(uint8_t detection_map[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS])
 {
-    // 您可能需要定义一个 EN_CFAR_LOG 宏来控制是否生成日志
-    if (EN_CFAR_LOG) 
-    {
-        printf("✅ CFAR 二值检测图结果解析中...\n");
-        // 创建或覆盖日志文件
-        FILE *log_file = fopen("radar_cfar_detection_log.txt", "w"); 
-        if (log_file == NULL) {
-            perror("Error opening CFAR detection log file"); 
-            return; 
-        }
+    // // 您可能需要定义一个 EN_CFAR_LOG 宏来控制是否生成日志
+    // if (EN_CFAR_LOG) 
+    // {
+    //     printf("✅ CFAR 二值检测图结果解析中...\n");
+    //     // 创建或覆盖日志文件
+    //     FILE *log_file = fopen("radar_cfar_detection_log.txt", "w"); 
+    //     if (log_file == NULL) {
+    //         perror("Error opening CFAR detection log file"); 
+    //         return; 
+    //     }
 
-        // 定义正确的维度点数
-        const int DOPPLER_POINTS = RADAR_CHIRP_COUNT;
-        const int RANGE_POINTS = RANGE_BINS; 
+    //     // 定义正确的维度点数
+    //     const int DOPPLER_POINTS = RADAR_CHIRP_COUNT;
+    //     const int RANGE_POINTS = RANGE_BINS; 
         
-        // 写入日志文件头部信息
-        fprintf(log_file, "--- CFAR Detection Map Log ---\n");
-        fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
-        fprintf(log_file, "DOPPLER_POINTS: %d\n", DOPPLER_POINTS);
-        fprintf(log_file, "RANGE_BINS_USED: %d\n", RANGE_POINTS);
-        fprintf(log_file, "--------------------------------\n\n");
+    //     // 写入日志文件头部信息
+    //     fprintf(log_file, "--- CFAR Detection Map Log ---\n");
+    //     fprintf(log_file, "RADAR_ANT_COUNT: %d\n", RADAR_ANT_COUNT);
+    //     fprintf(log_file, "DOPPLER_POINTS: %d\n", DOPPLER_POINTS);
+    //     fprintf(log_file, "RANGE_BINS_USED: %d\n", RANGE_POINTS);
+    //     fprintf(log_file, "--------------------------------\n\n");
 
         
-        // 1. 遍历所有天线
-        for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
+    //     // 1. 遍历所有天线
+    //     for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
             
-            fprintf(log_file, "=== Antenna %d Detections ===\n", ant);
-            int ant_det_count = 0;
+    //         fprintf(log_file, "=== Antenna %d Detections ===\n", ant);
+    //         int ant_det_count = 0;
 
-            // 2. 遍历所有 Range Bin
-            for (int r_idx = 0; r_idx < RANGE_POINTS; ++r_idx) {
+    //         // 2. 遍历所有 Range Bin
+    //         for (int r_idx = 0; r_idx < RANGE_POINTS; ++r_idx) {
                 
-                // 3. 遍历所有 Doppler Bin
-                for (int d_idx = 0; d_idx < DOPPLER_POINTS; ++d_idx) { 
+    //             // 3. 遍历所有 Doppler Bin
+    //             for (int d_idx = 0; d_idx < DOPPLER_POINTS; ++d_idx) { 
                     
-                    // 如果该单元检测到目标 (值为 1)
-                    if (detection_map[ant][d_idx][r_idx] == 1) {
+    //                 // 如果该单元检测到目标 (值为 1)
+    //                 if (detection_map[ant][d_idx][r_idx] == 1) {
                         
-                        // 记录目标位置 (Range-Doppler 坐标)
-                        fprintf(log_file, "  Target Detected: Range Bin %d, Doppler Bin %d\n",
-                                        r_idx, d_idx);
-                        ant_det_count++;
-                    }
-                }
-            }
+    //                     // 记录目标位置 (Range-Doppler 坐标)
+    //                     fprintf(log_file, "  Target Detected: Range Bin %d, Doppler Bin %d\n",
+    //                                     r_idx, d_idx);
+    //                     ant_det_count++;
+    //                 }
+    //             }
+    //         }
             
-            fprintf(log_file, "--- Antenna %d Total Detections: %d ---\n\n", ant, ant_det_count);
-        }
+    //         fprintf(log_file, "--- Antenna %d Total Detections: %d ---\n\n", ant, ant_det_count);
+    //     }
 
-        // 关闭文件
-        fclose(log_file);
-        printf("✅ CFAR 检测结果日志已保存至 radar_cfar_detection_log.txt\n");
+    //     // 关闭文件
+    //     fclose(log_file);
+    //     printf("✅ CFAR 检测结果日志已保存至 radar_cfar_detection_log.txt\n");
+    // }
+}
+void print_cfar_detections_log(int frame_num, const DetectionInfo *detections, int count)
+{
+    if (!EN_CFAR_LOG ||count == 0 || detections == NULL) {
+        // 如果没有目标，则不打印详细信息
+        return;
+    }
+    
+    // 打印帧头
+    fprintf(stdout, "------> Frame = %d:\n", frame_num);
+    fprintf(stdout, " Detected target information:\n");
+    
+    for (int i = 0; i < count; ++i) {
+        fprintf(stdout, 
+            "Target %d: Range=%d(%.2f), Velocity=%d(%.2f), Amplitude=%.2f, SNR=%.2fdB, NoiseEst=%.2f\n", 
+            i + 1,                                       // 目标序号从 1 开始
+            detections[i].rangeIdx, detections[i].rangeFine,
+            detections[i].velIdx, detections[i].velFine,
+            detections[i].amplitude,
+            detections[i].snr,
+            detections[i].noise
+        );
     }
 }

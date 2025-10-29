@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <math.h> 
 #include "private.h" 
 #include "radar_log.h"
@@ -26,6 +27,10 @@ int main()
 {
     // 初始化窗口
     // initialize_windowing(WINDOW_HAMMING);
+
+    // 用于接收详细的检测列表
+    DetectionInfo *detailed_detections = NULL; 
+    const int current_frame = 1; // 假设当前的帧序号
 
     // 1. 将原始字节流强制转换为结构体指针
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
@@ -54,12 +59,17 @@ int main()
     radar_2DFFT_log(fft_2d_output_data);
 
     // 8. CFAR
-    int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL);
-    radar_cfar_log(detection_map);
-
+    int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, &detailed_detections);// 将指针的地址传入，接收检测列
+    //radar_cfar_log(detection_map);
+    print_cfar_detections_log(current_frame, detailed_detections, det_count);
     // 9. 插值
 
     // 10.测角
-
+    
+    //释放指针
+    if (detailed_detections != NULL) {
+    free(detailed_detections);
+    detailed_detections = NULL; 
+}
     return 0;
 }

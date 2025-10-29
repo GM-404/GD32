@@ -19,11 +19,13 @@ typedef struct {
 
 // 定义检测结果结构体
 typedef struct {
-    int rangeIdx;      // 距离索引 (0-based)
-    int velIdx;        // 速度索引 (0-based)
-    double amplitude;  // 目标幅度
-    double snr;        // 信噪比(dB)
-    double noise;      // 噪声估计
+    int rangeIdx;      // 距离维粗糙索引 (0-based)
+    double rangeFine;  // 距离维精细值 (Interpolation result)
+    int velIdx;        // 速度维粗糙索引 (0-based)
+    double velFine;    // 速度维精细值 (Interpolation result)
+    double amplitude;  // 检测点的幅度
+    double snr;        // 信噪比 (dB)
+    double noise;      // 噪声估计值
 } DetectionInfo;
 
 extern CfarParams cfar_params; // 全局CFAR参数实例
