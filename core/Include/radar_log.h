@@ -7,7 +7,7 @@
 #include "radar_1dfft.h"
 #include "radar_2dfft.h"
 
-#define EN_DISMANTLE_LOG         1
+#define EN_DISMANTLE_LOG         0
 #define EN_1DFFT_LOG             1
 #define EN_CLUTTER_REMOVAL_LOG   1
 #define EN_2DFFT_LOG             1

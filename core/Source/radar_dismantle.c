@@ -36,29 +36,21 @@ void frame_data_dismantle(const sample_frame_t *frame,
     
     // 原始数据指针 (指向 struct data[] 的起始)
     const uint8_t *src_ptr = frame->data;
-    uint32_t ant, chirp, point;
-    uint32_t current_index = 0; // 原始数据流中的连续索引
 
     // 1. 遍历chrip (RADAR_CHIRP_COUNT个)
-    for (chirp = 0; chirp < RADAR_CHIRP_COUNT; chirp++) {
+    for (uint8_t chirp = 0; chirp < RADAR_CHIRP_COUNT; chirp++) {
         // 2. 遍历 ant (两根)
-        for (ant = 0; ant < RADAR_ANT_COUNT; ant++) {
+        for (uint8_t ant = 0; ant < RADAR_ANT_COUNT; ant++) {
             // 3. 遍历采样点 ( RADAR_CHIRP_POINTS个)
-            for (point = 0; point < RADAR_CHIRP_POINTS; point++) {
-                
-                // 从原始 uint8_t 数组中取出数据
-                uint8_t raw_value = src_ptr[current_index];
-                
-                // 转换为目标 int8_t 格式并存入三维数组
-                data[ant][chirp][point] = (int8_t)raw_value;
-                
-                // 移动到下一个原始数据字节
-                current_index++;
+            for (uint16_t point = 0; point < RADAR_CHIRP_POINTS; point++) {
+                // 从原始 uint8_t 数组中取出数据转换为目标 int8_t 格式并存入三维数组
+                data[ant][chirp][point] = (int8_t)*src_ptr++; 
+                //后续优化想法,当采样点个数很多:'''使用 memcpy 一次性拷贝所有采样点'''
             }
         }
     }
     // 验证数据字节计数
-    if (current_index != frame->data_bytes) {
+    if ((uint32_t)(src_ptr - frame->data) != frame->data_bytes) {
         printf("Error: Data byte count mismatch after processing.\n");
     }
 }

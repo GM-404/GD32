@@ -42,6 +42,12 @@ typedef struct {
 #define SAMPLE_FRAME_SIZE                   sizeof(sample_frame_t)
 /******************************************************/
 
+/********************** 雷达配置参数 **********************/
+/** @brief 打包后的雷达数据大小 */
+#define PACKED_FRAME_SIZE   (RADAR_DATA_BYTE*RADAR_ANT_COUNT*RADAR_CHIRP_POINTS*RADAR_CHIRP_COUNT) +  sizeof(sample_frame_t)
+
+/** @brief 输入的数据包 */
+extern const uint8_t packed_frame_data[PACKED_FRAME_SIZE];  
 
 /* CFAR 配置 */
 
