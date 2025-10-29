@@ -16,8 +16,8 @@ static int8_t parsed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_
 // 1DFFT输入三维数组
 static double windowed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 // 2DFFT输入三维数组
-static RadarFFT1DOutput fft_1d_output_data; // 定义为静态全局变量，以避免栈溢出
-// 2D FFT的输出
+static RadarFFT1DOutput fft_1d_output_data; 
+// CFAR的输入
 static RadarFFT2DOutput fft_2d_output_data;
 // CFAR的输出：检测结果图
 static RadarDetectionMap detection_map;
@@ -25,7 +25,7 @@ static RadarDetectionMap detection_map;
 int main()
 {
     // 初始化窗口
-    initialize_windowing(WINDOW_HAMMING);
+    // initialize_windowing(WINDOW_HAMMING);
 
     // 1. 将原始字节流强制转换为结构体指针
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
@@ -35,23 +35,32 @@ int main()
     frame_data_dismantle(frame, parsed_radar_data);
     radar_dismantle_log(frame, parsed_radar_data);
 
-    // 3. 加窗
+    // 3. 距离维加窗
     apply_range_windowing(WINDOW_HAMMING, parsed_radar_data, windowed_radar_data); 
 
-    //4. 1DFFT
+    // 4. 1DFFT
     perform_1d_fft(windowed_radar_data, fft_1d_output_data);
     radar_1DFFT_log(fft_1d_output_data);
-
-    // 4. 静态杂波消除
+    
+    // 6. 静态杂波消除
     perform_dc_removal(fft_1d_output_data);
     radar_clutter_removal_log(fft_1d_output_data);
 
-    // 5. 2DFFT
+    // 5. 速度维加窗(待完成)
+    //apply_doppler_windowing(WINDOW_HAMMING, fft_1d_output_data);
+
+
+    // 7. 2DFFT
     perform_2d_fft(fft_1d_output_data, fft_2d_output_data);
     radar_2DFFT_log(fft_2d_output_data);
 
-    // 6. CFAR
+    // 8. CFAR
     int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, NULL);
     radar_cfar_log(detection_map);
+
+    // 9. 插值
+
+    // 10.测角
+
     return 0;
 }
