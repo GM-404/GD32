@@ -6,9 +6,9 @@
 #include <math.h>   
 
 // ----------------------------------------------------
-// 1. FFT 主函数实现（只执行 FFT 和截断）
+// 1. FFT 主函数实现
 // ----------------------------------------------------
-void perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+void perform_1d_fft(const double input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d) {
     
     fftw_plan plan;
@@ -43,7 +43,7 @@ void perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][
             for (int i = 0; i < RADAR_CHIRP_POINTS; ++i) {
                 // ** 对应 MATLAB: chirpData = squeeze(atData(lane, chirp, :)); **
                 // 将 int8_t 数据转换为 fftw_complex 格式 (虚部为 0)
-                in[i][0] = (double)input_data[ant][chirp][i]; 
+                in[i][0] = input_data[ant][chirp][i]; 
                 in[i][1] = 0.0;
             }
 

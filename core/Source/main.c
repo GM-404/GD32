@@ -4,14 +4,17 @@
 #include "private.h" 
 #include "radar_log.h"
 #include "radar_dismantle.h" 
-//#include "radar_make_window.h"
+#include "radar_window.h"
 #include "radar_1dfft.h"  
 #include "radar_clutter_removal.h"     
 #include "radar_2dfft.h"
 #include "radar_cfar.h" 
 #include <stdbool.h>
-// 1DFFT输入三维数组
+
+//加窗输入
 static int8_t parsed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+// 1DFFT输入三维数组
+static double windowed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 // 2DFFT输入三维数组
 static RadarFFT1DOutput fft_1d_output_data; // 定义为静态全局变量，以避免栈溢出
 // 2D FFT的输出
@@ -21,6 +24,9 @@ static RadarDetectionMap detection_map;
 
 int main()
 {
+    // 初始化窗口
+    initialize_windowing(WINDOW_HAMMING);
+
     // 1. 将原始字节流强制转换为结构体指针
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
     const sample_frame_t *frame = (const sample_frame_t *)packed_frame_data;
@@ -29,8 +35,11 @@ int main()
     frame_data_dismantle(frame, parsed_radar_data);
     radar_dismantle_log(frame, parsed_radar_data);
 
-    //3. 1DFFT
-    perform_1d_fft(parsed_radar_data, fft_1d_output_data);
+    // 3. 加窗
+    apply_range_windowing(WINDOW_HAMMING, parsed_radar_data, windowed_radar_data); 
+
+    //4. 1DFFT
+    perform_1d_fft(windowed_radar_data, fft_1d_output_data);
     radar_1DFFT_log(fft_1d_output_data);
 
     // 4. 静态杂波消除

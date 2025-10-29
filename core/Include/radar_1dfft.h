@@ -18,7 +18,7 @@ typedef double RadarFFT1DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_
     * @param output_fft_1d 输出的1D FFT结果，维度为 [Ant][Chirp][Points/2][Re/Im]。
     * @return int 返回0表示成功，-1表示失败。
  */
-void perform_1d_fft(const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+void perform_1d_fft(const double input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d);
 
 

@@ -5,12 +5,12 @@ RANGE_BINS_USED: 20
 --------------------------------
 
 === Antenna 0 Detections ===
-  Target Detected: Range Bin 2, Doppler Bin 32
+  Target Detected: Range Bin 3, Doppler Bin 32
   Target Detected: Range Bin 15, Doppler Bin 32
 --- Antenna 0 Total Detections: 2 ---
 
 === Antenna 1 Detections ===
-  Target Detected: Range Bin 2, Doppler Bin 32
+  Target Detected: Range Bin 3, Doppler Bin 32
   Target Detected: Range Bin 15, Doppler Bin 32
 --- Antenna 1 Total Detections: 2 ---
 

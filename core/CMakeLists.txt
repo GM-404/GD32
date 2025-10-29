@@ -37,7 +37,7 @@ add_executable(gd32_radar_demo
     Source/main.c 
     Source/radar_log.c
     Source/radar_dismantle.c
-    #Source/radar_make_window.c
+    Source/radar_window.c
     Source/radar_1dfft.c
     Source/radar_clutter_removal.c
     Source/radar_2dfft.c
