@@ -93,3 +93,8 @@
 1588	4493	7834306369351081	C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe	4b2e0b9a3345cbdc
 6	628	7834306588168383	core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj	caa49ac82c46b3c5
 629	2531	7834306594402006	C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe	4b2e0b9a3345cbdc
+8	1066	7834308365768281	core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj	97822ded27242f28
+1067	2934	7834308376356320	C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe	4b2e0b9a3345cbdc
+23	222	7834308754004834	core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj	e81c53ebc5b261c1
+27	606	7834308754054697	core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj	352b1bd42316fe5b
+606	2165	7834308759849654	C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe	4b2e0b9a3345cbdc

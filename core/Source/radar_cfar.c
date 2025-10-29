@@ -1,7 +1,7 @@
 #include "radar_cfar.h"
 #include <stdio.h>
 #include <stdlib.h> 
-#include <math.h>   // For sqrt, log10
+#include <math.h>   //
 #include <stdbool.h>
 #include <string.h> // For memset
 #include <float.h>

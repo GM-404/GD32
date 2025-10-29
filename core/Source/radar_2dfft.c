@@ -15,7 +15,7 @@ static void swap_complex(double a[2], double b[2]) {
     b[1] = temp_im;
 }
 
-// 辅助函数：模拟 MATLAB 的 fftshift
+// 辅助函数： 
 // 对长度为 N 的 FFTW 输出数组进行原地 shift
 static void fftshift_fftw(fftw_complex *out, int N) {
     // 假设 N 是偶数，如果 N 是奇数则需要稍微调整
@@ -56,9 +56,6 @@ void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
         fftw_free(in);
         fftw_free(out);
     }
-    
-    // ** Doppler 窗函数已被移除 **
-    
     
     // --- 2D FFT 主循环 (天线 -> 距离门) ---
     for (int ant = 0; ant < ANT_COUNT; ++ant) {

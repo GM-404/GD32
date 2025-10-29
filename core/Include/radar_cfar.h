@@ -15,10 +15,6 @@ typedef struct {
     int refCells[2];                // [速度维单侧参考单元数, 距离维单侧参考单元数]
     int guardCells[2];              // [速度维单侧保护单元数, 距离维单侧保护单元数]
     double thresholdFactor;         // 线性检测门限参数（倍数）
-    // 您可以选择在这里保留其他配置参数，但为了简洁，我们将其移除
-    // char refCellSel;             // 例如：'median'
-    // int peakGroupingEn;          // 例如：1
-    // ...
 } CfarParams;
 
 // 定义检测结果结构体
