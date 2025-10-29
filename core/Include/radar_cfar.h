@@ -6,6 +6,9 @@
 #include <fftw3.h> // 2D FFT的输出是fftw_complex
 #include "private.h" // 包含雷达参数定义 (如 RADAR_ANT_COUNT, RADAR_CHIRP_COUNT, RADAR_CHIRP_POINTS)
 #include "radar_2dfft.h" // 包含2D FFT的输出类型定义 (RadarFFT2DOutput)
+#include <math.h>
+#include <float.h> // 使用 DBL_EPSILON
+#include <stdbool.h>
 
 // 定义CFAR的参数结构体
 // 注意：移除了 'const' 关键字，并将逗号改为分号
@@ -47,4 +50,35 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
                          const CfarParams *params,
                          DetectionInfo **out_detection_info); // 将输出参数移到函数签名
 
+                        
+/**
+ * @brief 对峰值点进行二次插值，计算亚单元偏移量 delta。
+ * * @param data_map 原始幅度图（我们使用平均幅度图：[VelDim][RangeDim]）。
+ * @param peakIdx 峰值点在插值维度的索引（0基）。
+ * @param fixedIdx 固定维度的索引（0基）。
+ * @param isVelocityDim true=速度维插值，false=距离维插值。
+ * @param dimSize 插值维度的总长度。
+ * @return double 亚单元偏移量 delta。
+ */
+static double peak_interpolation_core(
+    const double data_map[][RANGE_BINS],
+    int peakIdx, 
+    int fixedIdx, 
+    bool isVelocityDim, 
+    int dimSize);
+
+/**
+ * @brief 对CFAR检测到的目标进行二次插值细化（亚单元估计）。
+ * * @param data_map 原始幅度图（平均幅度图：[VelDim][RangeDim]）。
+ * @param detections 待细化的目标列表（原地修改）。
+ * @param count 目标数量。
+ * @param velDim 速度维大小 (RADAR_CHIRP_COUNT)。
+ * @param rangeDim 距离维大小 (RANGE_BINS)。
+ */
+void refine_detections_interpolation(
+    const double data_map[][RANGE_BINS],
+    DetectionInfo *detections,
+    int count,
+    int velDim,
+    int rangeDim);
 #endif // RADAR_CFAR_H

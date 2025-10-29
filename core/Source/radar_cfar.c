@@ -272,6 +272,8 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     );
     // 4. 将检测结果应用于所有天线的二值图 (如果需要)
     if (det_count > 0) {
+        // 对检测结果进行细化
+        refine_detections_interpolation((const double (*)[NUM_RANGE_BINS])avg_amplitude_map, det_list,det_count,NUM_DOPPLER_BINS,NUM_RANGE_BINS);
         for (int i = 0; i < det_count; ++i) {
             int r_idx = det_list[i].rangeIdx;
             int v_idx = det_list[i].velIdx;
@@ -286,7 +288,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         }
         
         // 5. 将核心检测结果列表复制到外部输出指针 (可选)
-        // 注意：如果您的 MATLAB 只需要一个检测列表 (即不关心天线)，
+        // 注意：如果只需要一个检测列表 (即不关心天线)，
         // 则此处的 det_list 就是最终结果。
         if (out_detection_info != NULL) {
              // 深度拷贝或直接赋值给 out_detection_info (取决于您的调用逻辑)
@@ -307,11 +309,111 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     // 返回检测到的目标数量
     return det_count; 
 }
-
-
 /**
- * @brief 打印CFAR检测结果的详细信息
- * @param frame_num 当前帧序号 (可选，用于日志)。
- * @param detections 检测列表。
- * @param count 检测到的目标数量。
+ * @brief 对峰值点进行二次插值，计算亚单元偏移量 delta。
+ * * @param data_map 原始幅度图（我们使用平均幅度图：[VelDim][RangeDim]）。
+ * @param peakIdx 峰值点在插值维度的索引（0基）。
+ * @param fixedIdx 固定维度的索引（0基）。
+ * @param isVelocityDim true=速度维插值，false=距离维插值。
+ * @param dimSize 插值维度的总长度。
+ * @return double 亚单元偏移量 delta。
  */
+static double peak_interpolation_core(
+    const double data_map[][RANGE_BINS],
+    int peakIdx, 
+    int fixedIdx, 
+    bool isVelocityDim, 
+    int dimSize)
+{
+    // 如果维度长度不足3，无法插值，返回0偏移
+    if (dimSize < 3) {
+        return 0.0;
+    }
+
+    // 0基索引：左右邻点的索引
+    // 注意：这里的索引处理与MATLAB的边界处理逻辑不同，C语言中我们直接钳位
+    int prevIdx = (peakIdx == 0) ? dimSize - 1 : peakIdx - 1; // 0基循环边界处理
+    int currIdx = peakIdx;
+    int nextIdx = (peakIdx == dimSize - 1) ? 0 : peakIdx + 1; // 0基循环边界处理
+
+    // 为了简化，在插值时我们暂时不使用循环移位函数 `get_circular_index`
+    // 而采取边界检查来确保索引在 [0, dimSize-1] 范围内。
+    // 在速度维（Doppler）需要循环边界时，您需要根据实际情况调用 get_circular_index。
+    
+    // **提示：为了与CFAR的循环边界行为一致，在这里使用 `get_circular_index`**
+    
+    // 获取三点幅度值
+    double A_prev, A_curr, A_next;
+
+    if (isVelocityDim) {
+        // 速度维插值： data_map[速度][距离]
+        A_prev = data_map[get_circular_index(peakIdx - 1, dimSize)][fixedIdx]; 
+        A_curr = data_map[currIdx][fixedIdx]; 
+        A_next = data_map[get_circular_index(peakIdx + 1, dimSize)][fixedIdx]; 
+    } else {
+        // 距离维插值： data_map[速度][距离]
+        A_prev = data_map[fixedIdx][get_circular_index(peakIdx - 1, dimSize)]; 
+        A_curr = data_map[fixedIdx][currIdx]; 
+        A_next = data_map[fixedIdx][get_circular_index(peakIdx + 1, dimSize)]; 
+    }
+
+    // 二次插值计算偏移量 delta
+    double denominator = A_prev - 2 * A_curr + A_next;
+    double delta = 0.0;
+    
+    // 避免除零或极小值
+    if (fabs(denominator) > DBL_EPSILON) {
+        delta = 0.5 * (A_prev - A_next) / denominator;
+    }
+
+    // 限制偏移量范围 [-0.5, 0.5]，防止异常插值
+    if (delta > 0.5) delta = 0.5;
+    if (delta < -0.5) delta = -0.5;
+
+    return delta;
+}
+/**
+ * @brief 对CFAR检测到的目标进行二次插值细化（亚单元估计）。
+ * * @param data_map 原始幅度图（平均幅度图：[VelDim][RangeDim]）。
+ * @param detections 待细化的目标列表（原地修改）。
+ * @param count 目标数量。
+ * @param velDim 速度维大小 (RADAR_CHIRP_COUNT)。
+ * @param rangeDim 距离维大小 (RANGE_BINS)。
+ */
+void refine_detections_interpolation(
+    const double data_map[][RANGE_BINS],
+    DetectionInfo *detections,
+    int count,
+    int velDim,
+    int rangeDim)
+{
+    if (count <= 0 || detections == NULL) {
+        return;
+    }
+    
+    for (int i = 0; i < count; ++i) {
+        int velIdx = detections[i].velIdx;    // 0基速度索引
+        int rangeIdx = detections[i].rangeIdx; // 0基距离索引
+        
+        // --- 速度维插值 ---
+        double delta_vel = peak_interpolation_core(
+            data_map, 
+            velIdx, 
+            rangeIdx, 
+            true,   // isVelocityDim = true
+            velDim
+        );
+        detections[i].velFine = (double)velIdx + delta_vel;
+
+        // --- 距离维插值 ---
+        double delta_range = peak_interpolation_core(
+            data_map, 
+            rangeIdx, 
+            velIdx, 
+            false,  // isVelocityDim = false
+            rangeDim
+        );
+        detections[i].rangeFine = (double)rangeIdx + delta_range;
+    }
+    printf("✅ Target interpolation successful.\n");
+}

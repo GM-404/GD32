@@ -209,10 +209,8 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
  */
 void radar_cfar_log(uint8_t detection_map[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS])
 {
-    // // 您可能需要定义一个 EN_CFAR_LOG 宏来控制是否生成日志
     // if (EN_CFAR_LOG) 
     // {
-    //     printf("✅ CFAR 二值检测图结果解析中...\n");
     //     // 创建或覆盖日志文件
     //     FILE *log_file = fopen("radar_cfar_detection_log.txt", "w"); 
     //     if (log_file == NULL) {
@@ -260,7 +258,6 @@ void radar_cfar_log(uint8_t detection_map[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RA
 
     //     // 关闭文件
     //     fclose(log_file);
-    //     printf("✅ CFAR 检测结果日志已保存至 radar_cfar_detection_log.txt\n");
     // }
 }
 void print_cfar_detections_log(int frame_num, const DetectionInfo *detections, int count)

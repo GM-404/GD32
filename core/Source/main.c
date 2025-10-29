@@ -58,13 +58,12 @@ int main()
     perform_2d_fft(fft_1d_output_data, fft_2d_output_data);
     radar_2DFFT_log(fft_2d_output_data);
 
-    // 8. CFAR
+    // 8. CFAR(将从插值内化其中)
     int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, &detailed_detections);// 将指针的地址传入，接收检测列
     //radar_cfar_log(detection_map);
     print_cfar_detections_log(current_frame, detailed_detections, det_count);
-    // 9. 插值
 
-    // 10.测角
+    // 9.测角
     
     //释放指针
     if (detailed_detections != NULL) {
