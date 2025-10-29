@@ -38,7 +38,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=478.82, I=547.07, Magnitude=727.02
   Doppler Bin 30: R=145.19, I=138.51, Magnitude=200.67
   Doppler Bin 31: R=378.75, I=131.92, Magnitude=401.07
-  Doppler Bin 32: R=-43242.94, I=0.00, Magnitude=43242.94
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=378.75, I=-131.92, Magnitude=401.07
   Doppler Bin 34: R=145.19, I=-138.51, Magnitude=200.67
   Doppler Bin 35: R=478.82, I=-547.07, Magnitude=727.02
@@ -104,7 +104,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-152.50, I=52.00, Magnitude=161.12
   Doppler Bin 30: R=153.91, I=-123.75, Magnitude=197.49
   Doppler Bin 31: R=-121.70, I=267.57, Magnitude=293.94
-  Doppler Bin 32: R=14189.14, I=5023.69, Magnitude=15052.22
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=75.25, I=-20.39, Magnitude=77.97
   Doppler Bin 34: R=-231.62, I=-141.40, Magnitude=271.37
   Doppler Bin 35: R=-332.82, I=-62.95, Magnitude=338.72
@@ -170,7 +170,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=28.98, I=-285.73, Magnitude=287.19
   Doppler Bin 30: R=-162.73, I=-127.36, Magnitude=206.64
   Doppler Bin 31: R=-75.30, I=-403.83, Magnitude=410.79
-  Doppler Bin 32: R=-18774.52, I=14264.70, Magnitude=23578.90
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-310.11, I=7.84, Magnitude=310.21
   Doppler Bin 34: R=1.59, I=504.49, Magnitude=504.50
   Doppler Bin 35: R=-53.28, I=327.01, Magnitude=331.33
@@ -236,7 +236,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=185.18, I=-504.47, Magnitude=537.39
   Doppler Bin 30: R=-273.20, I=277.49, Magnitude=389.41
   Doppler Bin 31: R=-90.32, I=165.86, Magnitude=188.86
-  Doppler Bin 32: R=20771.71, I=-4241.71, Magnitude=21200.38
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-34.74, I=-61.54, Magnitude=70.67
   Doppler Bin 34: R=27.21, I=-280.78, Magnitude=282.09
   Doppler Bin 35: R=-109.35, I=-32.77, Magnitude=114.15
@@ -302,7 +302,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-3.59, I=532.16, Magnitude=532.17
   Doppler Bin 30: R=45.46, I=-52.08, Magnitude=69.13
   Doppler Bin 31: R=335.00, I=110.57, Magnitude=352.77
-  Doppler Bin 32: R=-5682.64, I=-714.04, Magnitude=5727.32
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-48.22, I=58.48, Magnitude=75.79
   Doppler Bin 34: R=-163.43, I=216.97, Magnitude=271.63
   Doppler Bin 35: R=337.83, I=180.12, Magnitude=382.85
@@ -368,7 +368,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-238.11, I=-349.83, Magnitude=423.18
   Doppler Bin 30: R=52.60, I=-161.80, Magnitude=170.14
   Doppler Bin 31: R=-480.47, I=4.35, Magnitude=480.49
-  Doppler Bin 32: R=-100.29, I=1376.62, Magnitude=1380.27
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=176.20, I=65.77, Magnitude=188.07
   Doppler Bin 34: R=242.38, I=-13.68, Magnitude=242.77
   Doppler Bin 35: R=-471.15, I=-104.23, Magnitude=482.54
@@ -434,7 +434,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-183.95, I=266.86, Magnitude=324.12
   Doppler Bin 30: R=-93.67, I=214.68, Magnitude=234.23
   Doppler Bin 31: R=323.91, I=-247.68, Magnitude=407.75
-  Doppler Bin 32: R=-180.52, I=-3722.27, Magnitude=3726.65
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=49.17, I=-120.18, Magnitude=129.85
   Doppler Bin 34: R=72.65, I=-133.31, Magnitude=151.82
   Doppler Bin 35: R=337.38, I=-33.13, Magnitude=339.00
@@ -500,7 +500,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=249.74, I=34.09, Magnitude=252.06
   Doppler Bin 30: R=62.28, I=-108.03, Magnitude=124.70
   Doppler Bin 31: R=-274.45, I=-121.92, Magnitude=300.31
-  Doppler Bin 32: R=5936.93, I=1634.27, Magnitude=6157.75
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=198.31, I=-162.36, Magnitude=256.30
   Doppler Bin 34: R=-330.35, I=-273.73, Magnitude=429.02
   Doppler Bin 35: R=18.56, I=36.64, Magnitude=41.08
@@ -566,7 +566,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-50.17, I=124.58, Magnitude=134.30
   Doppler Bin 30: R=216.89, I=-306.45, Magnitude=375.44
   Doppler Bin 31: R=38.68, I=288.99, Magnitude=291.57
-  Doppler Bin 32: R=-6328.76, I=1114.41, Magnitude=6426.13
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-277.85, I=-110.44, Magnitude=298.99
   Doppler Bin 34: R=23.03, I=-1.52, Magnitude=23.08
   Doppler Bin 35: R=-352.66, I=-19.30, Magnitude=353.19
@@ -632,7 +632,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-159.68, I=-147.74, Magnitude=217.54
   Doppler Bin 30: R=-512.91, I=362.80, Magnitude=628.25
   Doppler Bin 31: R=-110.19, I=-526.69, Magnitude=538.10
-  Doppler Bin 32: R=7117.29, I=-2684.67, Magnitude=7606.79
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=111.85, I=340.97, Magnitude=358.85
   Doppler Bin 34: R=426.27, I=665.48, Magnitude=790.30
   Doppler Bin 35: R=57.53, I=114.17, Magnitude=127.85
@@ -698,7 +698,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=210.89, I=14.75, Magnitude=211.41
   Doppler Bin 30: R=659.50, I=182.97, Magnitude=684.41
   Doppler Bin 31: R=-94.14, I=-3.70, Magnitude=94.22
-  Doppler Bin 32: R=-6721.04, I=1025.86, Magnitude=6798.88
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-399.91, I=23.06, Magnitude=400.57
   Doppler Bin 34: R=-448.79, I=-247.92, Magnitude=512.72
   Doppler Bin 35: R=-30.27, I=-352.35, Magnitude=353.65
@@ -764,7 +764,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-491.76, I=69.74, Magnitude=496.68
   Doppler Bin 30: R=-875.38, I=-56.27, Magnitude=877.19
   Doppler Bin 31: R=-423.90, I=692.62, Magnitude=812.04
-  Doppler Bin 32: R=-798.59, I=1165.85, Magnitude=1413.13
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=2697.03, I=-535.75, Magnitude=2749.73
   Doppler Bin 34: R=1320.75, I=-787.81, Magnitude=1537.86
   Doppler Bin 35: R=627.01, I=-296.05, Magnitude=693.39
@@ -830,7 +830,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=484.62, I=-434.44, Magnitude=650.84
   Doppler Bin 30: R=732.41, I=-631.75, Magnitude=967.23
   Doppler Bin 31: R=857.85, I=-747.57, Magnitude=1137.88
-  Doppler Bin 32: R=5514.96, I=-794.80, Magnitude=5571.94
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-3022.37, I=-545.86, Magnitude=3071.27
   Doppler Bin 34: R=-1616.29, I=824.37, Magnitude=1814.38
   Doppler Bin 35: R=-890.84, I=714.71, Magnitude=1142.11
@@ -896,7 +896,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-146.28, I=263.60, Magnitude=301.47
   Doppler Bin 30: R=-241.64, I=970.34, Magnitude=999.98
   Doppler Bin 31: R=-293.83, I=100.13, Magnitude=310.42
-  Doppler Bin 32: R=95.88, I=1365.97, Magnitude=1369.33
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=554.81, I=1020.63, Magnitude=1161.67
   Doppler Bin 34: R=622.20, I=-135.83, Magnitude=636.85
   Doppler Bin 35: R=449.20, I=-303.15, Magnitude=541.93
@@ -962,7 +962,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=131.52, I=-97.76, Magnitude=163.87
   Doppler Bin 30: R=243.86, I=-461.71, Magnitude=522.15
   Doppler Bin 31: R=-138.55, I=201.37, Magnitude=244.43
-  Doppler Bin 32: R=-11857.15, I=-9254.45, Magnitude=15041.17
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-187.04, I=-36.04, Magnitude=190.48
   Doppler Bin 34: R=1.37, I=-261.38, Magnitude=261.39
   Doppler Bin 35: R=-520.40, I=-34.83, Magnitude=521.57
@@ -1028,7 +1028,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=339.51, I=16.54, Magnitude=339.92
   Doppler Bin 30: R=-308.05, I=-445.82, Magnitude=541.90
   Doppler Bin 31: R=144.82, I=108.42, Magnitude=180.91
-  Doppler Bin 32: R=14315.68, I=10300.92, Magnitude=17636.55
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=171.83, I=-212.52, Magnitude=273.29
   Doppler Bin 34: R=9.10, I=169.28, Magnitude=169.52
   Doppler Bin 35: R=639.57, I=127.09, Magnitude=652.08
@@ -1094,7 +1094,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-521.88, I=-124.47, Magnitude=536.52
   Doppler Bin 30: R=-235.16, I=203.14, Magnitude=310.75
   Doppler Bin 31: R=150.55, I=-78.46, Magnitude=169.77
-  Doppler Bin 32: R=-2844.04, I=-7976.91, Magnitude=8468.75
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=137.42, I=178.38, Magnitude=225.18
   Doppler Bin 34: R=-268.37, I=-155.40, Magnitude=310.12
   Doppler Bin 35: R=-253.06, I=343.52, Magnitude=426.67
@@ -1160,7 +1160,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=200.02, I=-39.52, Magnitude=203.88
   Doppler Bin 30: R=17.16, I=64.88, Magnitude=67.11
   Doppler Bin 31: R=-201.27, I=83.29, Magnitude=217.82
-  Doppler Bin 32: R=18924.82, I=379.54, Magnitude=18928.63
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-261.02, I=201.89, Magnitude=329.99
   Doppler Bin 34: R=365.26, I=-22.79, Magnitude=365.97
   Doppler Bin 35: R=-9.11, I=-275.73, Magnitude=275.88
@@ -1226,7 +1226,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=138.68, I=457.47, Magnitude=478.03
   Doppler Bin 30: R=638.33, I=-226.08, Magnitude=677.18
   Doppler Bin 31: R=673.69, I=-156.47, Magnitude=691.63
-  Doppler Bin 32: R=-28968.57, I=-11484.71, Magnitude=31162.10
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-206.08, I=-96.22, Magnitude=227.44
   Doppler Bin 34: R=-96.35, I=-15.56, Magnitude=97.60
   Doppler Bin 35: R=-8.22, I=-108.02, Magnitude=108.33
@@ -1292,7 +1292,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=175.97, I=-173.28, Magnitude=246.96
   Doppler Bin 30: R=41.62, I=232.60, Magnitude=236.30
   Doppler Bin 31: R=-722.66, I=750.80, Magnitude=1042.09
-  Doppler Bin 32: R=40768.37, I=36448.42, Magnitude=54685.90
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=295.95, I=-603.09, Magnitude=671.79
   Doppler Bin 34: R=-127.65, I=-277.92, Magnitude=305.83
   Doppler Bin 35: R=178.10, I=-198.19, Magnitude=266.46
@@ -1359,7 +1359,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=156.98, I=457.39, Magnitude=483.58
   Doppler Bin 30: R=137.47, I=3.41, Magnitude=137.51
   Doppler Bin 31: R=265.94, I=-59.08, Magnitude=272.43
-  Doppler Bin 32: R=161122.94, I=0.00, Magnitude=161122.94
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=265.94, I=59.08, Magnitude=272.43
   Doppler Bin 34: R=137.47, I=-3.41, Magnitude=137.51
   Doppler Bin 35: R=156.98, I=-457.39, Magnitude=483.58
@@ -1425,7 +1425,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-97.17, I=-56.78, Magnitude=112.55
   Doppler Bin 30: R=-157.53, I=13.36, Magnitude=158.10
   Doppler Bin 31: R=-67.87, I=190.06, Magnitude=201.81
-  Doppler Bin 32: R=-72495.08, I=-5304.41, Magnitude=72688.88
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=25.77, I=253.21, Magnitude=254.52
   Doppler Bin 34: R=-157.65, I=-61.34, Magnitude=169.16
   Doppler Bin 35: R=-71.82, I=38.98, Magnitude=81.72
@@ -1491,7 +1491,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=41.20, I=-37.37, Magnitude=55.62
   Doppler Bin 30: R=193.70, I=-70.79, Magnitude=206.23
   Doppler Bin 31: R=-95.61, I=-239.37, Magnitude=257.76
-  Doppler Bin 32: R=-9661.89, I=-2875.88, Magnitude=10080.82
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-226.34, I=-290.05, Magnitude=367.92
   Doppler Bin 34: R=-124.86, I=7.54, Magnitude=125.09
   Doppler Bin 35: R=-272.72, I=248.20, Magnitude=368.75
@@ -1557,7 +1557,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-189.28, I=-322.12, Magnitude=373.61
   Doppler Bin 30: R=-183.01, I=359.69, Magnitude=403.57
   Doppler Bin 31: R=245.12, I=277.29, Magnitude=370.10
-  Doppler Bin 32: R=12369.39, I=5132.31, Magnitude=13391.88
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-89.50, I=10.51, Magnitude=90.12
   Doppler Bin 34: R=116.57, I=-77.09, Magnitude=139.75
   Doppler Bin 35: R=306.45, I=-0.97, Magnitude=306.45
@@ -1623,7 +1623,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=508.01, I=463.16, Magnitude=687.45
   Doppler Bin 30: R=-112.79, I=-410.03, Magnitude=425.26
   Doppler Bin 31: R=-199.69, I=-188.03, Magnitude=274.28
-  Doppler Bin 32: R=-3261.03, I=4238.78, Magnitude=5348.04
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=149.33, I=410.26, Magnitude=436.59
   Doppler Bin 34: R=88.91, I=340.19, Magnitude=351.61
   Doppler Bin 35: R=-168.10, I=192.87, Magnitude=255.85
@@ -1689,7 +1689,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-302.51, I=-514.96, Magnitude=597.24
   Doppler Bin 30: R=559.85, I=65.32, Magnitude=563.65
   Doppler Bin 31: R=445.19, I=210.88, Magnitude=492.61
-  Doppler Bin 32: R=-70.16, I=-3808.22, Magnitude=3808.87
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-179.57, I=-503.98, Magnitude=535.02
   Doppler Bin 34: R=-419.04, I=-214.68, Magnitude=470.83
   Doppler Bin 35: R=-34.26, I=-4.66, Magnitude=34.57
@@ -1755,7 +1755,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-177.95, I=440.93, Magnitude=475.49
   Doppler Bin 30: R=-502.90, I=79.77, Magnitude=509.18
   Doppler Bin 31: R=-494.55, I=-145.03, Magnitude=515.37
-  Doppler Bin 32: R=3690.78, I=-3170.19, Magnitude=4865.38
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-42.06, I=261.92, Magnitude=265.28
   Doppler Bin 34: R=484.32, I=-105.33, Magnitude=495.64
   Doppler Bin 35: R=159.01, I=-415.22, Magnitude=444.62
@@ -1821,7 +1821,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=216.62, I=-473.48, Magnitude=520.68
   Doppler Bin 30: R=-121.93, I=52.46, Magnitude=132.73
   Doppler Bin 31: R=241.33, I=-114.43, Magnitude=267.08
-  Doppler Bin 32: R=-687.08, I=5598.07, Magnitude=5640.08
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=323.94, I=-135.81, Magnitude=351.26
   Doppler Bin 34: R=-245.14, I=-59.91, Magnitude=252.35
   Doppler Bin 35: R=61.64, I=108.74, Magnitude=125.00
@@ -1887,7 +1887,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=199.72, I=647.54, Magnitude=677.64
   Doppler Bin 30: R=285.99, I=-319.93, Magnitude=429.13
   Doppler Bin 31: R=-49.79, I=264.20, Magnitude=268.85
-  Doppler Bin 32: R=-578.77, I=-5035.10, Magnitude=5068.26
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-55.56, I=-124.78, Magnitude=136.59
   Doppler Bin 34: R=84.55, I=67.88, Magnitude=108.43
   Doppler Bin 35: R=114.25, I=403.26, Magnitude=419.14
@@ -1953,7 +1953,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-400.16, I=-249.24, Magnitude=471.43
   Doppler Bin 30: R=-284.12, I=447.40, Magnitude=529.99
   Doppler Bin 31: R=-139.18, I=-132.98, Magnitude=192.49
-  Doppler Bin 32: R=-56.63, I=7556.19, Magnitude=7556.40
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-52.19, I=45.79, Magnitude=69.43
   Doppler Bin 34: R=36.56, I=42.76, Magnitude=56.25
   Doppler Bin 35: R=-314.64, I=-589.56, Magnitude=668.27
@@ -2019,7 +2019,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=289.69, I=149.41, Magnitude=325.95
   Doppler Bin 30: R=-176.06, I=-146.95, Magnitude=229.33
   Doppler Bin 31: R=-113.70, I=-261.74, Magnitude=285.36
-  Doppler Bin 32: R=2023.42, I=-7815.38, Magnitude=8073.06
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=30.43, I=489.10, Magnitude=490.05
   Doppler Bin 34: R=330.65, I=-13.39, Magnitude=330.93
   Doppler Bin 35: R=-76.87, I=340.89, Magnitude=349.45
@@ -2085,7 +2085,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=63.08, I=-111.07, Magnitude=127.73
   Doppler Bin 30: R=827.91, I=-300.92, Magnitude=880.90
   Doppler Bin 31: R=1100.04, I=120.63, Magnitude=1106.63
-  Doppler Bin 32: R=1323.02, I=3454.26, Magnitude=3698.96
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=-2519.50, I=-1067.79, Magnitude=2736.43
   Doppler Bin 34: R=-1290.45, I=-70.22, Magnitude=1292.36
   Doppler Bin 35: R=-294.91, I=-249.33, Magnitude=386.18
@@ -2151,7 +2151,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-652.59, I=71.65, Magnitude=656.51
   Doppler Bin 30: R=-950.35, I=392.25, Magnitude=1028.12
   Doppler Bin 31: R=-1613.99, I=369.65, Magnitude=1655.78
-  Doppler Bin 32: R=-5266.33, I=-2000.36, Magnitude=5633.44
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=4400.67, I=897.69, Magnitude=4491.30
   Doppler Bin 34: R=1587.58, I=94.12, Magnitude=1590.37
   Doppler Bin 35: R=1037.71, I=569.94, Magnitude=1183.92
@@ -2217,7 +2217,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=334.84, I=-119.51, Magnitude=355.53
   Doppler Bin 30: R=384.28, I=-105.69, Magnitude=398.55
   Doppler Bin 31: R=618.47, I=-666.41, Magnitude=909.17
-  Doppler Bin 32: R=4012.62, I=2620.08, Magnitude=4792.28
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-2223.95, I=-34.28, Magnitude=2224.21
   Doppler Bin 34: R=-913.42, I=-78.09, Magnitude=916.75
   Doppler Bin 35: R=-793.26, I=-174.30, Magnitude=812.19
@@ -2283,7 +2283,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=102.64, I=-98.03, Magnitude=141.93
   Doppler Bin 30: R=-282.44, I=88.97, Magnitude=296.12
   Doppler Bin 31: R=33.52, I=598.83, Magnitude=599.77
-  Doppler Bin 32: R=6074.75, I=-9851.61, Magnitude=11573.97
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=416.23, I=-0.84, Magnitude=416.23
   Doppler Bin 34: R=371.36, I=184.68, Magnitude=414.75
   Doppler Bin 35: R=173.16, I=-117.10, Magnitude=209.03
@@ -2349,7 +2349,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=83.46, I=94.94, Magnitude=126.41
   Doppler Bin 30: R=317.00, I=-308.11, Magnitude=442.07
   Doppler Bin 31: R=-179.87, I=-230.70, Magnitude=292.53
-  Doppler Bin 32: R=-11641.81, I=11348.04, Magnitude=16257.61
+  Doppler Bin 32: R=0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=143.42, I=80.70, Magnitude=164.56
   Doppler Bin 34: R=-20.17, I=-200.95, Magnitude=201.96
   Doppler Bin 35: R=-68.26, I=3.73, Magnitude=68.36
@@ -2415,7 +2415,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=125.24, I=301.13, Magnitude=326.14
   Doppler Bin 30: R=-262.41, I=7.87, Magnitude=262.53
   Doppler Bin 31: R=120.06, I=226.31, Magnitude=256.19
-  Doppler Bin 32: R=11370.60, I=-1414.91, Magnitude=11458.30
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=55.78, I=-340.77, Magnitude=345.30
   Doppler Bin 34: R=-276.60, I=138.64, Magnitude=309.40
   Doppler Bin 35: R=134.41, I=287.16, Magnitude=317.06
@@ -2481,7 +2481,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=-409.58, I=-584.71, Magnitude=713.90
   Doppler Bin 30: R=-135.15, I=96.37, Magnitude=165.99
   Doppler Bin 31: R=38.86, I=-465.45, Magnitude=467.07
-  Doppler Bin 32: R=1469.23, I=1198.01, Magnitude=1895.75
+  Doppler Bin 32: R=0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-230.09, I=416.19, Magnitude=475.56
   Doppler Bin 34: R=388.81, I=-129.30, Magnitude=409.75
   Doppler Bin 35: R=353.68, I=-197.82, Magnitude=405.25
@@ -2547,7 +2547,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=140.13, I=313.01, Magnitude=342.95
   Doppler Bin 30: R=314.11, I=72.70, Magnitude=322.42
   Doppler Bin 31: R=399.16, I=373.22, Magnitude=546.46
-  Doppler Bin 32: R=-807.41, I=-13519.58, Magnitude=13543.67
+  Doppler Bin 32: R=-0.00, I=0.00, Magnitude=0.00
   Doppler Bin 33: R=-79.76, I=-737.58, Magnitude=741.88
   Doppler Bin 34: R=-347.52, I=-3.48, Magnitude=347.54
   Doppler Bin 35: R=-622.96, I=-51.93, Magnitude=625.12
@@ -2613,7 +2613,7 @@ RANGE_BINS_LOG: 20
   Doppler Bin 29: R=2.72, I=372.91, Magnitude=372.92
   Doppler Bin 30: R=-87.51, I=89.46, Magnitude=125.15
   Doppler Bin 31: R=-419.05, I=159.46, Magnitude=448.37
-  Doppler Bin 32: R=-11093.17, I=41265.91, Magnitude=42730.94
+  Doppler Bin 32: R=-0.00, I=-0.00, Magnitude=0.00
   Doppler Bin 33: R=447.68, I=622.63, Magnitude=766.86
   Doppler Bin 34: R=-52.96, I=-41.48, Magnitude=67.27
   Doppler Bin 35: R=414.81, I=-29.02, Magnitude=415.82

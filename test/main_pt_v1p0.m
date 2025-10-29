@@ -24,7 +24,7 @@ rbinCut = 20; %% max:M_sample/2
 dataFrame = vec2arrFrms(matrix, N_rx, N_chirp, M_sample);%% 雷达数据转+换
 frmNum = size(dataFrame,1)
 %% 信号检测算法参数设置
-crEn= 0; % 0=不去直流，1=去直流
+crEn= 1; % 0=不去直流，1=去直流
 theta_scan = -90:0.1:90;
 % CFAR参数设置
 % refCells = [6, 6];    % 速度维单侧6个，距离维单侧6个参考单元

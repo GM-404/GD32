@@ -8,7 +8,7 @@
 #include "radar_1dfft.h" // 包含RadarFFT1DOutput类型定义
 
 
-#define EN_RADAR_CLUTTER_REMOVAL   0
+#define EN_RADAR_CLUTTER_REMOVAL   1
 // ----------------------------------------------------
 // 3. 独立去直流函数
 // ----------------------------------------------------

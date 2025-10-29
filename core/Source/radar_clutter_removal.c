@@ -5,8 +5,9 @@
 #include <math.h>
 
 /**
- * @brief 对 FFT 结果执行去直流操作 (减去所有元素的平均值)。
- * 对应 MATLAB 逻辑: dataFft1d = dataFft1d - mean(dataFft1d);
+ * @brief 对1D FFT结果执行基于Chirp的直流杂波去除。
+ * 该方法对每个天线、每个距离门，计算所有Chirp的平均值并减去。
+ * @param data 1D FFT输出数据，维度为 [Ant][Chirp][RangeBins][Re/Im]。
  */
 void perform_dc_removal(RadarFFT1DOutput data)
 {
@@ -15,43 +16,48 @@ void perform_dc_removal(RadarFFT1DOutput data)
         return;
     }
 
-    double sum_re = 0.0;
-    double sum_im = 0.0;
+    const int NUM_ANT = RADAR_ANT_COUNT;
+    const int NUM_CHIRP = RADAR_CHIRP_COUNT;
     const int NUM_RANGE_BINS = RADAR_CHIRP_POINTS / 2;
-    
-    // 总复数元素数量 (用于计算平均值)
-    const long long total_elements = (long long)RADAR_ANT_COUNT * RADAR_CHIRP_COUNT * NUM_RANGE_BINS;
 
-    if (total_elements == 0) {
-        fprintf(stderr, "Warning: Total FFT elements is zero, skipping DC removal.\n");
+    if (NUM_CHIRP == 0 || NUM_RANGE_BINS == 0) {
+        fprintf(stderr, "Warning: FFT dimensions are zero, skipping DC removal.\n");
         return;
     }
+    
+    printf("--- Starting DC Clutter Removal (Per Antenna, Per Range Bin) ---\n");
 
-    // 1. 遍历所有维度，计算所有元素的实部和虚部之和
-    for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
-            for (int i = 0; i < NUM_RANGE_BINS; ++i) {
-                // data[ant][chirp][i][0] 是实部
-                // data[ant][chirp][i][1] 是虚部
+    // 1. 遍历天线 (Lane)
+    for (int ant = 0; ant < NUM_ANT; ++ant) {
+
+        // 2. 遍历距离门 (Range Bins)
+        // **注意：这个 Range Bin 循环必须在 Chirp 循环的外部**
+        for (int i = 0; i < NUM_RANGE_BINS; ++i) {
+            double sum_re = 0.0;
+            double sum_im = 0.0;
+
+            // a. 遍历Chirp (Doppler bins)，计算该 (Ant, Range) 上的平均值
+            for (int chirp = 0; chirp < NUM_CHIRP; ++chirp) {
                 sum_re += data[ant][chirp][i][0];
                 sum_im += data[ant][chirp][i][1];
             }
-        }
-    }
-    
-    // 2. 计算平均值 (mean_re + i * mean_im)
-    const double mean_re = sum_re / total_elements;
-    const double mean_im = sum_im / total_elements;
 
-    // 3. 遍历所有维度，将平均值从每个元素中减去 (原地修改)
-    for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-        for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; ++chirp) {
-            for (int i = 0; i < NUM_RANGE_BINS; ++i) {
+            // b. 计算平均值 (Mean Range Profile for this specific Ant/Range bin)
+            const double mean_re = sum_re / NUM_CHIRP;
+            const double mean_im = sum_im / NUM_CHIRP;
+            
+            // 打印Range Bin 0 的平均值进行验证 (Range Bin 0是Range FFT的DC分量)
+            if (i == 0) { 
+                printf("  Ant %d / Range Bin 0 Mean Subtracted: (R=%.4f, I=%.4f)\n", ant, mean_re, mean_im);
+            }
+
+
+            // c. 遍历Chirp，从每个元素中减去平均值 (原地修改)
+            for (int chirp = 0; chirp < NUM_CHIRP; ++chirp) {
                 data[ant][chirp][i][0] -= mean_re; // 实部减去平均实部
                 data[ant][chirp][i][1] -= mean_im; // 虚部减去平均虚部
             }
         }
     }
-
-    printf("✅ DC removal successful. Subtracted mean (R=%.4f, I=%.4f) from all elements.\n", mean_re, mean_im);
+    // printf("✅ DC Clutter Removal successful.\n");
 }

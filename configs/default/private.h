@@ -52,7 +52,7 @@ extern const uint8_t packed_frame_data[PACKED_FRAME_SIZE];
 /* CFAR 配置 */
 
 /** @brief CFAR 幅度阈值 */
-#define CONFIG_CFAR_TH_AMP 2.5
+#define CONFIG_CFAR_TH_AMP 2.8
 
 /** @brief CFAR 保护单元大小-距离维度 */
 #define CONFIG_CFAR_NUM_GUARD_RANGE 5
