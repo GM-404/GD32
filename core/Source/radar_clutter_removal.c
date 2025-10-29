@@ -18,7 +18,7 @@ void perform_dc_removal(RadarFFT1DOutput data)
 
     const int NUM_ANT = RADAR_ANT_COUNT;
     const int NUM_CHIRP = RADAR_CHIRP_COUNT;
-    const int NUM_RANGE_BINS = RADAR_CHIRP_POINTS / 2;
+    const int NUM_RANGE_BINS = RANGE_BINS;
 
     if (NUM_CHIRP == 0 || NUM_RANGE_BINS == 0) {
         fprintf(stderr, "Warning: FFT dimensions are zero, skipping DC removal.\n");
@@ -59,5 +59,5 @@ void perform_dc_removal(RadarFFT1DOutput data)
             }
         }
     }
-    // printf("✅ DC Clutter Removal successful.\n");
+    // printf("DC Clutter Removal successful.\n");
 }
