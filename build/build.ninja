@@ -117,16 +117,6 @@ build core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj: C_COMPILER__gd32_ra
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
   TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_log.c || cmake_object_order_depends_target_gd32_radar_demo
-  DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
-  DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_log.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
-  INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
-  OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
-  OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
-  TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
-
 build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_dismantle.c.obj.d
@@ -275,7 +265,7 @@ build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformF
 #############################################
 # Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.elf
 
-build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf: C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj
+build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf: C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj
   FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG
   LINK_FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -Wl,--gc-sections
   LINK_LIBRARIES = -lm  -specs=nosys.specs

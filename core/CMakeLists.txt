@@ -26,14 +26,14 @@ include_directories(
     ${THIRDPARTY_ROOT_DIR}/ARMDSP/privateInclude
 )
 # 查找 FFTW3 包 (由 vcpkg 提供)
-# vcpkg 会自动配置好搜索路径
+# vcpkg 会自动配置好搜索路径 
 # 包名是 FFTW3 (大小写敏感)
 # find_package(FFTW3 CONFIG REQUIRED)
 
 
 add_executable(gd32_radar_demo
     Source/main.c 
-    Source/radar_log.c
+    #Source/radar_log.c
     Source/radar_dismantle.c
     Source/radar_window.c
     Source/radar_1dfft.c

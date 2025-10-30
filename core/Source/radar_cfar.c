@@ -334,17 +334,8 @@ static double peak_interpolation_core(
     }
 
     // 0基索引：左右邻点的索引
-    // 注意：这里的索引处理与MATLAB的边界处理逻辑不同，C语言中我们直接钳位
-    int prevIdx = (peakIdx == 0) ? dimSize - 1 : peakIdx - 1; // 0基循环边界处理
     int currIdx = peakIdx;
-    int nextIdx = (peakIdx == dimSize - 1) ? 0 : peakIdx + 1; // 0基循环边界处理
 
-    // 为了简化，在插值时我们暂时不使用循环移位函数 `get_circular_index`
-    // 而采取边界检查来确保索引在 [0, dimSize-1] 范围内。
-    // 在速度维（Doppler）需要循环边界时，您需要根据实际情况调用 get_circular_index。
-    
-    // **提示：为了与CFAR的循环边界行为一致，在这里使用 `get_circular_index`**
-    
     // 获取三点幅度值
     double A_prev, A_curr, A_next;
 

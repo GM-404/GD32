@@ -1,7 +1,0 @@
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:4:6:radar_dismantle_log	0	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:42:6:radar_1DFFT_log	80	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:92:6:radar_clutter_removal_log	80	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:148:6:radar_2DFFT_log	64	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:210:6:radar_cfar_log	0	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:263:6:print_cfar_detections_log	72	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_log.c:286:6:print_final_track_results	56	static

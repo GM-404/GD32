@@ -7,12 +7,6 @@
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_log.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
-  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_log.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
   "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dismantle.c.obj"
