@@ -33,7 +33,7 @@ int main()
     DetectionInfo *detailed_detections = NULL; 
     TargetTrackInfo *final_tracks = NULL;
     const int current_frame = 1; // 假设当前的帧序号
-
+    init_angle_scan_vector();
     // 1. 将原始字节流强制转换为结构体指针
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
     const sample_frame_t *frame = (const sample_frame_t *)packed_frame_data;

@@ -1,7 +1,7 @@
 #include "radar_dbf.h"
 
 
-double g_theta_scan[161];
+double g_theta_scan[181];
 int g_num_scan_angles;
 
 
@@ -150,7 +150,6 @@ int perform_dbf_estimation(
         *out_track_info = NULL;
         return 0;
     }
-    // if (g_num_scan_angles == 0) { init_angle_scan_vector(); } // 确保初始化
 
     // 1. 分配新的 TargetTrackInfo 数组
     TargetTrackInfo *track_list = (TargetTrackInfo *)malloc(det_count * sizeof(TargetTrackInfo));
@@ -187,14 +186,14 @@ int perform_dbf_estimation(
         double dbf_max_power_db = 0.0;
         
         // 假设 DBF_core 已实现
-        /* DBF_core(
+        DBF_core(
             sig_vector, 
             g_theta_scan, 
             g_num_scan_angles, 
             &estimated_angle, 
             &dbf_max_power_db
         );
-        */
+    
         
         // 模拟 DBF 结果，实际应调用 DBF_core
         // (为确保编译通过，此处只使用 0.0)

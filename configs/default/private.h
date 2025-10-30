@@ -75,13 +75,13 @@ extern const uint8_t packed_frame_data[PACKED_FRAME_SIZE];
 
 
 // ------------------- 测角配置宏 -------------------
-#define START_ANGLE_DEG  -80.0    // 扫描起始角度 (例如: -60 度)
-#define END_ANGLE_DEG     80.0    // 扫描结束角度 (例如: 60 度)
-#define ANGLE_STEP_DEG     1.0    // 扫描间隔 (例如: 1.0 度)
+#define START_ANGLE_DEG  -90.0    // 扫描起始角度 
+#define END_ANGLE_DEG     90.0    // 扫描结束角度 
+#define ANGLE_STEP_DEG     1.0    // 扫描间隔
 
 #define NUM_THETA_SCAN ((int)(((END_ANGLE_DEG - START_ANGLE_DEG) / ANGLE_STEP_DEG) + 1.5))
 
-extern double g_theta_scan[161];  // 扫描角度数组，里面的数组大小是 NUM_THETA_SCAN
+extern double g_theta_scan[181];  // 扫描角度数组，里面的数组大小是 NUM_THETA_SCAN
 extern int g_num_scan_angles;
 // ----------------------------------------------------
 #ifdef __cplusplus

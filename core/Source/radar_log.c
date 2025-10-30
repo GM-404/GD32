@@ -306,5 +306,4 @@ void print_final_track_results(int frame_num, const TargetTrackInfo *tracks, int
             tracks[i].p
         );
     }
-    fprintf(stdout, "================================================\n");
 }
