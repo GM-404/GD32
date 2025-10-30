@@ -1,79 +1,121 @@
 [
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\main.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\main.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\main.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_log.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_log.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_log.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dismantle.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_window.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_window.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_window.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_window.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_window.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_window.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_1dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_1dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_1dfft.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_clutter_removal.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_clutter_removal.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_clutter_removal.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_2dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_2dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_2dfft.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_cfar.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_cfar.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_cfar.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -Os -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dbf.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dbf.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dbf.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dbf.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dbf.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dbf.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -Os -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\src\\frame_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\frame_dismantle.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_init_f32.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_init_f32.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_init_f32.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_init_f32.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_f32.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_f32.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_f32.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_f32.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_common_tables.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_common_tables.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_common_tables.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_common_tables.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_const_structs.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_const_structs.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_const_structs.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\CommonTables\\arm_const_structs.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal2.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal2.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal2.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_bitreversal2.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_radix8_f32.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_radix8_f32.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_radix8_f32.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\__\\ThirdParth\\ARMDSP\\Source\\TransformFunctions\\arm_cfft_radix8_f32.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\src\\frame_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\frame_dismantle.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\frame_dismantle.c",
   "output": "Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\src\\frame_dismantle.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -Os -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\test_frame_data_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_frame_data_dismantle.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\test_frame_data_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_frame_data_dismantle.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_frame_data_dismantle.c",
   "output": "Tests\\C\\CMakeFiles\\test_frame_dismantle.dir\\test_frame_data_dismantle.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -Os -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\src\\radar_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\radar_fft.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\src\\radar_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\radar_fft.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\src\\radar_fft.c",
   "output": "Tests\\C\\CMakeFiles\\test_1dfft.dir\\src\\radar_fft.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -Os -DNDEBUG -std=gnu11 -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\test_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_fft.c",
+  "command": "D:\\SDK\\14.2rel1\\bin\\arm-none-eabi-gcc.exe -IC:/Users/19513/Desktop/GD32/Tests/C/include -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always -o Tests\\C\\CMakeFiles\\test_1dfft.dir\\test_fft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_fft.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\Tests\\C\\test_fft.c",
   "output": "Tests\\C\\CMakeFiles\\test_1dfft.dir\\test_fft.c.obj"
 }

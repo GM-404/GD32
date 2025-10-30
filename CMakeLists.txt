@@ -2,6 +2,10 @@
 # 最小cmake版本要求
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
+#INCLUDE(cmake/arm-none-eabi-gcc.cmake)
+unset(CMAKE_TOOLCHAIN_FILE)
+set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/arm-none-eabi-gcc.cmake CACHE STRING "")
+
 # 项目名称
 # 设置项目名称
 project(mcu_cmake VERSION 1.0.0 LANGUAGES C CXX ASM)

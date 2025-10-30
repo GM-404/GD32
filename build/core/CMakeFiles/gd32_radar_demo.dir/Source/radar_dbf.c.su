@@ -1,0 +1,2 @@
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:9:6:init_angle_scan_vector	24	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:141:5:perform_dbf_estimation	240	dynamic,bounded

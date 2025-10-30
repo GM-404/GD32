@@ -5,6 +5,7 @@
 #include "radar_cfar.h" 
 #include "private.h"    
 #include <stdlib.h>
+#include <stdio.h>
 // 测角模块输出的结构体：只包含最终物理量
 typedef struct {
     double r;           // 距离 (m)

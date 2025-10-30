@@ -177,8 +177,9 @@ int perform_dbf_estimation(
         // 提取信号向量 (所有天线上同一 (R, V) 单元的复数数据)
         double sig_vector[RADAR_ANT_COUNT][2];
         for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
-            sig_vector[ant][0] = input_fft_2d_data[ant][velIdx][rangeIdx][0]; 
-            sig_vector[ant][1] = input_fft_2d_data[ant][velIdx][rangeIdx][1]; 
+            const float *p_complex_data = (const float *)&input_fft_2d_data[ant][velIdx][rangeIdx];
+            sig_vector[ant][0] = p_complex_data[0]; // 实部
+            sig_vector[ant][1] = p_complex_data[1]; // 虚部
         }
         
         // 执行 DBF 测角 (返回角度和DBF功率)

@@ -1,0 +1,3 @@
+C:/Users/19513/Desktop/GD32/core/Source/radar_window.c:60:6:initialize_windowing	32	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_window.c:102:6:apply_range_windowing	20	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_window.c:144:6:apply_doppler_windowing	16	static

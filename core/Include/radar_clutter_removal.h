@@ -3,7 +3,7 @@
 #define RADAR_CLUTTER_REMOVAL_H
 
 #include <stdint.h>
-#include <fftw3.h> // 因为操作的是1D FFT后的复数数据
+#include "arm_math.h"
 #include "private.h" // 包含雷达参数定义
 #include "radar_1dfft.h" // 包含RadarFFT1DOutput类型定义
 

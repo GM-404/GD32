@@ -10,7 +10,7 @@
 
 
 // 静态数组：存储当前使用的窗函数值()
-static double s_current_window[RADAR_CHIRP_POINTS] = {
+static float s_current_window[RADAR_CHIRP_POINTS] = {
     0.149140693271191,   0.150189988542154,    0.153335306553682,    0.158568950185535,    0.165878111834738,
     0.175244904757927,   0.186646406843211,    0.200054716704423,    0.215437021960480,    0.232755679532787,
     0.251968307764150,   0.273027890133798,    0.295882890314689,    0.320477378291532,    0.346751167230915,
@@ -38,7 +38,7 @@ static double s_current_window[RADAR_CHIRP_POINTS] = {
     0.200054716704423,   0.186646406843211,    0.175244904757927,    0.165878111834738,    0.158568950185535,
     0.153335306553682,   0.150189988542154,    0.149140693271191,
 };
-static double s_vwin_window[RADAR_CHIRP_POINTS]={0,
+static float s_vwin_window[RADAR_CHIRP_POINTS]={0,
     0.00504810121610016,    0.0201422345665587,    0.0451323877728094,    0.0797701974649827,    0.123711417528657,    0.176519340377402,
     0.237669137148975,    0.306553073690339,    0.382486550492715,    0.464714906549070,    0.552420919514247,    0.644732927627789,
     0.740733492680122,    0.839468517925658,    0.939956730324902,    1.04119943287677,    1.14219043011808,    1.24192602814610,
@@ -73,12 +73,12 @@ void initialize_windowing(WindowType type)
         return;
     }
 
-    const double N_minus_1 = (double)(N - 1);
+    const float N_minus_1 = (float)(N - 1);
 
     for (int n = 0; n < N; ++n) {
         // 计算公式中的角度项
-        double angle = 2.0 * M_PI * (double)n / N_minus_1;
-        double cos_val = cos(angle);
+        float angle = 2.0 * M_PI * (float)n / N_minus_1;
+        float cos_val = cos(angle);
         
         if (type == WINDOW_HAMMING) {
             // 汉明窗: w(n) = 0.54 - 0.46 * cos(angle)
@@ -97,24 +97,24 @@ void initialize_windowing(WindowType type)
  * @brief 将选定的窗函数应用于输入数据。
  * @param type 选定的窗类型。
  * @param input_data 原始 int8_t 数据。
- * @param output_windowed 加窗后的 double 数据。
+ * @param output_windowed 加窗后的 float 数据。
  */
 void apply_range_windowing(
     WindowType type,
     const int8_t input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
-    double output_windowed[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
+    float output_windowed[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS])
 {
     const int N_ANT = RADAR_ANT_COUNT;
     const int N_CHIRP = RADAR_CHIRP_COUNT;
     const int N_POINTS = RADAR_CHIRP_POINTS;
 
-    // 矩形窗（乘 1）的处理：只进行 int8_t 到 double 的类型转换
+    // 矩形窗（乘 1）的处理：只进行 int8_t 到 float 的类型转换
     if (type == WINDOW_RECTANGULAR) {
         for (int ant = 0; ant < N_ANT; ++ant) {
             for (int chirp = 0; chirp < N_CHIRP; ++chirp) {
                 for (int i = 0; i < N_POINTS; ++i) {
                     // 仅进行类型转换，等效于乘 1
-                    output_windowed[ant][chirp][i] = (double)input_data[ant][chirp][i];
+                    output_windowed[ant][chirp][i] = (float)input_data[ant][chirp][i];
                 }
             }
         }
@@ -122,13 +122,13 @@ void apply_range_windowing(
     }
     
     // 汉明窗的处理
-    const double *window = s_current_window;
+    const float *window = s_current_window;
 
     for (int ant = 0; ant < N_ANT; ++ant) {
         for (int chirp = 0; chirp < N_CHIRP; ++chirp) {
             for (int i = 0; i < N_POINTS; ++i) {
-                // 1. int8_t 转换为 double
-                double data_val = (double)input_data[ant][chirp][i];
+                // 1. int8_t 转换为 float
+                float data_val = (float)input_data[ant][chirp][i];
                 
                 // 2. 应用窗函数（乘法）
                 output_windowed[ant][chirp][i] = data_val * window[i];
@@ -150,7 +150,7 @@ void apply_doppler_windowing(RadarFFT1DOutput data)
     const int NUM_RANGE_BINS = RANGE_BINS;
     
     // 获取窗函数
-    const double *v_win = s_vwin_window;
+    const float *v_win = s_vwin_window;
 
     // 1. 遍历天线 (Antenna)
     for (int ant = 0; ant < N_ANT; ++ant) {
@@ -161,7 +161,7 @@ void apply_doppler_windowing(RadarFFT1DOutput data)
             for (int chirp = 0; chirp < N_CHIRP; ++chirp) { 
                 
                 // 获取窗函数值
-                double window_val = v_win[chirp];
+                float window_val = v_win[chirp];
                 
                 // 核心操作：原地乘以窗函数值 (应用于实部和虚部)
                 // data[ant][chirp][range][0] 是实部

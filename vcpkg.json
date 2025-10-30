@@ -1,7 +1,0 @@
-{
-  "name": "radar-fft-project",
-  "version-string": "1.0.0",
-  "dependencies": [
-    "fftw3"
-  ]
-}

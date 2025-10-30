@@ -245,9 +245,12 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         for (int v = 0; v < NUM_DOPPLER_BINS; ++v) {
             for (int r = 0; r < NUM_RANGE_BINS; ++r) {
                 // 1. abs(dataFft2d) - 计算幅度
-                double real = input_fft_2d_data[ant][v][r][0];
-                double imag = input_fft_2d_data[ant][v][r][1];
-                double magnitude = sqrt(real * real + imag * imag);
+                const float *p_complex_data = (const float *)&input_fft_2d_data[ant][v][r];
+    
+                // 统一为 float 类型
+                float real = p_complex_data[0];
+                float imag = p_complex_data[1];
+                float magnitude = sqrt(real * real + imag * imag);
                 
                 // 2. 累加到平均图
                 avg_amplitude_map[v][r] += magnitude;
@@ -273,7 +276,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     // 4. 将检测结果应用于所有天线的二值图 (如果需要)
     if (det_count > 0) {
         // 对检测结果进行细化
-        refine_detections_interpolation((const double (*)[NUM_RANGE_BINS])avg_amplitude_map, det_list,det_count,NUM_DOPPLER_BINS,NUM_RANGE_BINS);
+        refine_detections_interpolation(avg_amplitude_map, det_list,det_count,NUM_DOPPLER_BINS,NUM_RANGE_BINS);
         for (int i = 0; i < det_count; ++i) {
             int r_idx = det_list[i].rangeIdx;
             int v_idx = det_list[i].velIdx;

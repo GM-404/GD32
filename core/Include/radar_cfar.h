@@ -3,7 +3,7 @@
 #define RADAR_CFAR_H
 
 #include <stdint.h>
-#include <fftw3.h> // 2D FFT的输出是fftw_complex
+#include "arm_math.h"
 #include "private.h" // 包含雷达参数定义 (如 RADAR_ANT_COUNT, RADAR_CHIRP_COUNT, RADAR_CHIRP_POINTS)
 #include "radar_2dfft.h" // 包含2D FFT的输出类型定义 (RadarFFT2DOutput)
 #include <math.h>

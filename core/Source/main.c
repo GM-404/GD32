@@ -12,11 +12,12 @@
 #include "radar_cfar.h" 
 #include "radar_dbf.h"
 #include <stdbool.h>
+#include <arm_math.h>
 
 //加窗输入
 static int8_t parsed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 // 1DFFT输入三维数组
-static double windowed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
+static float windowed_radar_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS];
 // 2DFFT输入三维数组
 static RadarFFT1DOutput fft_1d_output_data; 
 // CFAR的输入

@@ -183,11 +183,11 @@ void radar_2DFFT_log(RadarFFT2DOutput output_fft_2d)
                 
                 // 3. 遍历所有 Doppler Bin
                 for (int d_bin = 0; d_bin < DOPPLER_POINTS; ++d_bin) { 
-                    
+                    const float *p_complex_data = (const float *)&output_fft_2d[ant][d_bin][r_bin];
                     // 从四维数组中取出实部和虚部
-                    double real = output_fft_2d[ant][d_bin][r_bin][0];
-                    double imag = output_fft_2d[ant][d_bin][r_bin][1];
-                    double magnitude = sqrt(real * real + imag * imag);
+                    float real = p_complex_data[0];
+                    float imag = p_complex_data[1]; 
+                    float magnitude = sqrt(real * real + imag * imag);
 
                     // 使用 .2f 精度打印
                     // 格式：Doppler Bin: R=..., I=..., Magnitude=...
