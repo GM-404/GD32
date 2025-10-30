@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.exe"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe"
 		},
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/lesson1_1.pdb"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -43,7 +43,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 51,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
@@ -102,11 +102,13 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7,
+				8
 			]
 		}
 	],
-	"id" : "lesson1_1::@57760688d1f824db5d9c",
+	"id" : "gd32_radar_demo::@57760688d1f824db5d9c",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -131,8 +133,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "lesson1_1",
-	"nameOnDisk" : "lesson1_1.exe",
+	"name" : "gd32_radar_demo",
+	"nameOnDisk" : "gd32_radar_demo.exe",
 	"paths" : 
 	{
 		"build" : "core",
@@ -150,7 +152,9 @@
 				3,
 				4,
 				5,
-				6
+				6,
+				7,
+				8
 			]
 		}
 	],
@@ -159,7 +163,7 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "core/Source/test.c",
+			"path" : "core/Source/main.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -172,6 +176,12 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "core/Source/radar_dismantle.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "core/Source/radar_window.c",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -196,6 +206,12 @@
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
 			"path" : "core/Source/radar_cfar.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "core/Source/radar_dbf.c",
 			"sourceGroupIndex" : 0
 		}
 	],

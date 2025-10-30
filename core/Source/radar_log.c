@@ -283,3 +283,28 @@ void print_cfar_detections_log(int frame_num, const DetectionInfo *detections, i
         );
     }
 }
+void print_final_track_results(int frame_num, const TargetTrackInfo *tracks, int count)
+{
+    if (!EN_POINT_CLOUD_LOG || count == 0 || tracks == NULL) {
+        fprintf(stdout, "==== Frame %d Final Track Log: No targets found. ====\n", frame_num);
+        return;
+    }
+    
+    fprintf(stdout, "================================================\n");
+    fprintf(stdout, "==== Frame %d Final Track Log (R, V, A, P) ====\n", frame_num);
+    fprintf(stdout, "------------------------------------------------\n");
+    fprintf(stdout, "  Target | R (m) | V (m/s) | A (deg) | P (dB)\n");
+    fprintf(stdout, "------------------------------------------------\n");
+    
+    for (int i = 0; i < count; ++i) {
+        fprintf(stdout, 
+            "  %5d  | %5.2f | %7.2f | %7.1f | %6.1f\n", 
+            i + 1,
+            tracks[i].r,
+            tracks[i].v,
+            tracks[i].a,
+            tracks[i].p
+        );
+    }
+    fprintf(stdout, "================================================\n");
+}

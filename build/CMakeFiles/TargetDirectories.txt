@@ -2,7 +2,6 @@ C:/Users/19513/Desktop/GD32/build/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/CMakeFiles/rebuild_cache.dir
 C:/Users/19513/Desktop/GD32/build/configs/default/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/configs/default/CMakeFiles/rebuild_cache.dir
-C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/lesson1_1.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/gd32_radar_demo.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/edit_cache.dir
 C:/Users/19513/Desktop/GD32/build/core/CMakeFiles/rebuild_cache.dir

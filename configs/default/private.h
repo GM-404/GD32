@@ -8,15 +8,17 @@ extern "C" {
 #include <stdint.h>
 #include <math.h>
 /********************** 雷达数据 **********************/
+#define RADAR_LAMDA                        (0.0125)    /* 雷达工作波长(m) */
 #define RADAR_DATA_BYTE                     (1)         /* ADC --> 1字节; 时域伪浮点/1DFFT/2DFFT --> 4字节; CFAR/点云 --> 8字节 */
 #define RADAR_ANT_COUNT                     (2)         /* 采样天线数量 */
 #define RADAR_CHIRP_COUNT                   (64)        /* 采样chirp数 */
 #define RADAR_CHIRP_POINTS                  (128)       /* 采样点数 */
 #define DATA_FIELD_BYTES                    (RADAR_DATA_BYTE*RADAR_ANT_COUNT*RADAR_CHIRP_POINTS*RADAR_CHIRP_COUNT)
 
-#define RANGE_BINS       (20)  
-#define RADAR_VELOCITY_RESOLUTION 0.15 //  速度分辨率 (m/s)
-#define RADAR_RANGE_RESOLUTION    0.04 //  距离分辨率 (m)
+#define RANGE_BINS       (20) 
+#define RADAR_T_frame                       (0.05)                       //  帧时间间隔(s) 
+#define RADAR_VELOCITY_RESOLUTION  (RADAR_LAMDA / (2*RADAR_T_frame))     //  速度分辨率 (m/s)
+#define RADAR_RANGE_RESOLUTION    0.1 //  距离分辨率 (m)
 #define C_PI M_PI 
 /* 雷达采样信息结构体 */
 typedef struct {
@@ -72,6 +74,16 @@ extern const uint8_t packed_frame_data[PACKED_FRAME_SIZE];
 #define CONFIG_CFAR_TH_OFFSET 3
 
 
+// ------------------- 测角配置宏 -------------------
+#define START_ANGLE_DEG  -80.0    // 扫描起始角度 (例如: -60 度)
+#define END_ANGLE_DEG     80.0    // 扫描结束角度 (例如: 60 度)
+#define ANGLE_STEP_DEG     1.0    // 扫描间隔 (例如: 1.0 度)
+
+#define NUM_THETA_SCAN ((int)(((END_ANGLE_DEG - START_ANGLE_DEG) / ANGLE_STEP_DEG) + 1.5))
+
+extern double g_theta_scan[161];  // 扫描角度数组，里面的数组大小是 NUM_THETA_SCAN
+extern int g_num_scan_angles;
+// ----------------------------------------------------
 #ifdef __cplusplus
 }
 #endif

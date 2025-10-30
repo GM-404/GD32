@@ -10,6 +10,7 @@
 #include "radar_clutter_removal.h"     
 #include "radar_2dfft.h"
 #include "radar_cfar.h" 
+#include "radar_dbf.h"
 #include <stdbool.h>
 
 //加窗输入
@@ -30,6 +31,7 @@ int main()
 
     // 用于接收详细的检测列表
     DetectionInfo *detailed_detections = NULL; 
+    TargetTrackInfo *final_tracks = NULL;
     const int current_frame = 1; // 假设当前的帧序号
 
     // 1. 将原始字节流强制转换为结构体指针
@@ -63,12 +65,23 @@ int main()
     //radar_cfar_log(detection_map);
     print_cfar_detections_log(current_frame, detailed_detections, det_count);
 
-    // 9.测角
-    
+    // 9. 独立测角和物理量计算 (将 CFAR 结果转换为最终物理量列表)
+    if (det_count > 0 && detailed_detections != NULL) {
+    perform_dbf_estimation(fft_2d_output_data, detailed_detections, det_count, &final_tracks);
+    }
     //释放指针
     if (detailed_detections != NULL) {
     free(detailed_detections);
     detailed_detections = NULL; 
-}
+    }
+    if (det_count > 0 && final_tracks != NULL) {
+    print_final_track_results(current_frame, final_tracks, det_count); 
+    }
+
+    //清理最终结果内存
+    if (final_tracks != NULL) {
+        free(final_tracks);
+        final_tracks = NULL; 
+    }
     return 0;
 }

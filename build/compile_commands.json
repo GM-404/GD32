@@ -1,48 +1,6 @@
 [
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\test.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\test.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\test.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\test.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_log.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_log.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_log.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dismantle.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_dismantle.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_1dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_1dfft.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_1dfft.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_clutter_removal.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_clutter_removal.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_clutter_removal.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_2dfft.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_2dfft.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_2dfft.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
-  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_cfar.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
-  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
-  "output": "core\\CMakeFiles\\lesson1_1.dir\\Source\\radar_cfar.c.obj"
-},
-{
-  "directory": "C:/Users/19513/Desktop/GD32/build",
   "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\main.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\main.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\main.c.obj"
@@ -88,6 +46,12 @@
   "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_cfar.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
   "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_cfar.c",
   "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_cfar.c.obj"
+},
+{
+  "directory": "C:/Users/19513/Desktop/GD32/build",
+  "command": "D:\\SDK\\w64devkit\\bin\\gcc.exe -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include -O3 -DNDEBUG -std=gnu11 -o core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dbf.c.obj -c C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dbf.c",
+  "file": "C:\\Users\\19513\\Desktop\\GD32\\core\\Source\\radar_dbf.c",
+  "output": "core\\CMakeFiles\\gd32_radar_demo.dir\\Source\\radar_dbf.c.obj"
 },
 {
   "directory": "C:/Users/19513/Desktop/GD32/build",
