@@ -28,4 +28,4 @@ fftw3 provides pkg-config modules:
   # fast Fourier transform library
   fftw3l
 
-All requested installations completed successfully in: 1.18 ms
+All requested installations completed successfully in: 1.09 ms

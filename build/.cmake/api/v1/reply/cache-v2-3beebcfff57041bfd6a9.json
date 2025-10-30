@@ -183,7 +183,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "Release"
+			"value" : "MinSizeRel"
 		},
 		{
 			"name" : "CMAKE_CACHEFILE_DIR",
@@ -279,10 +279,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "D:/SDK/w64devkit/bin/g++.exe"
 		},
 		{
@@ -423,10 +423,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
+			"type" : "FILEPATH",
 			"value" : "D:/SDK/w64devkit/bin/gcc.exe"
 		},
 		{
@@ -1479,10 +1479,10 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "The CMake toolchain file"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "UNINITIALIZED",
 			"value" : "C:/Users/19513/vcpkg/scripts/buildsystems/vcpkg.cmake"
 		},
 		{

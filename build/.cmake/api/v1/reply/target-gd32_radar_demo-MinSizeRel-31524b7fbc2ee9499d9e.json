@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe"
 		},
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.pdb"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -66,7 +66,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG -std=gnu11"
+					"fragment" : "-Os -DNDEBUG -std=gnu11"
 				}
 			],
 			"includes" : 
@@ -114,7 +114,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O3 -DNDEBUG",
+				"fragment" : "-Os -DNDEBUG",
 				"role" : "flags"
 			},
 			{

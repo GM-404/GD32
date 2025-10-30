@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: mcu_cmake
-# Configurations: Release
+# Configurations: MinSizeRel
 # =============================================================================
 # =============================================================================
 
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__gd32_radar_demo_unscanned_Release
+rule C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\w64devkit\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule C_COMPILER__gd32_radar_demo_unscanned_Release
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__gd32_radar_demo_Release
+rule C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\w64devkit\bin\gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -41,7 +41,7 @@ rule C_EXECUTABLE_LINKER__gd32_radar_demo_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__test_frame_dismantle_unscanned_Release
+rule C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\w64devkit\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -51,7 +51,7 @@ rule C_COMPILER__test_frame_dismantle_unscanned_Release
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__test_frame_dismantle_Release
+rule C_EXECUTABLE_LINKER__test_frame_dismantle_MinSizeRel
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\w64devkit\bin\gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -60,7 +60,7 @@ rule C_EXECUTABLE_LINKER__test_frame_dismantle_Release
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__test_1dfft_unscanned_Release
+rule C_COMPILER__test_1dfft_unscanned_MinSizeRel
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\w64devkit\bin\gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -70,7 +70,7 @@ rule C_COMPILER__test_1dfft_unscanned_Release
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__test_1dfft_Release
+rule C_EXECUTABLE_LINKER__test_1dfft_MinSizeRel
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\w64devkit\bin\gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Wl,--out-implib,$TARGET_IMPLIB -Wl,--major-image-version,0,--minor-image-version,0 $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT

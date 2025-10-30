@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: mcu_cmake
-# Configurations: Release
+# Configurations: MinSizeRel
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Release
+CONFIGURATION = MinSizeRel
 # =============================================================================
 # Include auxiliary files.
 
@@ -107,65 +107,65 @@ build configs/default/rebuild_cache: phony configs/default/CMakeFiles/rebuild_ca
 
 build cmake_object_order_depends_target_gd32_radar_demo: phony || .
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\main.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_log.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_log.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_log.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_dismantle.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_window.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_window.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_window.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_1dfft.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_1dfft.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_1dfft.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_clutter_removal.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_clutter_removal.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_clutter_removal.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_2dfft.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_2dfft.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_2dfft.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_cfar.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_cfar.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_cfar.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Release C$:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c || cmake_object_order_depends_target_gd32_radar_demo
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_dbf.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -isystem C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/include
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
@@ -176,16 +176,16 @@ build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj: C_COMPILER__gd
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\gd32_radar_demo.exe
+# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.exe
 
-build C$:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe: C_EXECUTABLE_LINKER__gd32_radar_demo_Release core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
-  FLAGS = -O3 -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe: C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_log.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj | vcpkg_installed/x64-windows/lib/fftw3.lib
+  FLAGS = -Os -DNDEBUG
   LINK_LIBRARIES = vcpkg_installed/x64-windows/lib/fftw3.lib  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
-  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\core && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\core && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
   PRE_LINK = cd .
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\gd32_radar_demo.exe
-  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libgd32_radar_demo.dll.a
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\libgd32_radar_demo.dll.a
   TARGET_PDB = gd32_radar_demo.exe.dbg
 
 
@@ -255,16 +255,16 @@ build Tests/rebuild_cache: phony Tests/CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_test_frame_dismantle: phony || .
 
-build Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/src/frame_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/src/frame_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
   DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\src\frame_dismantle.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir\src
 
-build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/test_frame_data_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/test_frame_data_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
   DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\test_frame_data_dismantle.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
@@ -275,16 +275,16 @@ build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.ob
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\test_frame_dismantle.exe
+# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.exe
 
-build C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe: C_EXECUTABLE_LINKER__test_frame_dismantle_Release Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj
-  FLAGS = -O3 -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.exe: C_EXECUTABLE_LINKER__test_frame_dismantle_MinSizeRel Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj
+  FLAGS = -Os -DNDEBUG
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
-  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
   PRE_LINK = cd .
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\test_frame_dismantle.exe
-  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libtest_frame_dismantle.dll.a
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\libtest_frame_dismantle.dll.a
   TARGET_PDB = test_frame_dismantle.exe.dbg
 
 # =============================================================================
@@ -296,16 +296,16 @@ build C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe: C_EXECU
 
 build cmake_object_order_depends_target_test_1dfft: phony || .
 
-build Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/src/radar_fft.c || cmake_object_order_depends_target_test_1dfft
+build Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj: C_COMPILER__test_1dfft_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/src/radar_fft.c || cmake_object_order_depends_target_test_1dfft
   DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\src\radar_fft.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir\src
 
-build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Release C$:/Users/19513/Desktop/GD32/Tests/C/test_fft.c || cmake_object_order_depends_target_test_1dfft
+build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/test_fft.c || cmake_object_order_depends_target_test_1dfft
   DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\test_fft.c.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu11
+  FLAGS = -Os -DNDEBUG -std=gnu11
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir
@@ -316,16 +316,16 @@ build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_u
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\Release\test_1dfft.exe
+# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.exe
 
-build C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe: C_EXECUTABLE_LINKER__test_1dfft_Release Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj
-  FLAGS = -O3 -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.exe: C_EXECUTABLE_LINKER__test_1dfft_MinSizeRel Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj
+  FLAGS = -Os -DNDEBUG
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
-  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
+  POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D C:\Users\19513\Desktop\GD32\build\Tests\C && C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Users/19513/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.exe -installedDir C:/Users/19513/Desktop/GD32/build/vcpkg_installed/x64-windows/bin -OutVariable out"
   PRE_LINK = cd .
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\Release\test_1dfft.exe
-  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\Release\libtest_1dfft.dll.a
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.exe
+  TARGET_IMPLIB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\libtest_1dfft.dll.a
   TARGET_PDB = test_1dfft.exe.dbg
 
 
@@ -384,17 +384,17 @@ build PythonWrapper/rebuild_cache: phony PythonWrapper/CMakeFiles/rebuild_cache.
 # =============================================================================
 # Target aliases.
 
-build gd32_radar_demo: phony C$:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe
+build gd32_radar_demo: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe
 
-build gd32_radar_demo.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe
+build gd32_radar_demo.exe: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe
 
-build test_1dfft: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
+build test_1dfft: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.exe
 
-build test_1dfft.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
+build test_1dfft.exe: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.exe
 
-build test_frame_dismantle: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe
+build test_frame_dismantle: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.exe
 
-build test_frame_dismantle.exe: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe
+build test_frame_dismantle.exe: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.exe
 
 # =============================================================================
 # Folder targets.
@@ -425,7 +425,7 @@ build Tests/all: phony Tests/C/all
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build/Tests/C
 
-build Tests/C/all: phony C$:/Users/19513/Desktop/GD32/bin/Release/test_frame_dismantle.exe C$:/Users/19513/Desktop/GD32/bin/Release/test_1dfft.exe
+build Tests/C/all: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.exe C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.exe
 
 # =============================================================================
 
@@ -439,7 +439,7 @@ build configs/default/all: phony
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build/core
 
-build core/all: phony C$:/Users/19513/Desktop/GD32/bin/Release/gd32_radar_demo.exe
+build core/all: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.exe
 
 # =============================================================================
 # Built-in targets

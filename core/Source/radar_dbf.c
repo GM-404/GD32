@@ -163,7 +163,7 @@ int perform_dbf_estimation(
     const double vRes = RADAR_VELOCITY_RESOLUTION; // 假设已定义
     const double rRes = RADAR_RANGE_RESOLUTION;    // 假设已定义
     
-    printf("ℹ️ Starting Angle Estimation (DBF) and physical conversion...\n");
+    printf("Starting Angle Estimation (DBF) and physical conversion...\n");
 
     for (int i = 0; i < det_count; ++i) {
         const DetectionInfo *det = &detections[i];
