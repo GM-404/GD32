@@ -31,7 +31,7 @@ int main()
 
     // 用于接收详细的检测列表
     DetectionInfo *detailed_detections = NULL; 
-    TargetTrackInfo *final_tracks = NULL;
+    Point *final_tracks = NULL;
     const int current_frame = 1; // 假设当前的帧序号
     init_angle_scan_vector();
     // 1. 将原始字节流强制转换为结构体指针

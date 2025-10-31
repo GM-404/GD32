@@ -11,7 +11,7 @@ typedef struct {
     double v;           // 速度 (m/s)
     double a;           // 角度 (deg)
     double p;           // 幅度功率 (dB)
-} TargetTrackInfo;
+} Point;
 
 
 // 初始化测角角度向量
@@ -22,7 +22,7 @@ int perform_dbf_estimation(
     const RadarFFT2DOutput input_fft_2d_data,
     const DetectionInfo *detections,
     int det_count,
-    TargetTrackInfo **out_track_info // 用于传出新分配的结构体数组
+    Point **out_track_info // 用于传出新分配的结构体数组
 );
 
 #endif // RADAR_DBF_H

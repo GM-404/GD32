@@ -131,18 +131,18 @@ static double DBF_core(
 }
 
 /**
- * @brief 对所有检测到的目标进行测角和物理量计算，并生成新的 TargetTrackInfo 数组。
+ * @brief 对所有检测到的目标进行测角和物理量计算，并生成新的 Point 数组。
  * * @param input_fft_2d_data 原始 2D FFT 结果 (所有天线，复数)
  * @param detections 粗糙目标列表 (包含 fine 索引)
  * @param det_count 目标数量
- * @param out_track_info 输出: 指向新分配的 TargetTrackInfo 数组的指针
+ * @param out_track_info 输出: 指向新分配的Point 数组的指针
  * @return int 返回检测到的目标数量
  */
 int perform_dbf_estimation(
     const RadarFFT2DOutput input_fft_2d_data, // double[ANT][V][R][2]
     const DetectionInfo *detections,
     int det_count,
-    TargetTrackInfo **out_track_info
+    Point **out_track_info
 )
 {
     // 检查输入和初始化扫描向量
@@ -151,10 +151,10 @@ int perform_dbf_estimation(
         return 0;
     }
 
-    // 1. 分配新的 TargetTrackInfo 数组
-    TargetTrackInfo *track_list = (TargetTrackInfo *)malloc(det_count * sizeof(TargetTrackInfo));
+    // 1. 分配新的 TPoint 数组
+    Point *track_list = (Point *)malloc(det_count * sizeof(Point));
     if (track_list == NULL) {
-        perror("Error allocating memory for TargetTrackInfo");
+        perror("Error allocating memory for Point");
         *out_track_info = NULL;
         return 0;
     }
@@ -204,7 +204,7 @@ int perform_dbf_estimation(
         double r = rangeFine * rRes;                           // 距离
         double power_db = 20.0 * log10(det->amplitude);        // 目标幅度功率 (dB)
         
-        // 存储到 TargetTrackInfo 结构体
+        // 存储到 Point 结构体
         track_list[i].r = r;
         track_list[i].v = v;
         track_list[i].a = estimated_angle; // 使用 DBF 结果

@@ -283,7 +283,7 @@ void print_cfar_detections_log(int frame_num, const DetectionInfo *detections, i
         );
     }
 }
-void print_final_track_results(int frame_num, const TargetTrackInfo *tracks, int count)
+void print_final_track_results(int frame_num, const Point *tracks, int count)
 {
     if (!EN_POINT_CLOUD_LOG || count == 0 || tracks == NULL) {
         fprintf(stdout, "==== Frame %d Final Track Log: No targets found. ====\n", frame_num);
