@@ -81,7 +81,7 @@ extern const uint8_t packed_frame_data[PACKED_FRAME_SIZE];
 
 #define NUM_THETA_SCAN ((int)(((END_ANGLE_DEG - START_ANGLE_DEG) / ANGLE_STEP_DEG) + 1.5))
 
-extern double g_theta_scan[181];  // 扫描角度数组，里面的数组大小是 NUM_THETA_SCAN
+extern float g_theta_scan[181];  // 扫描角度数组，里面的数组大小是 NUM_THETA_SCAN
 extern int g_num_scan_angles;
 // ----------------------------------------------------
 #ifdef __cplusplus

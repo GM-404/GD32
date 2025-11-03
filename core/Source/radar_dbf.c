@@ -1,7 +1,7 @@
 #include "radar_dbf.h"
 
 
-double g_theta_scan[181];
+float g_theta_scan[181];
 int g_num_scan_angles;
 
 
@@ -13,7 +13,7 @@ void init_angle_scan_vector() {
     for (int i = 0; i < NUM_THETA_SCAN; ++i) {
         
         // 使用宏计算当前角度
-        g_theta_scan[i] = START_ANGLE_DEG + (double)i * ANGLE_STEP_DEG; 
+        g_theta_scan[i] = START_ANGLE_DEG + (float)i * ANGLE_STEP_DEG; 
         
         g_num_scan_angles++;
     }
@@ -26,16 +26,16 @@ void init_angle_scan_vector() {
     }
 }
 // 辅助函数：复数乘法 result = a * b
-static void complex_mult(const double a[2], const double b[2], double result[2]) {
+static void complex_mult(const float a[2], const float b[2], float result[2]) {
     result[0] = a[0] * b[0] - a[1] * b[1]; // 实部：ac - bd
     result[1] = a[0] * b[1] + a[1] * b[0]; // 虚部：ad + bc
 }
 
 // 辅助函数：复数共轭点乘 result = a^H * X
-// a 和 X 均为 N 元素复数向量 (double[N][2])
-static void complex_dot_product_conj(const double a[RADAR_ANT_COUNT][2], 
-                                    const double X[RADAR_ANT_COUNT][2], 
-                                    double result[2]) 
+// a 和 X 均为 N 元素复数向量 (float[N][2])
+static void complex_dot_product_conj(const float a[RADAR_ANT_COUNT][2], 
+                                    const float X[RADAR_ANT_COUNT][2], 
+                                    float result[2]) 
 {
     result[0] = 0.0;
     result[1] = 0.0;
@@ -43,9 +43,9 @@ static void complex_dot_product_conj(const double a[RADAR_ANT_COUNT][2],
     // Sum (a[i]^* * X[i])
     for (int i = 0; i < RADAR_ANT_COUNT; ++i) {
         // a[i]^* = a[i][0] - i*a[i][1]
-        double a_conj[2] = {a[i][0], -a[i][1]}; 
+        float a_conj[2] = {a[i][0], -a[i][1]}; 
         
-        double term[2];
+        float term[2];
         complex_mult(a_conj, X[i], term);
         
         result[0] += term[0];
@@ -61,55 +61,55 @@ static void complex_dot_product_conj(const double a[RADAR_ANT_COUNT][2],
  * @param num_scan_angles 扫描角度数量
  * @param estimated_angle_deg 输出: 估计的角度 (度)
  * @param max_power_db 输出: 最大波束输出功率 (dB)
- * @return double 最大波束输出幅度 |P|
+ * @return float 最大波束输出幅度 |P|
  */
-static double DBF_core(
-    const double sig_vector[RADAR_ANT_COUNT][2],
-    const double theta_scan[],
+static float DBF_core(
+    const float sig_vector[RADAR_ANT_COUNT][2],
+    const float theta_scan[],
     int num_scan_angles,
-    double *estimated_angle_deg,
-    double *dbf_max_power_db
+    float *estimated_angle_deg,
+    float *dbf_max_power_db
 ) 
 {
     const int N = RADAR_ANT_COUNT;
-    const double d_lambda = 0.5; // d/lambda
-    const double k_dl = 2.0 * C_PI * d_lambda;
+    const float d_lambda = 0.5; // d/lambda
+    const float k_dl = 2.0 * C_PI * d_lambda;
     
     // 1. 生成并应用 Hamming 窗
-    double win[N];
-    double sum_win = 0.0;
+    float win[N];
+    float sum_win = 0.0;
     for (int n = 0; n < N; ++n) {
-        win[n] = 0.54 - 0.46 * cos(2.0 * C_PI * n / (double)(N - 1));
+        win[n] = 0.54 - 0.46 * cos(2.0 * C_PI * n / (float)(N - 1));
         sum_win += win[n];
     }
-    double norm_factor = (double)N / sum_win; // MATLAB 归一化因子
+    float norm_factor = (float)N / sum_win; // MATLAB 归一化因子
     
-    double X_windowed[N][2];
+    float X_windowed[N][2];
     for (int i = 0; i < N; ++i) {
         X_windowed[i][0] = sig_vector[i][0] * win[i] * norm_factor;
         X_windowed[i][1] = sig_vector[i][1] * win[i] * norm_factor;
     }
 
-    double max_P_abs_sq = -1.0;
+    float max_P_abs_sq = -1.0;
     int max_idx = 0;
     
     for (int i = 0; i < num_scan_angles; ++i) {
-        double theta_rad = theta_scan[i] * C_PI / 180.0;
+        float theta_rad = theta_scan[i] * C_PI / 180.0;
         
         // 2. 计算导向矢量 'a'
-        double a[N][2]; // 复数导向矢量
+        float a[N][2]; // 复数导向矢量
         for (int n = 0; n < N; ++n) {
-            double phase = k_dl * (double)n * sin(theta_rad);
+            float phase = k_dl * (float)n * sin(theta_rad);
             a[n][0] = cos(phase); // 实部
             a[n][1] = sin(phase); // 虚部
         }
         
         // 3. 计算波束输出功率 P(i) = |a^H * X_windowed|
-        double P_complex[2];
+        float P_complex[2];
         complex_dot_product_conj(a, X_windowed, P_complex); 
         
         // 幅度平方: |P|^2 = R^2 + I^2
-        double P_abs_sq = P_complex[0] * P_complex[0] + P_complex[1] * P_complex[1];
+        float P_abs_sq = P_complex[0] * P_complex[0] + P_complex[1] * P_complex[1];
         
         if (P_abs_sq > max_P_abs_sq) {
             max_P_abs_sq = P_abs_sq;
@@ -139,7 +139,7 @@ static double DBF_core(
  * @return int 返回检测到的目标数量
  */
 int perform_dbf_estimation(
-    const RadarFFT2DOutput input_fft_2d_data, // double[ANT][V][R][2]
+    const RadarFFT2DOutput input_fft_2d_data, // float[ANT][V][R][2]
     const DetectionInfo *detections,
     int det_count,
     Point **out_track_info
@@ -160,8 +160,8 @@ int perform_dbf_estimation(
     }
 
     const int N_chirp = RADAR_CHIRP_COUNT;
-    const double vRes = RADAR_VELOCITY_RESOLUTION; // 假设已定义
-    const double rRes = RADAR_RANGE_RESOLUTION;    // 假设已定义
+    const float vRes = RADAR_VELOCITY_RESOLUTION; // 假设已定义
+    const float rRes = RADAR_RANGE_RESOLUTION;    // 假设已定义
     
     printf("Starting Angle Estimation (DBF) and physical conversion...\n");
 
@@ -169,21 +169,21 @@ int perform_dbf_estimation(
         const DetectionInfo *det = &detections[i];
         
         // 提取插值后的索引
-        double velFine = det->velFine; 
-        double rangeFine = det->rangeFine; 
+        float velFine = det->velFine; 
+        float rangeFine = det->rangeFine; 
         int velIdx = det->velIdx;
         int rangeIdx = det->rangeIdx;
 
         // 提取信号向量 (所有天线上同一 (R, V) 单元的复数数据)
-        double sig_vector[RADAR_ANT_COUNT][2];
+        float sig_vector[RADAR_ANT_COUNT][2];
         for (int ant = 0; ant < RADAR_ANT_COUNT; ++ant) {
             sig_vector[ant][0] = input_fft_2d_data[ant][velIdx][rangeIdx][0]; 
             sig_vector[ant][1] = input_fft_2d_data[ant][velIdx][rangeIdx][1]; 
         }
         
         // 执行 DBF 测角 (返回角度和DBF功率)
-        double estimated_angle = 0.0;
-        double dbf_max_power_db = 0.0;
+        float estimated_angle = 0.0;
+        float dbf_max_power_db = 0.0;
         
         // 假设 DBF_core 已实现
         DBF_core(
@@ -200,9 +200,9 @@ int perform_dbf_estimation(
         // estimated_angle = DBF_core(...)
         
         // 计算物理 R, V, P
-        double v = (velFine - (double)N_chirp / 2.0) * vRes; // 速度
-        double r = rangeFine * rRes;                           // 距离
-        double power_db = 20.0 * log10(det->amplitude);        // 目标幅度功率 (dB)
+        float v = (velFine - (float)N_chirp / 2.0) * vRes; // 速度
+        float r = rangeFine * rRes;                           // 距离
+        float power_db = 20.0 * log10(det->amplitude);        // 目标幅度功率 (dB)
         
         // 存储到 Point 结构体
         track_list[i].r = r;

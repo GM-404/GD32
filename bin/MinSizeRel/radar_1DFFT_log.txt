@@ -157,7 +157,7 @@ FFT Range Bins (Output): 64
   Range Bin 17: R=275.41, I=-18.13, Magnitude=276.01
   Range Bin 18: R=-383.49, I=-202.47, Magnitude=433.66
   Range Bin 19: R=627.48, I=570.17, Magnitude=847.84
-  Range Bin 20: R=-497.43, I=-262.66, Magnitude=562.51
+  Range Bin 20: R=-497.43, I=-262.66, Magnitude=562.52
   Range Bin 21: R=-4.63, I=-112.27, Magnitude=112.36
   Range Bin 22: R=-68.67, I=79.63, Magnitude=105.15
   Range Bin 23: R=374.19, I=92.05, Magnitude=385.35
@@ -589,7 +589,7 @@ FFT Range Bins (Output): 64
   Range Bin 53: R=-16.47, I=-41.00, Magnitude=44.19
   Range Bin 54: R=3.46, I=68.75, Magnitude=68.84
   Range Bin 55: R=-32.39, I=-87.96, Magnitude=93.74
-  Range Bin 56: R=-17.93, I=82.48, Magnitude=84.40
+  Range Bin 56: R=-17.93, I=82.47, Magnitude=84.40
   Range Bin 57: R=8.84, I=-59.87, Magnitude=60.52
   Range Bin 58: R=56.14, I=51.81, Magnitude=76.39
   Range Bin 59: R=-117.89, I=-20.37, Magnitude=119.64
@@ -1177,7 +1177,7 @@ FFT Range Bins (Output): 64
   Range Bin 47: R=-23.94, I=-1.76, Magnitude=24.00
   Range Bin 48: R=70.52, I=-25.12, Magnitude=74.86
   Range Bin 49: R=41.02, I=54.58, Magnitude=68.27
-  Range Bin 50: R=-89.37, I=11.56, Magnitude=90.11
+  Range Bin 50: R=-89.36, I=11.56, Magnitude=90.11
   Range Bin 51: R=40.78, I=-121.21, Magnitude=127.89
   Range Bin 52: R=-25.34, I=150.98, Magnitude=153.09
   Range Bin 53: R=36.91, I=-81.53, Magnitude=89.50
@@ -1451,7 +1451,7 @@ FFT Range Bins (Output): 64
   Range Bin 57: R=-4.35, I=-100.26, Magnitude=100.35
   Range Bin 58: R=47.52, I=104.82, Magnitude=115.08
   Range Bin 59: R=-68.64, I=-2.20, Magnitude=68.68
-  Range Bin 60: R=60.73, I=-38.50, Magnitude=71.90
+  Range Bin 60: R=60.73, I=-38.49, Magnitude=71.90
   Range Bin 61: R=-78.27, I=-20.71, Magnitude=80.96
   Range Bin 62: R=51.44, I=123.60, Magnitude=133.88
   Range Bin 63: R=-125.69, I=-87.97, Magnitude=153.41
@@ -1780,7 +1780,7 @@ FFT Range Bins (Output): 64
   Range Bin 56: R=-53.73, I=28.36, Magnitude=60.75
   Range Bin 57: R=50.73, I=-66.57, Magnitude=83.70
   Range Bin 58: R=61.27, I=35.20, Magnitude=70.66
-  Range Bin 59: R=-174.84, I=-23.54, Magnitude=176.42
+  Range Bin 59: R=-174.84, I=-23.55, Magnitude=176.42
   Range Bin 60: R=107.34, I=21.01, Magnitude=109.38
   Range Bin 61: R=-36.31, I=-16.27, Magnitude=39.79
   Range Bin 62: R=70.81, I=3.51, Magnitude=70.89
@@ -2711,7 +2711,7 @@ FFT Range Bins (Output): 64
   Range Bin 63: R=-81.95, I=-68.10, Magnitude=106.55
 
 --- Ant 0 / Chirp 41 FFT Results ---
-  Range Bin 0: R=-665.94, I=0.00, Magnitude=665.94
+  Range Bin 0: R=-665.93, I=0.00, Magnitude=665.93
   Range Bin 1: R=183.11, I=59.07, Magnitude=192.40
   Range Bin 2: R=-270.76, I=245.64, Magnitude=365.58
   Range Bin 3: R=363.94, I=-102.27, Magnitude=378.04
@@ -3547,7 +3547,7 @@ FFT Range Bins (Output): 64
   Range Bin 41: R=-12.80, I=73.47, Magnitude=74.58
   Range Bin 42: R=-33.42, I=-21.10, Magnitude=39.52
   Range Bin 43: R=58.29, I=-95.85, Magnitude=112.18
-  Range Bin 44: R=2.48, I=275.15, Magnitude=275.16
+  Range Bin 44: R=2.49, I=275.15, Magnitude=275.16
   Range Bin 45: R=-108.57, I=-167.15, Magnitude=199.32
   Range Bin 46: R=90.34, I=-20.20, Magnitude=92.57
   Range Bin 47: R=-57.19, I=18.58, Magnitude=60.13
@@ -3711,7 +3711,7 @@ FFT Range Bins (Output): 64
   Range Bin 7: R=103.41, I=34.58, Magnitude=109.04
   Range Bin 8: R=-113.99, I=2.51, Magnitude=114.02
   Range Bin 9: R=154.22, I=-3.06, Magnitude=154.25
-  Range Bin 10: R=-201.87, I=-13.54, Magnitude=202.33
+  Range Bin 10: R=-201.87, I=-13.54, Magnitude=202.32
   Range Bin 11: R=65.66, I=-32.02, Magnitude=73.05
   Range Bin 12: R=54.87, I=37.58, Magnitude=66.50
   Range Bin 13: R=-3.06, I=46.76, Magnitude=46.86
@@ -4406,7 +4406,7 @@ FFT Range Bins (Output): 64
   Range Bin 42: R=-12.14, I=7.02, Magnitude=14.02
   Range Bin 43: R=-21.47, I=-29.99, Magnitude=36.88
   Range Bin 44: R=25.21, I=-70.48, Magnitude=74.85
-  Range Bin 45: R=-31.91, I=55.22, Magnitude=63.77
+  Range Bin 45: R=-31.91, I=55.21, Magnitude=63.77
   Range Bin 46: R=46.87, I=31.61, Magnitude=56.53
   Range Bin 47: R=-31.25, I=-90.37, Magnitude=95.62
   Range Bin 48: R=26.91, I=84.34, Magnitude=88.53
@@ -4483,7 +4483,7 @@ FFT Range Bins (Output): 64
   Range Bin 53: R=-60.99, I=44.86, Magnitude=75.71
   Range Bin 54: R=3.27, I=-52.72, Magnitude=52.82
   Range Bin 55: R=51.40, I=33.26, Magnitude=61.22
-  Range Bin 56: R=-38.63, I=28.19, Magnitude=47.82
+  Range Bin 56: R=-38.63, I=28.18, Magnitude=47.82
   Range Bin 57: R=60.68, I=-10.26, Magnitude=61.55
   Range Bin 58: R=-42.60, I=-21.12, Magnitude=47.55
   Range Bin 59: R=5.82, I=53.97, Magnitude=54.28
@@ -5030,7 +5030,7 @@ FFT Range Bins (Output): 64
   Range Bin 6: R=34.13, I=-48.60, Magnitude=59.38
   Range Bin 7: R=-7.16, I=53.29, Magnitude=53.77
   Range Bin 8: R=-6.25, I=-15.62, Magnitude=16.83
-  Range Bin 9: R=-11.80, I=135.06, Magnitude=135.58
+  Range Bin 9: R=-11.80, I=135.06, Magnitude=135.57
   Range Bin 10: R=21.79, I=-154.21, Magnitude=155.74
   Range Bin 11: R=85.06, I=-13.96, Magnitude=86.20
   Range Bin 12: R=-155.91, I=78.70, Magnitude=174.65
@@ -5124,7 +5124,7 @@ FFT Range Bins (Output): 64
   Range Bin 34: R=-26.21, I=49.55, Magnitude=56.05
   Range Bin 35: R=-142.77, I=30.85, Magnitude=146.06
   Range Bin 36: R=88.50, I=-98.73, Magnitude=132.59
-  Range Bin 37: R=-1.18, I=-153.25, Magnitude=153.25
+  Range Bin 37: R=-1.18, I=-153.24, Magnitude=153.25
   Range Bin 38: R=47.47, I=630.33, Magnitude=632.12
   Range Bin 39: R=18.47, I=-397.81, Magnitude=398.24
   Range Bin 40: R=-97.95, I=10.66, Magnitude=98.53
@@ -5621,7 +5621,7 @@ FFT Range Bins (Output): 64
   Range Bin 3: R=201.66, I=36.92, Magnitude=205.01
   Range Bin 4: R=-43.57, I=110.17, Magnitude=118.48
   Range Bin 5: R=21.42, I=-95.55, Magnitude=97.92
-  Range Bin 6: R=45.35, I=-39.32, Magnitude=60.02
+  Range Bin 6: R=45.35, I=-39.31, Magnitude=60.02
   Range Bin 7: R=-10.82, I=90.93, Magnitude=91.57
   Range Bin 8: R=-11.15, I=-63.47, Magnitude=64.44
   Range Bin 9: R=-8.28, I=117.36, Magnitude=117.65
@@ -6321,7 +6321,7 @@ FFT Range Bins (Output): 64
   Range Bin 43: R=22.86, I=-20.42, Magnitude=30.65
   Range Bin 44: R=12.08, I=-87.25, Magnitude=88.08
   Range Bin 45: R=23.50, I=33.38, Magnitude=40.82
-  Range Bin 46: R=-75.76, I=65.51, Magnitude=100.15
+  Range Bin 46: R=-75.75, I=65.51, Magnitude=100.15
   Range Bin 47: R=14.43, I=-20.13, Magnitude=24.77
   Range Bin 48: R=34.28, I=-3.82, Magnitude=34.49
   Range Bin 49: R=-3.80, I=5.62, Magnitude=6.78
@@ -6485,7 +6485,7 @@ FFT Range Bins (Output): 64
   Range Bin 9: R=-4.00, I=183.82, Magnitude=183.86
   Range Bin 10: R=77.14, I=-124.07, Magnitude=146.10
   Range Bin 11: R=35.94, I=33.62, Magnitude=49.21
-  Range Bin 12: R=-113.03, I=-66.55, Magnitude=131.17
+  Range Bin 12: R=-113.03, I=-66.55, Magnitude=131.16
   Range Bin 13: R=47.75, I=117.01, Magnitude=126.38
   Range Bin 14: R=98.18, I=-185.87, Magnitude=210.21
   Range Bin 15: R=-193.65, I=149.36, Magnitude=244.56
@@ -6708,7 +6708,7 @@ FFT Range Bins (Output): 64
   Range Bin 34: R=-48.57, I=20.04, Magnitude=52.54
   Range Bin 35: R=-64.63, I=26.48, Magnitude=69.85
   Range Bin 36: R=65.41, I=-78.08, Magnitude=101.85
-  Range Bin 37: R=-112.71, I=-125.71, Magnitude=168.84
+  Range Bin 37: R=-112.71, I=-125.71, Magnitude=168.85
   Range Bin 38: R=149.94, I=582.91, Magnitude=601.88
   Range Bin 39: R=-32.06, I=-384.19, Magnitude=385.53
   Range Bin 40: R=-43.34, I=19.77, Magnitude=47.63
@@ -6856,7 +6856,7 @@ FFT Range Bins (Output): 64
   Range Bin 50: R=-61.87, I=-9.65, Magnitude=62.62
   Range Bin 51: R=113.23, I=-19.58, Magnitude=114.91
   Range Bin 52: R=-75.57, I=56.01, Magnitude=94.07
-  Range Bin 53: R=-58.55, I=-27.53, Magnitude=64.69
+  Range Bin 53: R=-58.54, I=-27.53, Magnitude=64.69
   Range Bin 54: R=79.79, I=5.99, Magnitude=80.01
   Range Bin 55: R=-11.76, I=-42.15, Magnitude=43.76
   Range Bin 56: R=-21.17, I=41.82, Magnitude=46.88
@@ -8029,7 +8029,7 @@ FFT Range Bins (Output): 64
   Range Bin 35: R=-124.91, I=1.33, Magnitude=124.92
   Range Bin 36: R=55.70, I=-99.46, Magnitude=113.99
   Range Bin 37: R=3.13, I=-132.20, Magnitude=132.24
-  Range Bin 38: R=68.30, I=597.11, Magnitude=601.00
+  Range Bin 38: R=68.30, I=597.10, Magnitude=601.00
   Range Bin 39: R=4.31, I=-384.63, Magnitude=384.65
   Range Bin 40: R=-97.83, I=44.89, Magnitude=107.64
   Range Bin 41: R=107.50, I=-18.53, Magnitude=109.08
@@ -8101,7 +8101,7 @@ FFT Range Bins (Output): 64
   Range Bin 41: R=15.21, I=15.48, Magnitude=21.70
   Range Bin 42: R=-6.37, I=2.01, Magnitude=6.68
   Range Bin 43: R=-6.55, I=9.13, Magnitude=11.24
-  Range Bin 44: R=28.25, I=-96.40, Magnitude=100.45
+  Range Bin 44: R=28.25, I=-96.39, Magnitude=100.45
   Range Bin 45: R=19.57, I=16.93, Magnitude=25.87
   Range Bin 46: R=-2.02, I=29.43, Magnitude=29.50
   Range Bin 47: R=-67.34, I=-1.48, Magnitude=67.36

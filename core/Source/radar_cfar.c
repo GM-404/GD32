@@ -18,26 +18,26 @@ CfarParams cfar_params = {
 // ... 其他函数实现 ...
 // --- 辅助函数 ---
 
-// 比较函数，用于qsort排序double数组
-static int compare_doubles(const void *a, const void *b) {
-    if (*(const double*)a < *(const double*)b) return -1;
-    if (*(const double*)a > *(const double*)b) return 1;
+// 比较函数，用于qsort排序float数组
+static int compare_floats(const void *a, const void *b) {
+    if (*(const float*)a < *(const float*)b) return -1;
+    if (*(const float*)a > *(const float*)b) return 1;
     return 0;
 }
 
 // 辅助函数：找到四个数的中位数 (用于 median(refCellsData))
-static double median_of_four(double a, double b, double c, double d) {
-    double temp[4] = {a, b, c, d};
+static float median_of_four(float a, float b, float c, float d) {
+    float temp[4] = {a, b, c, d};
     // 排序
-    qsort(temp, 4, sizeof(double), compare_doubles);
+    qsort(temp, 4, sizeof(float), compare_floats);
     // 返回排序后的第三个值 (索引 2) 作为中位数近似
     // (如果严格中位数是 (temp[1]+temp[2])/2，但 MatLab 逻辑通常取第三个值)
     return temp[2]; 
 }
 
 // 辅助函数：找到四个数中的最大值 (用于峰值分组)
-static double max_of_four(double a, double b, double c, double d) {
-    double m = a;
+static float max_of_four(float a, float b, float c, float d) {
+    float m = a;
     if (b > m) m = b;
     if (c > m) m = c;
     if (d > m) m = d;
@@ -70,7 +70,7 @@ static int get_circular_index(int index, int size) {
  * @return int 检测到的目标数量。
  */
 static int cfar2d_core(
-    const double power_map[RADAR_CHIRP_COUNT][RANGE_BINS],
+    const float power_map[RADAR_CHIRP_COUNT][RANGE_BINS],
     const int N, // VEL_DIM
     const int M, // RANGE_DIM
     const CfarParams *params,
@@ -81,7 +81,7 @@ static int cfar2d_core(
     const int ref_range = params->refCells[1]; 
     const int guard_vel = params->guardCells[0];
     const int guard_range = params->guardCells[1];
-    const double thresholdFactor = params->thresholdFactor;
+    const float thresholdFactor = params->thresholdFactor;
 
     int detCount = 0;
     int maxDetCount = 32; 
@@ -93,7 +93,7 @@ static int cfar2d_core(
     }
     
     // MATLAB 逻辑的简化噪声估计 (用于峰值分组的快速排除)
-    double noiseEstm = 0.0;
+    float noiseEstm = 0.0;
     for (int i = N - 6; i < N; i++) {
         for (int j = M - 6; j < M; j++) {
             noiseEstm += power_map[get_circular_index(i, N)][get_circular_index(j, M)];
@@ -106,7 +106,7 @@ static int cfar2d_core(
     for (int r_idx = 1; r_idx < M - 1; r_idx++) { 
         for (int v_idx = 1; v_idx < N - 1; v_idx++) { 
             
-            const double currentAmp = power_map[v_idx][r_idx];
+            const float currentAmp = power_map[v_idx][r_idx];
 
             if (currentAmp <= 2.0 * noiseEstm) { // 快速排除
                 continue;
@@ -114,7 +114,7 @@ static int cfar2d_core(
 
             // 峰值分组/局部最大值检查 (Peak Grouping)
             // MATLAB: data(velIdx-1, rangeIdx), data(velIdx+1, rangeIdx), ...
-            double neighborMax = max_of_four(
+            float neighborMax = max_of_four(
                 power_map[v_idx - 1][r_idx], power_map[v_idx + 1][r_idx],
                 power_map[v_idx][r_idx - 1], power_map[v_idx][r_idx + 1]
             );
@@ -123,8 +123,8 @@ static int cfar2d_core(
             }
             
             // --- 提取参考单元数据 (循环移位处理边界) ---
-            double sum_up = 0.0, sum_down = 0.0;
-            double sum_left = 0.0, sum_right = 0.0;
+            float sum_up = 0.0, sum_down = 0.0;
+            float sum_left = 0.0, sum_right = 0.0;
             
             // 速度维（上下）参考单元求和
             for (int i = 0; i < ref_vel; i++) {
@@ -151,17 +151,17 @@ static int cfar2d_core(
             // --------------------------
             // 合并参考单元并估计噪声 (中位数估计)
             // --------------------------
-            double mean_up = sum_up / ref_vel;
-            double mean_down = sum_down / ref_vel;
-            double mean_left = sum_left / ref_range;
-            double mean_right = sum_right / ref_range;
+            float mean_up = sum_up / ref_vel;
+            float mean_down = sum_down / ref_vel;
+            float mean_left = sum_left / ref_range;
+            float mean_right = sum_right / ref_range;
             
-            double noiseEst = median_of_four(mean_up, mean_down, mean_left, mean_right);
+            float noiseEst = median_of_four(mean_up, mean_down, mean_left, mean_right);
             
             // --------------------------
             // 检测判决与结果存储
             // --------------------------
-            const double threshold = thresholdFactor * noiseEst;
+            const float threshold = thresholdFactor * noiseEst;
 
             if (currentAmp > threshold) {
                 // 动态数组扩展
@@ -176,7 +176,7 @@ static int cfar2d_core(
                 }
 
                 // 信噪比计算 (20 * log10(幅度比))
-                double snr = 0.0;
+                float snr = 0.0;
                 if (noiseEst > DBL_MIN) { // 使用 DBL_MIN 避免除以零或极小值
                     snr = 20.0 * log10( currentAmp / noiseEst);
                 } else {
@@ -185,9 +185,9 @@ static int cfar2d_core(
                 
                 // 存储结果
                 detections[detCount].rangeIdx = r_idx;  // 0-based 距离索引
-                detections[detCount].rangeFine = (double)r_idx; // **新增：初始化为粗糙索引**
+                detections[detCount].rangeFine = (float)r_idx; // **新增：初始化为粗糙索引**
                 detections[detCount].velIdx = v_idx;    // 0-based 速度索引
-                detections[detCount].velFine = (double)v_idx;   // **新增：初始化为粗糙索引**
+                detections[detCount].velFine = (float)v_idx;   // **新增：初始化为粗糙索引**
                 detections[detCount].amplitude = currentAmp;
                 detections[detCount].snr = snr;
                 detections[detCount].noise = noiseEst;
@@ -237,17 +237,17 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     // 2. 创建并计算“平均幅度图” (ncidata)
     // 维度: [DopplerBins][RangeBins]
     // 初始化为零，用于累加
-    double avg_amplitude_map[NUM_DOPPLER_BINS][NUM_RANGE_BINS]; 
-    memset(avg_amplitude_map, 0, NUM_DOPPLER_BINS * NUM_RANGE_BINS * sizeof(double));
+    float avg_amplitude_map[NUM_DOPPLER_BINS][NUM_RANGE_BINS]; 
+    memset(avg_amplitude_map, 0, NUM_DOPPLER_BINS * NUM_RANGE_BINS * sizeof(float));
 
     // a. 累加所有天线的幅度
     for (int ant = 0; ant < NUM_ANT; ++ant) {
         for (int v = 0; v < NUM_DOPPLER_BINS; ++v) {
             for (int r = 0; r < NUM_RANGE_BINS; ++r) {
                 // 1. abs(dataFft2d) - 计算幅度
-                double real = input_fft_2d_data[ant][v][r][0];
-                double imag = input_fft_2d_data[ant][v][r][1];
-                double magnitude = sqrt(real * real + imag * imag);
+                float real = input_fft_2d_data[ant][v][r][0];
+                float imag = input_fft_2d_data[ant][v][r][1];
+                float magnitude = sqrt(real * real + imag * imag);
                 
                 // 2. 累加到平均图
                 avg_amplitude_map[v][r] += magnitude;
@@ -273,7 +273,7 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
     // 4. 将检测结果应用于所有天线的二值图 (如果需要)
     if (det_count > 0) {
         // 对检测结果进行细化
-        refine_detections_interpolation((const double (*)[NUM_RANGE_BINS])avg_amplitude_map, det_list,det_count,NUM_DOPPLER_BINS,NUM_RANGE_BINS);
+        refine_detections_interpolation((const float (*)[NUM_RANGE_BINS])avg_amplitude_map, det_list,det_count,NUM_DOPPLER_BINS,NUM_RANGE_BINS);
         for (int i = 0; i < det_count; ++i) {
             int r_idx = det_list[i].rangeIdx;
             int v_idx = det_list[i].velIdx;
@@ -316,10 +316,10 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
  * @param fixedIdx 固定维度的索引（0基）。
  * @param isVelocityDim true=速度维插值，false=距离维插值。
  * @param dimSize 插值维度的总长度。
- * @return double 亚单元偏移量 delta。
+ * @return float 亚单元偏移量 delta。
  */
-static double peak_interpolation_core(
-    const double data_map[][RANGE_BINS],
+static float peak_interpolation_core(
+    const float data_map[][RANGE_BINS],
     int peakIdx, 
     int fixedIdx, 
     bool isVelocityDim, 
@@ -343,7 +343,7 @@ static double peak_interpolation_core(
     // **提示：为了与CFAR的循环边界行为一致，在这里使用 `get_circular_index`**
     
     // 获取三点幅度值
-    double A_prev, A_curr, A_next;
+    float A_prev, A_curr, A_next;
 
     if (isVelocityDim) {
         // 速度维插值： data_map[速度][距离]
@@ -358,8 +358,8 @@ static double peak_interpolation_core(
     }
 
     // 二次插值计算偏移量 delta
-    double denominator = A_prev - 2 * A_curr + A_next;
-    double delta = 0.0;
+    float denominator = A_prev - 2 * A_curr + A_next;
+    float delta = 0.0;
     
     // 避免除零或极小值
     if (fabs(denominator) > DBL_EPSILON) {
@@ -381,7 +381,7 @@ static double peak_interpolation_core(
  * @param rangeDim 距离维大小 (RANGE_BINS)。
  */
 void refine_detections_interpolation(
-    const double data_map[][RANGE_BINS],
+    const float data_map[][RANGE_BINS],
     DetectionInfo *detections,
     int count,
     int velDim,
@@ -396,24 +396,24 @@ void refine_detections_interpolation(
         int rangeIdx = detections[i].rangeIdx; // 0基距离索引
         
         // --- 速度维插值 ---
-        double delta_vel = peak_interpolation_core(
+        float delta_vel = peak_interpolation_core(
             data_map, 
             velIdx, 
             rangeIdx, 
             true,   // isVelocityDim = true
             velDim
         );
-        detections[i].velFine = (double)velIdx + delta_vel;
+        detections[i].velFine = (float)velIdx + delta_vel;
 
         // --- 距离维插值 ---
-        double delta_range = peak_interpolation_core(
+        float delta_range = peak_interpolation_core(
             data_map, 
             rangeIdx, 
             velIdx, 
             false,  // isVelocityDim = false
             rangeDim
         );
-        detections[i].rangeFine = (double)rangeIdx + delta_range;
+        detections[i].rangeFine = (float)rangeIdx + delta_range;
     }
     printf("✅ Target interpolation successful.\n");
 }

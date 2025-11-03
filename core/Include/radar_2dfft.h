@@ -13,7 +13,7 @@ typedef fftw_complex RadarFFT2DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_
 
 // 用于存储峰值信息的结构体
 typedef struct {
-    double magnitude;
+    float magnitude;
     int range_bin;
     int doppler_bin;
 } PeakInfo;

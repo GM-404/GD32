@@ -7,10 +7,10 @@
 #include <stdlib.h>
 // 测角模块输出的结构体：只包含最终物理量
 typedef struct {
-    double r;           // 距离 (m)
-    double v;           // 速度 (m/s)
-    double a;           // 角度 (deg)
-    double p;           // 幅度功率 (dB)
+    float r;           // 距离 (m)
+    float v;           // 速度 (m/s)
+    float a;           // 角度 (deg)
+    float p;           // 幅度功率 (dB)
 } Point;
 
 

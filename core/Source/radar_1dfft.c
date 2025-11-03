@@ -8,7 +8,7 @@
 // ----------------------------------------------------
 // 1. FFT 主函数实现
 // ----------------------------------------------------
-void perform_1d_fft(const double input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
+void perform_1d_fft(const float input_data[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS],
                 RadarFFT1DOutput output_fft_1d) {
     
     fftw_plan plan;
