@@ -45,9 +45,8 @@ typedef uint8_t RadarDetectionMap[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RANGE_BINS
  * @param out_detection_info 可选：用于返回详细检测列表（调用者负责释放）。
  * @return int 0 成功，-1 失败 (例如参数不合理)。
  */
-int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
+int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,const CfarParams *params,
                         RadarDetectionMap output_detection_map,
-                         const CfarParams *params,
                          DetectionInfo **out_detection_info); // 将输出参数移到函数签名
 
                         

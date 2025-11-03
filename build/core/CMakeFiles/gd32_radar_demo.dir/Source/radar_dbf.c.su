@@ -1,2 +1,5 @@
-C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:9:6:init_angle_scan_vector	24	static
-C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:141:5:perform_dbf_estimation	240	dynamic,bounded
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:9:6:init_angle_scan_vector	16	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:29:13:complex_mult	40	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:36:13:complex_dot_product_conj	80	static
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:66:15:DBF_core	216	dynamic
+C:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c:141:5:perform_dbf_estimation	176	static

@@ -7,7 +7,7 @@
 
 # =============================================================================
 # Project: mcu_cmake
-# Configurations: MinSizeRel
+# Configurations: Debug
 # =============================================================================
 # =============================================================================
 
@@ -22,7 +22,7 @@ rule CUSTOM_COMMAND
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel
+rule C_COMPILER__gd32_radar_demo_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -32,7 +32,7 @@ rule C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel
+rule C_EXECUTABLE_LINKER__gd32_radar_demo_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -41,7 +41,7 @@ rule C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel
+rule C_COMPILER__test_frame_dismantle_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -51,7 +51,7 @@ rule C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__test_frame_dismantle_MinSizeRel
+rule C_EXECUTABLE_LINKER__test_frame_dismantle_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -60,7 +60,7 @@ rule C_EXECUTABLE_LINKER__test_frame_dismantle_MinSizeRel
 #############################################
 # Rule for compiling C files.
 
-rule C_COMPILER__test_1dfft_unscanned_MinSizeRel
+rule C_COMPILER__test_1dfft_unscanned_Debug
   depfile = $DEP_FILE
   deps = gcc
   command = ${LAUNCHER}${CODE_CHECK}D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
@@ -70,7 +70,7 @@ rule C_COMPILER__test_1dfft_unscanned_MinSizeRel
 #############################################
 # Rule for linking C executable.
 
-rule C_EXECUTABLE_LINKER__test_1dfft_MinSizeRel
+rule C_EXECUTABLE_LINKER__test_1dfft_Debug
   command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDK\14.2rel1\bin\arm-none-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking C executable $TARGET_FILE
   restat = $RESTAT
@@ -89,7 +89,7 @@ rule RERUN_CMAKE
 # Rule for cleaning all built files.
 
 rule CLEAN
-  command = D:\SDK\Ninja\ninja.exe $FILE_ARG -t clean $TARGETS
+  command = D:\SDK\w64devkit\bin\ninja.exe $FILE_ARG -t clean $TARGETS
   description = Cleaning all built files...
 
 
@@ -97,6 +97,6 @@ rule CLEAN
 # Rule for printing all primary targets available.
 
 rule HELP
-  command = D:\SDK\Ninja\ninja.exe -t targets
+  command = D:\SDK\w64devkit\bin\ninja.exe -t targets
   description = All primary targets available:
 

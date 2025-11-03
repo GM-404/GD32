@@ -29,7 +29,7 @@ void perform_dc_removal(RadarFFT1DOutput data)
     for (int ant = 0; ant < NUM_ANT; ++ant) {
 
         // 2. 遍历距离门 (Range Bins)
-        // **注意：这个 Range Bin 循环必须在 Chirp 循环的外部**
+        // 这个 Range Bin 循环必须在 Chirp 循环的外部**
         for (int i = 0; i < NUM_RANGE_BINS; ++i) {
             double sum_re = 0.0;
             double sum_im = 0.0;
@@ -51,5 +51,4 @@ void perform_dc_removal(RadarFFT1DOutput data)
             }
         }
     }
-    // printf("DC Clutter Removal successful.\n");
 }

@@ -13,6 +13,9 @@
 // 维度: [Ant][Chirp][RangeBins][Re/Im]   传出来的是前半部分频谱
 typedef float RadarFFT1DOutput[RADAR_ANT_COUNT][RADAR_CHIRP_COUNT][RADAR_CHIRP_POINTS / 2][2];
 
+
+//初始化
+arm_status radar_1dfft_init(void);
 /**
     * @brief 对输入的雷达数据执行1D FFT。
     * @param input_data 输入的雷达数据，维度为 [Ant][Chirp][Points]。

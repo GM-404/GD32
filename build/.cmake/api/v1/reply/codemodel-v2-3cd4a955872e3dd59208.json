@@ -13,7 +13,7 @@
 						3,
 						5
 					],
-					"jsonFile" : "directory-.-MinSizeRel-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -23,7 +23,7 @@
 				},
 				{
 					"build" : "configs/default",
-					"jsonFile" : "directory-configs.default-MinSizeRel-b73c78999562b34997ee.json",
+					"jsonFile" : "directory-configs.default-Debug-b73c78999562b34997ee.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -34,7 +34,7 @@
 				},
 				{
 					"build" : "core",
-					"jsonFile" : "directory-core-MinSizeRel-e3757ce4a321da3133c4.json",
+					"jsonFile" : "directory-core-Debug-e3757ce4a321da3133c4.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -53,7 +53,7 @@
 					[
 						4
 					],
-					"jsonFile" : "directory-Tests-MinSizeRel-4930e65484166898b195.json",
+					"jsonFile" : "directory-Tests-Debug-4930e65484166898b195.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -64,7 +64,7 @@
 				},
 				{
 					"build" : "Tests/C",
-					"jsonFile" : "directory-Tests.C-MinSizeRel-807a57ab5c6f9ed4c04c.json",
+					"jsonFile" : "directory-Tests.C-Debug-807a57ab5c6f9ed4c04c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -80,7 +80,7 @@
 				},
 				{
 					"build" : "PythonWrapper",
-					"jsonFile" : "directory-PythonWrapper-MinSizeRel-402f70baaab8ab16711e.json",
+					"jsonFile" : "directory-PythonWrapper-Debug-402f70baaab8ab16711e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.12"
@@ -90,7 +90,7 @@
 					"source" : "PythonWrapper"
 				}
 			],
-			"name" : "MinSizeRel",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -117,21 +117,21 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "gd32_radar_demo::@57760688d1f824db5d9c",
-					"jsonFile" : "target-gd32_radar_demo-MinSizeRel-b5622afda390fe00927d.json",
+					"jsonFile" : "target-gd32_radar_demo-Debug-c8d8250e3802f0a263fb.json",
 					"name" : "gd32_radar_demo",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "test_1dfft::@c60cb29d3bc404c4a618",
-					"jsonFile" : "target-test_1dfft-MinSizeRel-ee44c00849d58e1668a2.json",
+					"jsonFile" : "target-test_1dfft-Debug-fb3035a255e291e39163.json",
 					"name" : "test_1dfft",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "test_frame_dismantle::@c60cb29d3bc404c4a618",
-					"jsonFile" : "target-test_frame_dismantle-MinSizeRel-0b512fa396e0ac0d4cfb.json",
+					"jsonFile" : "target-test_frame_dismantle-Debug-4a416e946dbd99a2884a.json",
 					"name" : "test_frame_dismantle",
 					"projectIndex" : 0
 				}

@@ -33,7 +33,8 @@ int main()
     // 用于接收详细的检测列表
     DetectionInfo *detailed_detections = NULL; 
     TargetTrackInfo *final_tracks = NULL;
-    const int current_frame = 1; // 假设当前的帧序号   
+    radar_1dfft_init(); 
+    radar_2dfft_init();
     init_angle_scan_vector();
     // 1. 将原始字节流强制转换为结构体指针
     // 计算当前帧数据在 packed_frame_data 数组中的起始地址
@@ -62,7 +63,7 @@ int main()
     //radar_2DFFT_log(fft_2d_output_data);
 
     // 8. CFAR(将从插值内化其中)
-    int det_count = perform_cfar_detection(fft_2d_output_data, detection_map, &cfar_params, &detailed_detections);// 将指针的地址传入，接收检测列
+    int det_count = perform_cfar_detection(fft_2d_output_data, &cfar_params, detection_map,  &detailed_detections);// 将指针的地址传入，接收检测列
     //radar_cfar_log(detection_map);
     //print_cfar_detections_log(current_frame, detailed_detections, det_count);
 

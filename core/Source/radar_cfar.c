@@ -92,7 +92,7 @@ static int cfar2d_core(
         return 0;
     }
     
-    // MATLAB 逻辑的简化噪声估计 (用于峰值分组的快速排除)
+    // 简化噪声估计 (用于峰值分组的快速排除)
     double noiseEstm = 0.0;
     for (int i = N - 6; i < N; i++) {
         for (int j = M - 6; j < M; j++) {
@@ -102,7 +102,7 @@ static int cfar2d_core(
     noiseEstm /= 36.0; 
 
     // 遍历：从 0-based 索引 1 到 倒数第 2 个索引 (避免边界检查的复杂性)
-    // 距离维从 1 开始，排除 MATLAB 逻辑中的第 0 个距离 bin
+    // 距离维从 1 开始，排除逻辑中的第 0 个距离 bin
     for (int r_idx = 1; r_idx < M - 1; r_idx++) { 
         for (int v_idx = 1; v_idx < N - 1; v_idx++) { 
             
@@ -113,7 +113,6 @@ static int cfar2d_core(
             }
 
             // 峰值分组/局部最大值检查 (Peak Grouping)
-            // MATLAB: data(velIdx-1, rangeIdx), data(velIdx+1, rangeIdx), ...
             double neighborMax = max_of_four(
                 power_map[v_idx - 1][r_idx], power_map[v_idx + 1][r_idx],
                 power_map[v_idx][r_idx - 1], power_map[v_idx][r_idx + 1]
@@ -218,9 +217,8 @@ static int cfar2d_core(
 /**
  * @brief 对2D FFT结果进行CFAR目标检测。
  */
-int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
+int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,const CfarParams *params,
                             RadarDetectionMap output_detection_map,
-                           const CfarParams *params,
                            DetectionInfo **out_detection_info)
 {
     // 检查参数合理性
@@ -294,8 +292,6 @@ int perform_cfar_detection(const RadarFFT2DOutput input_fft_2d_data,
         // 注意：如果只需要一个检测列表 (即不关心天线)，
         // 则此处的 det_list 就是最终结果。
         if (out_detection_info != NULL) {
-             // 深度拷贝或直接赋值给 out_detection_info (取决于您的调用逻辑)
-             // 简单起见，我们假设外部只需要这一个列表的拷贝
              *out_detection_info = det_list;
         } else {
              // 如果不需要外部存储，释放内存
@@ -409,5 +405,4 @@ void refine_detections_interpolation(
         );
         detections[i].rangeFine = (double)rangeIdx + delta_range;
     }
-    printf("✅ Target interpolation successful.\n");
 }

@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/gd32_radar_demo.elf"
 		}
 	],
 	"backtrace" : 1,
@@ -68,7 +68,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always"
+					"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"defines" : 
@@ -144,7 +144,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG",
+				"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict",
 				"role" : "flags"
 			},
 			{

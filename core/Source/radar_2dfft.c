@@ -16,24 +16,42 @@
 static arm_cfft_instance_f32 S_2dfft; 
 
 // CMSIS 要求输入/输出数据使用 R-I-R-I 交错存储格式，大小为 N_DOPPLER_FFT_SIZE * 2
-// 我们使用一个静态缓冲区来避免在堆上重复分配内存
+// 使用一个静态缓冲区来避免在堆上重复分配内存
 static float fft_buffer_2d[N_DOPPLER_FFT_SIZE * 2]; 
 
 // -----------------------------------------------------------
 // --- 辅助函数：针对 CMSIS R-I-R-I 交错格式的 FFT Shift ---
 // -----------------------------------------------------------
+/**
+ * @brief 初始化 2D FFT (Doppler FFT) 的 CMSIS-DSP 结构体。
+ * * 此函数只需要在系统启动或第一次运行 FFT 前调用一次。
+ * * @return arm_status ARM_MATH_SUCCESS 表示成功。
+ */
 
+arm_status radar_2dfft_init(void)
+{
+    // 标准 CMSIS CFFT 初始化函数签名是: arm_cfft_init_f32(实例指针, FFT点数)
+    arm_status status = arm_cfft_init_f32(&S_2dfft, N_DOPPLER_FFT_SIZE);
+
+    if (status != ARM_MATH_SUCCESS) {
+        fprintf(stderr, "Error: CMSIS 2D FFT initialization failed (status: %d, Size: %d).\n", status, N_DOPPLER_FFT_SIZE);
+    }
+    
+    // 返回初始化状态
+    return status;
+}
 /**
  * @brief 对 CMSIS R-I-R-I 交错格式的数组执行 FFT Shift
  * @param buffer 浮点数数组 (R-I-R-I 格式)
  * @param N 复数点数 (即 FFT_SIZE)
  */
 static void fftshift_cmsis_f32(float *buffer, int N) {
-    if (N % 2 != 0) {
-        // 通常 FFT 点数是偶数，如果遇到奇数需要更复杂的处理，这里暂不实现
-        fprintf(stderr, "Warning: FFT Shift with odd N is not implemented.\n");
-        return;
-    }
+
+    // if (N % 2 != 0) {
+    //     // 通常 FFT 点数是偶数，如果遇到奇数需要更复杂的处理，这里暂不实现
+    //     fprintf(stderr, "Warning: FFT Shift with odd N is not implemented.\n");
+    //     return;
+    // }
     
     // k 是要交换的块的长度 (N/2)
     int k = N / 2; 
@@ -72,32 +90,19 @@ static void fftshift_cmsis_f32(float *buffer, int N) {
  */
 void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
                     RadarFFT2DOutput output_fft_2d) {
-    
-    // 初始化 FFT 实例 (只需要做一次)
-    static bool init_done = false;
-    if (!init_done) {
-        // 标准 CMSIS CFFT 初始化函数签名是: arm_cfft_init_f32(实例指针, FFT点数)
-        arm_status status = arm_cfft_init_f32(&S_2dfft, N_DOPPLER_FFT_SIZE);
-
-        if (status != ARM_MATH_SUCCESS) {
-            fprintf(stderr, "Error: CMSIS 2D FFT initialization failed (status: %d).\n", status);
-            return;
-        }
-        init_done = true;
-    }
 
     const int DOPPLER_SIZE = RADAR_CHIRP_COUNT;
     const int ANT_COUNT = RADAR_ANT_COUNT;
     
     // 循环：天线 -> 距离门 (对 Chirp 维度执行 FFT)
     for (int ant = 0; ant < ANT_COUNT; ++ant) {
-        // RANGE_BINS 是 1D FFT 结果的前一半点数
+        // RANGE_BINS 是 自定义的宏
         for (int r_bin = 0; r_bin < RANGE_BINS; ++r_bin) { 
             
             // 1. 数据转换: 从 1D FFT 结果中提取 Doppler 维度数据到 CMSIS R-I-R-I 缓冲区
             for (int chirp = 0; chirp < DOPPLER_SIZE; ++chirp) {
                 
-                // --- 输入修复：通过指针访问实部和虚部 ---
+                // --- 输入：通过指针访问实部和虚部 ---
                 const float *p_complex_data = (const float *)&input_1d_fft_data[ant][chirp][r_bin];
                 
                 float re = p_complex_data[0]; // 实部
@@ -118,7 +123,7 @@ void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
 
             // 4. 存储结果到 2D FFT 输出数组
             for (int doppler = 0; doppler < DOPPLER_SIZE; ++doppler) {
-                // --- 输出修复：通过指针写入实部和虚部 ---
+                // --- 输出：通过指针写入实部和虚部 ---
                 float *p_output_complex = (float *)&output_fft_2d[ant][doppler][r_bin];
                 
                 // R-I 对应：2*i 和 2*i + 1
@@ -127,6 +132,4 @@ void perform_2d_fft(const RadarFFT1DOutput input_1d_fft_data,
             }
         }
     }
-
-    printf("✅ 2D FFT (Range-Doppler) calculation completed with CMSIS-DSP.\n");
 }

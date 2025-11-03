@@ -18,6 +18,8 @@ typedef struct {
     int doppler_bin;
 } PeakInfo;
 
+// 初始化
+arm_status radar_2dfft_init(void);
 /**
  * @brief 对1D FFT结果进行2D FFT处理。
  *        2D FFT在RADAR_CHIRP_COUNT维度上进行，即对每个天线、每个距离门进行FFT。

@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: mcu_cmake
-# Configurations: MinSizeRel
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = MinSizeRel
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -107,155 +107,155 @@ build configs/default/rebuild_cache: phony configs/default/CMakeFiles/rebuild_ca
 
 build cmake_object_order_depends_target_gd32_radar_demo: phony || .
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/main.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\main.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_dismantle.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_dismantle.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_window.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_window.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_window.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_1dfft.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_1dfft.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_1dfft.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_clutter_removal.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_clutter_removal.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_clutter_removal.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_2dfft.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_2dfft.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_2dfft.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_cfar.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_cfar.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_cfar.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/core/Source/radar_dbf.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\Source\radar_dbf.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\Source
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions\arm_cfft_init_f32.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions\arm_cfft_f32.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\CommonTables\arm_common_tables.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\CommonTables
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\CommonTables\arm_const_structs.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\CommonTables
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions\arm_bitreversal.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions\arm_bitreversal2.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
-build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c || cmake_object_order_depends_target_gd32_radar_demo
+build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj: C_COMPILER__gd32_radar_demo_unscanned_Debug C$:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c || cmake_object_order_depends_target_gd32_radar_demo
   DEFINES = -DARM_MATH_CM33 -DARM_MATH_DSP -D__FPU_USED
   DEP_FILE = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions\arm_cfft_radix8_f32.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/core/Include -IC:/Users/19513/Desktop/GD32/configs/default -IC:/Users/19513/Desktop/GD32/ThirdParth/CMSIS/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/Include -IC:/Users/19513/Desktop/GD32/ThirdParth/ARMDSP/privateInclude
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   OBJECT_FILE_DIR = core\CMakeFiles\gd32_radar_demo.dir\__\ThirdParth\ARMDSP\Source\TransformFunctions
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
 
 # =============================================================================
@@ -263,18 +263,18 @@ build core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformF
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.elf
+# Link the executable C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.elf
 
-build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf: C_EXECUTABLE_LINKER__gd32_radar_demo_MinSizeRel core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/gd32_radar_demo.elf: C_EXECUTABLE_LINKER__gd32_radar_demo_Debug core/CMakeFiles/gd32_radar_demo.dir/Source/main.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dismantle.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_window.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_1dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_clutter_removal.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_2dfft.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_cfar.c.obj core/CMakeFiles/gd32_radar_demo.dir/Source/radar_dbf.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_init_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_f32.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_common_tables.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/CommonTables/arm_const_structs.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_bitreversal2.c.obj core/CMakeFiles/gd32_radar_demo.dir/__/ThirdParth/ARMDSP/Source/TransformFunctions/arm_cfft_radix8_f32.c.obj
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict
   LINK_FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -Wl,--gc-sections
   LINK_LIBRARIES = -lm  -specs=nosys.specs
   OBJECT_DIR = core\CMakeFiles\gd32_radar_demo.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = core\CMakeFiles\gd32_radar_demo.dir\
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.elf
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\gd32_radar_demo.pdb
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.elf
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\gd32_radar_demo.pdb
 
 
 #############################################
@@ -343,23 +343,23 @@ build Tests/rebuild_cache: phony Tests/CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_test_frame_dismantle: phony || .
 
-build Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/src/frame_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Debug C$:/Users/19513/Desktop/GD32/Tests/C/src/frame_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
   DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\src\frame_dismantle.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir\src
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_frame_dismantle.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_frame_dismantle.pdb
 
-build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/test_frame_data_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
+build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj: C_COMPILER__test_frame_dismantle_unscanned_Debug C$:/Users/19513/Desktop/GD32/Tests/C/test_frame_data_dismantle.c || cmake_object_order_depends_target_test_frame_dismantle
   DEP_FILE = Tests\C\CMakeFiles\test_frame_dismantle.dir\test_frame_data_dismantle.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_frame_dismantle.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_frame_dismantle.pdb
 
 
 # =============================================================================
@@ -367,17 +367,17 @@ build Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.ob
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.elf
+# Link the executable C:\Users\19513\Desktop\GD32\bin\test_frame_dismantle.elf
 
-build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf: C_EXECUTABLE_LINKER__test_frame_dismantle_MinSizeRel Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/test_frame_dismantle.elf: C_EXECUTABLE_LINKER__test_frame_dismantle_Debug Tests/C/CMakeFiles/test_frame_dismantle.dir/src/frame_dismantle.c.obj Tests/C/CMakeFiles/test_frame_dismantle.dir/test_frame_data_dismantle.c.obj
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict
   LINK_FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -Wl,--gc-sections
   OBJECT_DIR = Tests\C\CMakeFiles\test_frame_dismantle.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_frame_dismantle.dir\
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.elf
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_frame_dismantle.pdb
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\test_frame_dismantle.elf
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_frame_dismantle.pdb
 
 # =============================================================================
 # Object build statements for EXECUTABLE target test_1dfft
@@ -388,23 +388,23 @@ build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf: C_EX
 
 build cmake_object_order_depends_target_test_1dfft: phony || .
 
-build Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj: C_COMPILER__test_1dfft_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/src/radar_fft.c || cmake_object_order_depends_target_test_1dfft
+build Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Debug C$:/Users/19513/Desktop/GD32/Tests/C/src/radar_fft.c || cmake_object_order_depends_target_test_1dfft
   DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\src\radar_fft.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir\src
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_1dfft.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_1dfft.pdb
 
-build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_unscanned_MinSizeRel C$:/Users/19513/Desktop/GD32/Tests/C/test_fft.c || cmake_object_order_depends_target_test_1dfft
+build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_unscanned_Debug C$:/Users/19513/Desktop/GD32/Tests/C/test_fft.c || cmake_object_order_depends_target_test_1dfft
   DEP_FILE = Tests\C\CMakeFiles\test_1dfft.dir\test_fft.c.obj.d
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/19513/Desktop/GD32/Tests/C/include
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   OBJECT_FILE_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_1dfft.dir\
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.pdb
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_1dfft.pdb
 
 
 # =============================================================================
@@ -412,17 +412,17 @@ build Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj: C_COMPILER__test_1dfft_u
 
 
 #############################################
-# Link the executable C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.elf
+# Link the executable C:\Users\19513\Desktop\GD32\bin\test_1dfft.elf
 
-build C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.elf: C_EXECUTABLE_LINKER__test_1dfft_MinSizeRel Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj
-  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG
+build C$:/Users/19513/Desktop/GD32/bin/test_1dfft.elf: C_EXECUTABLE_LINKER__test_1dfft_Debug Tests/C/CMakeFiles/test_1dfft.dir/src/radar_fft.c.obj Tests/C/CMakeFiles/test_1dfft.dir/test_fft.c.obj
+  FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict
   LINK_FLAGS = -mcpu=cortex-m33 -mfloat-abi=hard -Wl,--gc-sections
   OBJECT_DIR = Tests\C\CMakeFiles\test_1dfft.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
   TARGET_COMPILE_PDB = Tests\C\CMakeFiles\test_1dfft.dir\
-  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.elf
-  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\MinSizeRel\test_1dfft.pdb
+  TARGET_FILE = C:\Users\19513\Desktop\GD32\bin\test_1dfft.elf
+  TARGET_PDB = C:\Users\19513\Desktop\GD32\bin\test_1dfft.pdb
 
 
 #############################################
@@ -480,17 +480,17 @@ build PythonWrapper/rebuild_cache: phony PythonWrapper/CMakeFiles/rebuild_cache.
 # =============================================================================
 # Target aliases.
 
-build gd32_radar_demo: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf
+build gd32_radar_demo: phony C$:/Users/19513/Desktop/GD32/bin/gd32_radar_demo.elf
 
-build gd32_radar_demo.elf: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf
+build gd32_radar_demo.elf: phony C$:/Users/19513/Desktop/GD32/bin/gd32_radar_demo.elf
 
-build test_1dfft: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.elf
+build test_1dfft: phony C$:/Users/19513/Desktop/GD32/bin/test_1dfft.elf
 
-build test_1dfft.elf: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.elf
+build test_1dfft.elf: phony C$:/Users/19513/Desktop/GD32/bin/test_1dfft.elf
 
-build test_frame_dismantle: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf
+build test_frame_dismantle: phony C$:/Users/19513/Desktop/GD32/bin/test_frame_dismantle.elf
 
-build test_frame_dismantle.elf: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf
+build test_frame_dismantle.elf: phony C$:/Users/19513/Desktop/GD32/bin/test_frame_dismantle.elf
 
 # =============================================================================
 # Folder targets.
@@ -521,7 +521,7 @@ build Tests/all: phony Tests/C/all
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build/Tests/C
 
-build Tests/C/all: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_1dfft.elf
+build Tests/C/all: phony C$:/Users/19513/Desktop/GD32/bin/test_frame_dismantle.elf C$:/Users/19513/Desktop/GD32/bin/test_1dfft.elf
 
 # =============================================================================
 
@@ -535,7 +535,7 @@ build configs/default/all: phony
 #############################################
 # Folder: C:/Users/19513/Desktop/GD32/build/core
 
-build core/all: phony C$:/Users/19513/Desktop/GD32/bin/MinSizeRel/gd32_radar_demo.elf
+build core/all: phony C$:/Users/19513/Desktop/GD32/bin/gd32_radar_demo.elf
 
 # =============================================================================
 # Built-in targets

@@ -7,7 +7,7 @@ int g_num_scan_angles;
 
 // 初始化函数实现
 void init_angle_scan_vector() {
-    g_num_scan_angles = 0; 
+    //g_num_scan_angles = 0; 
     
     // 循环条件现在基于 NUM_THETA_SCAN 宏
     for (int i = 0; i < NUM_THETA_SCAN; ++i) {
@@ -15,15 +15,15 @@ void init_angle_scan_vector() {
         // 使用宏计算当前角度
         g_theta_scan[i] = START_ANGLE_DEG + (double)i * ANGLE_STEP_DEG; 
         
-        g_num_scan_angles++;
+        //g_num_scan_angles++;
     }
     
     // (可选) 确保 g_num_scan_angles 正确等于 NUM_THETA_SCAN
-    if (g_num_scan_angles != NUM_THETA_SCAN) {
-        // 如果这里触发，说明宏计算可能存在浮点误差，需要检查。
-        fprintf(stderr, "Warning: Angle scan count mismatch! Calculated: %d, Macro: %d\n", 
-                g_num_scan_angles, NUM_THETA_SCAN);
-    }
+    // if (g_num_scan_angles != NUM_THETA_SCAN) {
+    //     // 如果这里触发，说明宏计算可能存在浮点误差，需要检查。
+    //     fprintf(stderr, "Warning: Angle scan count mismatch! Calculated: %d, Macro: %d\n", 
+    //             g_num_scan_angles, NUM_THETA_SCAN);
+    // }
 }
 // 辅助函数：复数乘法 result = a * b
 static void complex_mult(const double a[2], const double b[2], double result[2]) {
@@ -82,7 +82,7 @@ static double DBF_core(
         win[n] = 0.54 - 0.46 * cos(2.0 * C_PI * n / (double)(N - 1));
         sum_win += win[n];
     }
-    double norm_factor = (double)N / sum_win; // MATLAB 归一化因子
+    double norm_factor = (double)N / sum_win; 
     
     double X_windowed[N][2];
     for (int i = 0; i < N; ++i) {
@@ -160,10 +160,8 @@ int perform_dbf_estimation(
     }
 
     const int N_chirp = RADAR_CHIRP_COUNT;
-    const double vRes = RADAR_VELOCITY_RESOLUTION; // 假设已定义
-    const double rRes = RADAR_RANGE_RESOLUTION;    // 假设已定义
-    
-    printf("Starting Angle Estimation (DBF) and physical conversion...\n");
+    const double vRes = RADAR_VELOCITY_RESOLUTION; 
+    const double rRes = RADAR_RANGE_RESOLUTION;   
 
     for (int i = 0; i < det_count; ++i) {
         const DetectionInfo *det = &detections[i];

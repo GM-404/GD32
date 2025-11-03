@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "C:/Users/19513/Desktop/GD32/bin/MinSizeRel/test_frame_dismantle.elf"
+			"path" : "C:/Users/19513/Desktop/GD32/bin/test_1dfft.elf"
 		}
 	],
 	"backtrace" : 1,
@@ -25,7 +25,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 10,
 				"parent" : 0
 			},
 			{
@@ -42,7 +42,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG -std=gnu11 -fdiagnostics-color=always"
+					"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -std=gnu11 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
@@ -68,13 +68,13 @@
 			]
 		}
 	],
-	"id" : "test_frame_dismantle::@c60cb29d3bc404c4a618",
+	"id" : "test_1dfft::@c60cb29d3bc404c4a618",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict -Os -DNDEBUG",
+				"fragment" : "-mcpu=cortex-m33 -mfloat-abi=hard -std=gnu11 -fstack-usage -fdata-sections -ffunction-sections -fmessage-length=0 -fsigned-char -mthumb -Wall -Wno-missing-braces -Wno-format -Wno-strict-aliasing -Wno-unused-function -Wno-restrict",
 				"role" : "flags"
 			},
 			{
@@ -84,8 +84,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "test_frame_dismantle",
-	"nameOnDisk" : "test_frame_dismantle.elf",
+	"name" : "test_1dfft",
+	"nameOnDisk" : "test_1dfft.elf",
 	"paths" : 
 	{
 		"build" : "Tests/C",
@@ -107,13 +107,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Tests/C/src/frame_dismantle.c",
+			"path" : "Tests/C/src/radar_fft.c",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Tests/C/test_frame_data_dismantle.c",
+			"path" : "Tests/C/test_fft.c",
 			"sourceGroupIndex" : 0
 		}
 	],
