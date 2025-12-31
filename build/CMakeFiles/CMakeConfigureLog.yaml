@@ -74,8 +74,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-kfwr9y"
-      binary: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-kfwr9y"
+      source: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-dxmb62"
+      binary: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-dxmb62"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -88,10 +88,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-kfwr9y'
+        Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-dxmb62'
         
-        Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_c86fd
-        [1/2] D:\\SDK\\w64devkit\\bin\\gcc.exe   -v -o CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c"
+        Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_24fcb
+        [1/2] D:\\SDK\\w64devkit\\bin\\gcc.exe   -v -o CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c"
         Using built-in specs.
         COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\gcc.exe
         Target: x86_64-w64-mingw32
@@ -99,8 +99,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 14.2.0 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/'
-         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_c86fd.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\cc0Tozes.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/'
+         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_24fcb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccTwtvsn.s
         GNU C17 (GCC) version 14.2.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -116,13 +116,13 @@ events:
          D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include
         End of search list.
         Compiler executable checksum: 9839708722e1c052c7ce6e2a715be5c6
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/'
-         as -v -o CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj C:\\Users\\19513\\AppData\\Local\\Temp\\cc0Tozes.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/'
+         as -v -o CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccTwtvsn.s
         GNU assembler version 2.43 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43
         COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../libexec/gcc/
         LIBRARY_PATH=D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../lib/gcc/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../\x0d
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.'\x0d
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\gcc.exe  -v -Wl,-v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj -o cmTC_c86fd.exe -Wl,--out-implib,libcmTC_c86fd.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.'\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\gcc.exe  -v -Wl,-v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj -o cmTC_24fcb.exe -Wl,--out-implib,libcmTC_24fcb.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
         Using built-in specs.
         COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\gcc.exe
         COLLECT_LTO_WRAPPER=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe
@@ -133,12 +133,12 @@ events:
         gcc version 14.2.0 (GCC) 
         COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../libexec/gcc/
         LIBRARY_PATH=D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../lib/gcc/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c86fd.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c86fd.'
-         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_c86fd.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_c86fd.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24fcb.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24fcb.'
+         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_24fcb.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_24fcb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
         collect2 version 14.2.0
-        D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_c86fd.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_c86fd.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o\x0d
+        D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_24fcb.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_24fcb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o\x0d
         GNU ld (GNU Binutils) 2.43\x0d
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c86fd.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c86fd.'\x0d
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24fcb.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24fcb.'\x0d
         
       exitCode: 0
   -
@@ -171,10 +171,10 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-kfwr9y']
+        ignore line: [Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-dxmb62']
         ignore line: []
-        ignore line: [Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_c86fd]
-        ignore line: [[1/2] D:\\SDK\\w64devkit\\bin\\gcc.exe   -v -o CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_24fcb]
+        ignore line: [[1/2] D:\\SDK\\w64devkit\\bin\\gcc.exe   -v -o CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\gcc.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -182,8 +182,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 14.2.0 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/']
-        ignore line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_c86fd.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\cc0Tozes.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/']
+        ignore line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCCompilerABI.c -quiet -dumpdir CMakeFiles/cmTC_24fcb.dir/ -dumpbase CMakeCCompilerABI.c.c -dumpbase-ext .c -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccTwtvsn.s]
         ignore line: [GNU C17 (GCC) version 14.2.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -199,8 +199,8 @@ events:
         ignore line: [ D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: 9839708722e1c052c7ce6e2a715be5c6]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/']
-        ignore line: [ as -v -o CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj C:\\Users\\19513\\AppData\\Local\\Temp\\cc0Tozes.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/']
+        ignore line: [ as -v -o CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccTwtvsn.s]
         ignore line: [GNU assembler version 2.43 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43]
         ignore line: [COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/]
         ignore line: [D:/SDK/w64devkit/bin/../libexec/gcc/]
@@ -210,8 +210,8 @@ events:
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../\x0d]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.'\x0d]
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\gcc.exe  -v -Wl -v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj -o cmTC_c86fd.exe -Wl --out-implib libcmTC_c86fd.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.'\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\gcc.exe  -v -Wl -v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj -o cmTC_24fcb.exe -Wl --out-implib libcmTC_24fcb.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\gcc.exe]
         ignore line: [COLLECT_LTO_WRAPPER=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe]
@@ -228,15 +228,15 @@ events:
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_c86fd.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_c86fd.']
-        link line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_c86fd.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_c86fd.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_24fcb.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_24fcb.']
+        link line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_24fcb.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_24fcb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
           arg [D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe] ==> ignore
           arg [--sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32] ==> ignore
           arg [-m] ==> ignore
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_c86fd.exe] ==> ignore
+          arg [cmTC_24fcb.exe] ==> ignore
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o]
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0]
@@ -246,9 +246,9 @@ events:
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib]
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_c86fd.dll.a] ==> ignore
+          arg [libcmTC_24fcb.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -270,7 +270,7 @@ events:
           arg [-lkernel32] ==> lib [kernel32]
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
         ignore line: [collect2 version 14.2.0]
-        ignore line: [D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_c86fd.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_c86fd.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_c86fd.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o\x0d]
+        ignore line: [D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_24fcb.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_24fcb.dir/CMakeCCompilerABI.c.obj --out-implib libcmTC_24fcb.dll.a --major-image-version 0 --minor-image-version 0 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o\x0d]
         linker tool for 'C': D:/SDK/w64devkit/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]
@@ -308,8 +308,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-jyfgqo"
-      binary: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-jyfgqo"
+      source: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-78wk60"
+      binary: "C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-78wk60"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -323,10 +323,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-jyfgqo'
+        Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-78wk60'
         
-        Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_113ef
-        [1/2] D:\\SDK\\w64devkit\\bin\\g++.exe   -v -o CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_ecb35
+        [1/2] D:\\SDK\\w64devkit\\bin\\g++.exe   -v -o CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\g++.exe
         Target: x86_64-w64-mingw32
@@ -334,8 +334,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib
         gcc version 14.2.0 (GCC) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/'
-         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_113ef.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccrt2ger.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/'
+         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_ecb35.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccMMwUXi.s
         GNU C++17 (GCC) version 14.2.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -357,13 +357,13 @@ events:
          D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include
         End of search list.
         Compiler executable checksum: a9010f4e6d3b4403e2f8c81ad9581dc6
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/'
-         as -v -o CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccrt2ger.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/'
+         as -v -o CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccMMwUXi.s
         GNU assembler version 2.43 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43
         COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../libexec/gcc/
         LIBRARY_PATH=D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../lib/gcc/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../\x0d
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.'\x0d
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\g++.exe  -v -Wl,-v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_113ef.exe -Wl,--out-implib,libcmTC_113ef.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.'\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\g++.exe  -v -Wl,-v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_ecb35.exe -Wl,--out-implib,libcmTC_ecb35.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
         Using built-in specs.
         COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\g++.exe
         COLLECT_LTO_WRAPPER=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe
@@ -374,12 +374,12 @@ events:
         gcc version 14.2.0 (GCC) 
         COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../libexec/gcc/
         LIBRARY_PATH=D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/;D:/SDK/w64devkit/bin/../lib/gcc/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/;D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_113ef.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_113ef.'
-         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_113ef.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_113ef.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ecb35.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ecb35.'
+         D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_ecb35.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_ecb35.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
         collect2 version 14.2.0
-        D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_113ef.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_113ef.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
+        D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_ecb35.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_ecb35.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o
         GNU ld (GNU Binutils) 2.43
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_113ef.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_113ef.'\x0d
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ecb35.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ecb35.'\x0d
         
       exitCode: 0
   -
@@ -418,10 +418,10 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
-        ignore line: [Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-jyfgqo']
+        ignore line: [Change Dir: 'C:/Users/19513/Desktop/GD32/build/CMakeFiles/CMakeScratch/TryCompile-78wk60']
         ignore line: []
-        ignore line: [Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_113ef]
-        ignore line: [[1/2] D:\\SDK\\w64devkit\\bin\\g++.exe   -v -o CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): D:/SDK/w64devkit/bin/ninja.exe -v cmTC_ecb35]
+        ignore line: [[1/2] D:\\SDK\\w64devkit\\bin\\g++.exe   -v -o CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\g++.exe]
         ignore line: [Target: x86_64-w64-mingw32]
@@ -429,8 +429,8 @@ events:
         ignore line: [Thread model: posix]
         ignore line: [Supported LTO compression algorithms: zlib]
         ignore line: [gcc version 14.2.0 (GCC) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/']
-        ignore line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_113ef.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccrt2ger.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/']
+        ignore line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -isysroot D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -D_REENTRANT C:/Program Files/CMake/share/cmake-3.31/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_ecb35.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=x86-64 -version -o C:\\Users\\19513\\AppData\\Local\\Temp\\ccMMwUXi.s]
         ignore line: [GNU C++17 (GCC) version 14.2.0 (x86_64-w64-mingw32)]
         ignore line: [	compiled by GNU C version 14.2.0  GMP version 6.3.0  MPFR version 4.2.1  MPC version 1.3.1  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -452,8 +452,8 @@ events:
         ignore line: [ D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/include]
         ignore line: [End of search list.]
         ignore line: [Compiler executable checksum: a9010f4e6d3b4403e2f8c81ad9581dc6]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/']
-        ignore line: [ as -v -o CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccrt2ger.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/']
+        ignore line: [ as -v -o CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\19513\\AppData\\Local\\Temp\\ccMMwUXi.s]
         ignore line: [GNU assembler version 2.43 (x86_64-w64-mingw32) using BFD version (GNU Binutils) 2.43]
         ignore line: [COMPILER_PATH=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/]
         ignore line: [D:/SDK/w64devkit/bin/../libexec/gcc/]
@@ -463,8 +463,8 @@ events:
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../\x0d]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.'\x0d]
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\g++.exe  -v -Wl -v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_113ef.exe -Wl --out-implib libcmTC_113ef.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-mtune=generic' '-march=x86-64' '-dumpdir' 'CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.'\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\SDK\\w64devkit\\bin\\g++.exe  -v -Wl -v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_ecb35.exe -Wl --out-implib libcmTC_ecb35.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [COLLECT_GCC=D:\\SDK\\w64devkit\\bin\\g++.exe]
         ignore line: [COLLECT_LTO_WRAPPER=D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/lto-wrapper.exe]
@@ -481,15 +481,15 @@ events:
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/]
         ignore line: [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_113ef.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_113ef.']
-        link line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_113ef.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_113ef.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ecb35.exe' '-mtune=generic' '-march=x86-64' '-dumpdir' 'cmTC_ecb35.']
+        link line: [ D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_ecb35.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_ecb35.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
           arg [D:/SDK/w64devkit/bin/../libexec/gcc/x86_64-w64-mingw32/14.2.0/collect2.exe] ==> ignore
           arg [--sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32] ==> ignore
           arg [-m] ==> ignore
           arg [i386pep] ==> ignore
           arg [-Bdynamic] ==> search dynamic
           arg [-o] ==> ignore
-          arg [cmTC_113ef.exe] ==> ignore
+          arg [cmTC_ecb35.exe] ==> ignore
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o]
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o]
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0]
@@ -499,9 +499,9 @@ events:
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib]
           arg [-LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..] ==> dir [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../..]
           arg [-v] ==> ignore
-          arg [CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
           arg [--out-implib] ==> ignore
-          arg [libcmTC_113ef.dll.a] ==> ignore
+          arg [libcmTC_ecb35.dll.a] ==> ignore
           arg [--major-image-version] ==> ignore
           arg [0] ==> ignore
           arg [--minor-image-version] ==> ignore
@@ -524,7 +524,7 @@ events:
           arg [-lkernel32] ==> lib [kernel32]
           arg [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o] ==> obj [D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
         ignore line: [collect2 version 14.2.0]
-        ignore line: [D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_113ef.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_113ef.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_113ef.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
+        ignore line: [D:\\SDK\\w64devkit\\bin/ld.exe --sysroot=D:/SDK/w64devkit/bin/../x86_64-w64-mingw32 -m i386pep -Bdynamic -o cmTC_ecb35.exe D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib/crt2.o D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtbegin.o -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0 -LD:/SDK/w64devkit/bin/../lib/gcc -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib/../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/lib -LD:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../.. -v CMakeFiles/cmTC_ecb35.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_ecb35.dll.a --major-image-version 0 --minor-image-version 0 -lstdc++ -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 -lpthread -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 -lgcc -lmingwex -lmsvcrt -lkernel32 D:/SDK/w64devkit/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/crtend.o]
         linker tool for 'CXX': D:/SDK/w64devkit/bin/ld.exe
         remove lib [msvcrt]
         remove lib [msvcrt]

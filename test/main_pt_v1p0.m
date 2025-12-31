@@ -9,13 +9,13 @@ clear all;
 clc;
 addpath(genpath(pwd));
 % 调用函数解析JSON文件
-datafile = 'frame_3_data.json';
+datafile = 'adc_20251121.json';
 
 matrix = jsonToMatrix(datafile);
 %% 雷达参数设置
 N_rx = 2;
 N_chirp = 64;
-M_sample = 128;
+M_sample = 64;
 rRes = 0.1;
 lamda = 0.0125;
 T_frame = 0.05;
@@ -32,6 +32,7 @@ theta_scan = -90:0.1:90;
 refCells = [6, 6];    % 速度维单侧6个，距离维单侧6个参考单元
 guardCells = [5, 3];   % 速度维单侧5个，距离维单侧3个保护单元
 thresholdFactor = 3;   % 检测门限倍数
+
 %% 路径设置
 fileName = datafile;% 输入Data文件名
 [path, name] = fileparts(fileName);
@@ -40,6 +41,7 @@ featherName = ['./feather_data/', name,'_CrEn',num2str(crEn)]; % 输出文件名
 dt=(0:1:M_sample-1);
 df = (0:1:M_sample/2-1);
 dv=(-N_chirp/2:1:(N_chirp / 2 -1));% 快时间维（距离）频点分布
+M_sample = 64;
 rWin = hamming(M_sample);%距离维窗序列
 rWin = rWin./sum(rWin)*length(rWin);
 %%rWin = ones(M_sample,1);%%% 矩形窗，等效未加窗！！！！！！！！！！！
@@ -55,7 +57,7 @@ tarVs = zeros(1,frmNum);
 tarAs = zeros(1,frmNum);
 tarPs = zeros(1,frmNum);
 %% main
-for ii=1
+for ii=1:frmNum
     atData = squeeze(dataFrame(ii,:, :, :));%2*64*128
     for lane=1:N_rx
         %% 1dfft

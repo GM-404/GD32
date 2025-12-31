@@ -31,8 +31,8 @@ void perform_dc_removal(RadarFFT1DOutput data)
         // 2. 遍历距离门 (Range Bins)
         // **注意：这个 Range Bin 循环必须在 Chirp 循环的外部**
         for (int i = 0; i < NUM_RANGE_BINS; ++i) {
-            double sum_re = 0.0;
-            double sum_im = 0.0;
+            float sum_re = 0.0;
+            float sum_im = 0.0;
 
             // a. 遍历Chirp (Doppler bins)，计算该 (Ant, Range) 上的平均值
             for (int chirp = 0; chirp < NUM_CHIRP; ++chirp) {
@@ -41,8 +41,8 @@ void perform_dc_removal(RadarFFT1DOutput data)
             }
 
             // b. 计算平均值 (Mean Range Profile for this specific Ant/Range bin)
-            const double mean_re = sum_re / NUM_CHIRP;
-            const double mean_im = sum_im / NUM_CHIRP;
+            const float mean_re = sum_re / NUM_CHIRP;
+            const float mean_im = sum_im / NUM_CHIRP;
 
             // c. 遍历Chirp，从每个元素中减去平均值 (原地修改)
             for (int chirp = 0; chirp < NUM_CHIRP; ++chirp) {

@@ -201,7 +201,7 @@ int perform_dbf_estimation(
         
         // 计算物理 R, V, P
         float v = (velFine - (float)N_chirp / 2.0) * vRes; // 速度
-        float r = rangeFine * rRes;                           // 距离
+        float r = (rangeFine-1.0f) * rRes;                           // 距离
         float power_db = 20.0 * log10(det->amplitude);        // 目标幅度功率 (dB)
         
         // 存储到 Point 结构体

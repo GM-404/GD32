@@ -214,7 +214,17 @@ static int cfar2d_core(
 }
 
 // --- 外部接口实现 ---
+float fast_sqrt(float x)
+{
+    union {
+        int i;
+        float f;
+    } u;
 
+    u.f = x;
+    u.i = 0x5f3759df - (u.i >> 1);
+    return x * u.f * (1.5f - 0.5f * x * u.f * u.f);
+}
 /**
  * @brief 对2D FFT结果进行CFAR目标检测。
  */

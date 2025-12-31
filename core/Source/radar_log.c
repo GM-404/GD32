@@ -5,28 +5,28 @@ void radar_dismantle_log(const sample_frame_t *frame, int8_t data[RADAR_ANT_COUN
 {
     if (EN_DISMANTLE_LOG)
     {
-    //     FILE *log_file = fopen("radar_dismantle_log.txt", "w");
-    //     if (log_file == NULL) {
-    //         perror("Error opening log file");
-    //         return; // 文件打开失败，退出函数
-    //     }
-    //      // 1.遍历CHIRP
-    // for (int ant = 0; ant < RADAR_ANT_COUNT; ant++) {
-    //     // 2.遍历POINT
-    //     for (int point = 0; point < RADAR_CHIRP_POINTS; point++) {
-    //          // 3.遍历天线
-    //         for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; chirp++) {
-    //             //printf("Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n", ant, chirp, point, frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point], data[ant][chirp][point]);
-    //             fprintf(log_file, "Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n",
-    //                 ant, chirp, point,
-    //                 frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point],
-    //                 data[ant][chirp][point]);
-    //         }
-    //     }
-    // }
-    //     // 关闭文件
-    //     fclose(log_file);
-    //     printf("Log data saved to radar_dismantle_log.txt\n"); 
+        FILE *log_file = fopen("radar_dismantle_log.txt", "w");
+        if (log_file == NULL) {
+            perror("Error opening log file");
+            return; // 文件打开失败，退出函数
+        }
+         // 1.遍历CHIRP
+    for (int ant = 0; ant < RADAR_ANT_COUNT; ant++) {
+        // 2.遍历POINT
+        for (int point = 0; point < RADAR_CHIRP_POINTS; point++) {
+             // 3.遍历天线
+            for (int chirp = 0; chirp < RADAR_CHIRP_COUNT; chirp++) {
+                //printf("Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n", ant, chirp, point, frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point], data[ant][chirp][point]);
+                fprintf(log_file, "Ant %d / Chirp %d / Point %d (Raw: %u, Parsed: %d)\n",
+                    ant, chirp, point,
+                    frame->data[ant * RADAR_CHIRP_COUNT * RADAR_CHIRP_POINTS + chirp * RADAR_CHIRP_POINTS + point],
+                    data[ant][chirp][point]);
+            }
+        }
+    }
+        // 关闭文件
+        fclose(log_file);
+        printf("Log data saved to radar_dismantle_log.txt\n"); 
 
         //单独看数据
         //point
